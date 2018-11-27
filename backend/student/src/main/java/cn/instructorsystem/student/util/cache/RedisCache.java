@@ -1,6 +1,6 @@
-package cn.instructorsystem.sysmanager.util.cache;
+package cn.instructorsystem.student.util.cache;
 
-import cn.instructorsystem.sysmanager.util.session.JedisUtil;
+import cn.instructorsystem.student.util.session.JedisUtil;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheException;
 import org.springframework.util.SerializationUtils;

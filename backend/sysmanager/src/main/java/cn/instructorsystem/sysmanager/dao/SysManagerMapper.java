@@ -1,10 +1,9 @@
 package cn.instructorsystem.sysmanager.dao;
 
-import cn.instructorsystem.model.SysManager;
-import cn.instructorsystem.model.SysManagerExample;
-
 import java.util.List;
 
+import cn.instructorsystem.sysmanager.model.SysManager;
+import cn.instructorsystem.sysmanager.model.SysManagerExample;
 import org.apache.ibatis.annotations.Param;
 
 public interface SysManagerMapper {

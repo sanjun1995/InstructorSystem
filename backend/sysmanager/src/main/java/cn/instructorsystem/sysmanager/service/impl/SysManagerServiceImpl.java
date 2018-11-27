@@ -1,7 +1,7 @@
 package cn.instructorsystem.sysmanager.service.impl;
 
-import cn.instructorsystem.model.SysManager;
-import cn.instructorsystem.service.SysManagerService;
+import cn.instructorsystem.sysmanager.model.SysManager;
+import cn.instructorsystem.sysmanager.service.SysManagerService;
 
 /**
  * @author sanjun

@@ -1,4 +1,4 @@
-package cn.instructorsystem.sysmanager.config.dao;
+package cn.instructorsystem.student.config.dao;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.mybatis.spring.annotation.MapperScan;
@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 
 @Configuration
 // 配置mybatis mapper的扫面路径
-@MapperScan("cn.instructorsystem.sysmanager.dao")
+@MapperScan("cn.instructorsystem.student.dao")
 public class DruidDBConfig {
     private Logger logger = LoggerFactory.getLogger(DruidDBConfig.class);
     @Value("${jdbc_driverClass}")
