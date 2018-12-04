@@ -1,74 +1,71 @@
 <template>
-  <el-form ref="accountForm" :model="account" :rules="rules" label-position="left" label-width="0px" class="demo-acountForm login-container">
+  <div class="login-body">
+    <el-form ref="accountForm" :model="accountForm" :rules="rules" label-position="left" label-width="0px" class="demo-acountForm login-container">
     <h3 class="title">账号密码登录</h3>
     <el-form-item prop="username">
-      <el-input type="text" label="账号" v-model="account.username" auto-complete="off" placeholder="账号"></el-input>
-    </el-form-item>
-    <el-form-item prop="pwd">
-      <el-input type="password" v-model="account.pwd" auto-complete="off" placeholder="密码"></el-input>
-    </el-form-item>
-    <el-checkbox v-model="checked" checked class="remember">记住密码</el-checkbox>
-    <el-form-item style="width:100%;">
-      <el-button type="primary" style="width:100%;" @click.native.prevent="handleLogin" :loading="logining">登录</el-button>
-    </el-form-item>
-  </el-form>
+      <el-input type="text" label="账号" v-model="accountForm.account" auto-complete="off" placeholder="账号"></el-input>
+      </el-form-item>
+      <el-form-item prop="pwd">
+        <el-input type="password" v-model="accountForm.password" @keyup.enter.native="handleLogin" auto-complete="off" placeholder="密码"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-radio-group v-model="accountForm.role">
+          <el-radio label="1">学生</el-radio>
+          <el-radio label="2">辅导员</el-radio>
+          <el-radio label="3">管理员</el-radio>
+        </el-radio-group>
+      </el-form-item>
+      <el-form-item style="width:100%;">
+        <el-button type="primary" style="width:100%;" @click.native.prevent="handleLogin">登录</el-button>
+      </el-form-item>
+    </el-form>
+  </div>
 </template>
 
 <script>
-  import {requestLogin} from "../../api/api";
-  // import NProgress from 'nprogress'
+  import axios from 'axios';
   export default {
     data() {
       return {
-        logining: false,
-        account: {
-          username: 'admin',
-          pwd: '123456'
+        accountForm: {
+          account: '',
+          password: '',
+          role: '1'
         },
         rules: {
-          username: [
-            {required: true, message: '请输入账号', trigger: 'blur'},
-            //{ validator: validaePass }
-          ],
-          pwd: [
-            {required: true, message: '请输入密码', trigger: 'blur'},
-            //{ validator: validaePass2 }
-          ]
-        },
-        checked: true
+        }
       };
     },
     methods: {
       handleLogin() {
         this.$refs.accountForm.validate((valid) => {
           if (valid) {
-            this.logining = true;
-            //NProgress.start();
-            var loginParams = { username: this.account.username, password: this.account.pwd };
-            //    let loginParams = new URLSearchParams();
-            //    loginParams.append("username",this.account.username);
-            //   loginParams.append("password",this.account.pwd);
-            requestLogin(loginParams).then(data => {
-              this.logining = false;
+            var role = this.accountForm.role;
+            if (role == 1) {
+              var managerAxios = axios.create({
+                baseURL: 'http://localhost:8080/api/student/'
+              });
+              managerAxios.post('login', this.accountForm).then(res => {
+                if (res.data.code == 200) {
 
-              let { msg, code, token } = data;
-              if(code == '200'){
-                //登录成功，把用户信息保存在sessionStorage中
-                sessionStorage.setItem('access-token', token);
-                //跳转到后台主界面
-                this.$router.push({ path: '/sysmanager' });
-              }else{
-                this.$message({
-                  message: msg,
-                  type: 'error'
-                });
-              }
+                  //登录成功，把用户信息保存在sessionStorage中
+                  sessionStorage.setItem('access-token', res.data.token);
+                  //跳转到后台主界面
+                  this.$router.push({ path: '/student' });
+                } else {
+                  alert("账号或密码错误！");
+                }
+              });
+            } else if (role == 2) {
 
-            });
-
+            } else {
+              var studentAxios = axios.create({
+                baseURL: 'http://localhost:8081/api/sysmanager/'
+              });
+              studentAxios.post('login', this.accountForm);
+            }
           } else {
-            console.log('error submit!!');
-            return false;
+            alert("输入有误!")
           }
         });
       }
@@ -77,8 +74,12 @@
 </script>
 
 <style>
-  body{
-    background: #DFE9FB;
+  .login-body{
+    height: 800px;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    background-image: url("../../assets/compus.jpg");
+    overflow: hidden;
   }
   .login-container {
     /*box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);*/
@@ -86,7 +87,8 @@
     border-radius: 5px;
     -moz-border-radius: 5px;
     background-clip: padding-box;
-    margin: 180px auto;
+    margin: 0 auto;
+    margin-top:100px; 
     width: 300px;
     padding: 35px 35px 15px 35px;
     background: #fff;

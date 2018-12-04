@@ -7,5 +7,5 @@ import cn.instructorsystem.student.model.Student;
  * @date 2018/11/25 17:17
  */
 public interface StudentService {
-    boolean login(Student student);
+    Student login(Student student);
 }

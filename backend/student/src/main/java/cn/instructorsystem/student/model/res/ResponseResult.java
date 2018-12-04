@@ -7,6 +7,7 @@ package cn.instructorsystem.student.model.res;
 public class ResponseResult<T> {
     private int code;
     private String msg;
+    private String token;
     private T data;
 
     public int getCode() {
@@ -31,5 +32,13 @@ public class ResponseResult<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }
