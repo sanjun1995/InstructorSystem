@@ -3,6 +3,8 @@ import vueRouter from 'vue-router'
 import Login from '@/views/login/Login'
 import SysManager from '@/views/sysmanager/SysManager'
 import Student from '@/views/student/Student'
+import HomePage from '@/views/student/HomePage'
+import PersonalCenter from '@/views/student/PersonalCenter'
 
 
 Vue.use(vueRouter)
@@ -19,13 +21,17 @@ let router = new vueRouter({
       name: 'login',
       component: Login
     }, {
-      path: '/sysmanager',
-      name: 'sysmanager',
+      path: '/sysManager',
+      name: 'sysManager',
       component: SysManager
     }, {
       path: '/student',
       name: 'student',
-      component: Student
+      component: Student,
+      children: [
+        {path: '/homePage', component: HomePage, name: 'homePage'},
+        {path: '/personalCenter', component: PersonalCenter, name: 'personalCenter'}
+      ]
     }
   ]
 })

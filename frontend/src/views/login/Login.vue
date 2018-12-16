@@ -60,7 +60,7 @@
 
             } else {
               var studentAxios = axios.create({
-                baseURL: 'http://localhost:8081/api/sysmanager/'
+                baseURL: 'http://localhost:8081/api/sysManager/'
               });
               studentAxios.post('login', this.accountForm);
             }

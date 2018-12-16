@@ -1,5 +1,7 @@
 <template>
-    {{PersonalCenter}}
+  <div>
+    {{name}}
+  </div>
 </template>
 
 <script>
