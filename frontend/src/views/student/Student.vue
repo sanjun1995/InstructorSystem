@@ -31,8 +31,7 @@
             <el-menu
               default-active="1"
               class="el-menu-vertical-demo"
-              @open="handleOpen"
-              @close="handleClose"
+              @select="handleSelect"
               background-color="#333744"
               align="center"
               text-color="#fff"
@@ -57,7 +56,7 @@
         </el-row>
       </el-aside>
       <el-main>
-
+        <router-view></router-view>
       </el-main>
     </el-container>
   </el-container>
@@ -77,11 +76,22 @@
         this.defaultActiveIndex = url;
         this.$router.push(url); // 用go刷新
       },
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
+      handleSelect(key, keyPath) {
+        if (key == "1") {
+          this.$router.push({ path: '/student/homePage' });
+        }
+        if (key == "2") {
+          this.$router.push({ path: '/student/personalCenter' });
+        }
+        if (key == "3") {
+          this.$router.push({ path: '/student/leave' });
+        }
+        if (key == "4") {
+          this.$router.push({ path: '/student/appointment' });
+        }
+        if (key == "5") {
+          this.$router.push({ path: '/student/changePassword' });
+        }
       },
       logout(){
         let that = this;

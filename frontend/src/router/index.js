@@ -5,6 +5,9 @@ import SysManager from '@/views/sysmanager/SysManager'
 import Student from '@/views/student/Student'
 import HomePage from '@/views/student/HomePage'
 import PersonalCenter from '@/views/student/PersonalCenter'
+import Leave from '@/views/student/Leave'
+import Appointment from '@/views/student/Appointment'
+import ChangePassword from '@/views/student/ChangePassword'
 
 
 Vue.use(vueRouter)
@@ -29,8 +32,11 @@ let router = new vueRouter({
       name: 'student',
       component: Student,
       children: [
-        {path: '/homePage', component: HomePage, name: 'homePage'},
-        {path: '/personalCenter', component: PersonalCenter, name: 'personalCenter'}
+        {path: 'homePage', component: HomePage, name: 'homePage'},
+        {path: 'personalCenter', component: PersonalCenter, name: 'personalCenter'},
+        {path: 'leave', component: Leave, name: 'leave'},
+        {path: 'appointment', component: Appointment, name: 'appointment'},
+        {path: 'changePassword', component: ChangePassword, name: 'changePassword'}
       ]
     }
   ]

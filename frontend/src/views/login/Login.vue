@@ -51,7 +51,7 @@
                   //登录成功，把用户信息保存在sessionStorage中
                   sessionStorage.setItem('access-token', res.data.token);
                   //跳转到后台主界面
-                  this.$router.push({ path: '/student' });
+                  this.$router.push({ path: '/student/homePage' });
                 } else {
                   alert("账号或密码错误！");
                 }
