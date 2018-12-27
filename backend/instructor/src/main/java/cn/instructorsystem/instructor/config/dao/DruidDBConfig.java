@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 
 @Configuration
 // 配置mybatis mapper的扫面路径
-@MapperScan("cn.instructorsystem.student.dao")
+@MapperScan("cn.instructorsystem.instructor.dao")
 public class DruidDBConfig {
     private Logger logger = LoggerFactory.getLogger(DruidDBConfig.class);
     @Value("${jdbc_driverClass}")
