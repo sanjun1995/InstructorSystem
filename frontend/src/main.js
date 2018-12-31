@@ -5,6 +5,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import router from './router'
+import './assets/icon/iconfont.css'
 
 // 设置Vue.config.productionTip = false 来关闭生产模式下给出的提示
 Vue.config.productionTip = false

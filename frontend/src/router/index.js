@@ -1,14 +1,19 @@
 import Vue from 'vue'
 import vueRouter from 'vue-router'
 import Login from '@/views/login/Login'
+import Instructor from '@/views/instructor/Instructor'
 import SysManager from '@/views/sysmanager/SysManager'
 import Student from '@/views/student/Student'
-import HomePage from '@/views/student/HomePage'
-import PersonalCenter from '@/views/student/PersonalCenter'
-import Leave from '@/views/student/Leave'
-import Appointment from '@/views/student/Appointment'
-import ChangePassword from '@/views/student/ChangePassword'
-
+import StuHomePage from '@/views/student/HomePage'
+import StuPersonalCenter from '@/views/student/PersonalCenter'
+import StuLeave from '@/views/student/Leave'
+import StuAppointment from '@/views/student/Appointment'
+import StuChangePassword from '@/views/student/ChangePassword'
+import InsHomePage from '@/views/instructor/HomePage'
+import InsPersonalCenter from '@/views/instructor/PersonalCenter'
+import InsLeave from '@/views/instructor/Leave'
+import InsAppointment from '@/views/instructor/Appointment'
+import InsChangePassword from '@/views/instructor/ChangePassword'
 
 Vue.use(vueRouter)
 
@@ -30,13 +35,26 @@ let router = new vueRouter({
     }, {
       path: '/student',
       name: 'student',
+      meta: { title: '学生端'},
       component: Student,
       children: [
-        {path: 'homePage', component: HomePage, name: 'homePage'},
-        {path: 'personalCenter', component: PersonalCenter, name: 'personalCenter'},
-        {path: 'leave', component: Leave, name: 'leave'},
-        {path: 'appointment', component: Appointment, name: 'appointment'},
-        {path: 'changePassword', component: ChangePassword, name: 'changePassword'}
+        {path: 'homePage', component: StuHomePage, name: 'homePage', meta: { title: '首页'}},
+        {path: 'personalCenter', component: StuPersonalCenter, name: 'personalCenter', meta: { title: '个人中心'}},
+        {path: 'leave', component: StuLeave, name: 'leave', meta: { title: '请假'}},
+        {path: 'appointment', component: StuAppointment, name: 'appointment', meta: { title: '预约'}},
+        {path: 'changePassword', component: StuChangePassword, name: 'changePassword', meta: { title: '修改密码'}}
+      ]
+    }, {
+      path: '/instructor',
+      name: 'instructor',
+      meta: { title: '辅导员端'},
+      component: Instructor,
+      children: [
+        {path: 'homePage', component: InsHomePage, name: 'homePage', meta: { title: '首页'}},
+        {path: 'personalCenter', component: InsPersonalCenter, name: 'personalCenter', meta: { title: '个人中心'}},
+        {path: 'leave', component: InsLeave, name: 'leave', meta: { title: '请假'}},
+        {path: 'appointment', component: InsAppointment, name: 'appointment', meta: { title: '预约'}},
+        {path: 'changePassword', component: InsChangePassword, name: 'changePassword', meta: { title: '修改密码'}}
       ]
     }
   ]
