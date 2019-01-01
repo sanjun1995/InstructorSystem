@@ -1,8 +1,8 @@
 package cn.instructorsystem.student.dao;
 
-import java.util.List;
 import cn.instructorsystem.student.model.Student;
 import cn.instructorsystem.student.model.StudentExample;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface StudentMapper {

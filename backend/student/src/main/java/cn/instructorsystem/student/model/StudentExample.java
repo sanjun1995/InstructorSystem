@@ -643,6 +643,146 @@ public class StudentExample {
             addCriterion("graduate_school not between", value1, value2, "graduateSchool");
             return (Criteria) this;
         }
+
+        public Criteria andBirthIsNull() {
+            addCriterion("birth is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthIsNotNull() {
+            addCriterion("birth is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthEqualTo(String value) {
+            addCriterion("birth =", value, "birth");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthNotEqualTo(String value) {
+            addCriterion("birth <>", value, "birth");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthGreaterThan(String value) {
+            addCriterion("birth >", value, "birth");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthGreaterThanOrEqualTo(String value) {
+            addCriterion("birth >=", value, "birth");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthLessThan(String value) {
+            addCriterion("birth <", value, "birth");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthLessThanOrEqualTo(String value) {
+            addCriterion("birth <=", value, "birth");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthLike(String value) {
+            addCriterion("birth like", value, "birth");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthNotLike(String value) {
+            addCriterion("birth not like", value, "birth");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthIn(List<String> values) {
+            addCriterion("birth in", values, "birth");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthNotIn(List<String> values) {
+            addCriterion("birth not in", values, "birth");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthBetween(String value1, String value2) {
+            addCriterion("birth between", value1, value2, "birth");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthNotBetween(String value1, String value2) {
+            addCriterion("birth not between", value1, value2, "birth");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryIsNull() {
+            addCriterion("dormitory is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryIsNotNull() {
+            addCriterion("dormitory is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryEqualTo(String value) {
+            addCriterion("dormitory =", value, "dormitory");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryNotEqualTo(String value) {
+            addCriterion("dormitory <>", value, "dormitory");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryGreaterThan(String value) {
+            addCriterion("dormitory >", value, "dormitory");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryGreaterThanOrEqualTo(String value) {
+            addCriterion("dormitory >=", value, "dormitory");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryLessThan(String value) {
+            addCriterion("dormitory <", value, "dormitory");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryLessThanOrEqualTo(String value) {
+            addCriterion("dormitory <=", value, "dormitory");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryLike(String value) {
+            addCriterion("dormitory like", value, "dormitory");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryNotLike(String value) {
+            addCriterion("dormitory not like", value, "dormitory");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryIn(List<String> values) {
+            addCriterion("dormitory in", values, "dormitory");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryNotIn(List<String> values) {
+            addCriterion("dormitory not in", values, "dormitory");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryBetween(String value1, String value2) {
+            addCriterion("dormitory between", value1, value2, "dormitory");
+            return (Criteria) this;
+        }
+
+        public Criteria andDormitoryNotBetween(String value1, String value2) {
+            addCriterion("dormitory not between", value1, value2, "dormitory");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -5,7 +5,6 @@ import cn.instructorsystem.student.model.res.ResponseResult;
 import cn.instructorsystem.student.service.StudentService;
 import cn.instructorsystem.student.util.ResponseCode;
 import cn.instructorsystem.student.util.TokenUtil;
-import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/student")
-public class LoginController {
+public class StudentController {
 
-    private static Logger logger = LoggerFactory.getLogger(LoginController.class);
+    private static Logger logger = LoggerFactory.getLogger(StudentController.class);
 
     @Autowired
     private StudentService studentService;

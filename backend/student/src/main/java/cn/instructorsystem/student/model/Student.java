@@ -17,7 +17,11 @@ public class Student {
 
     private String graduateSchool;
 
-    public Student(Integer id, String account, String password, String stuName, Integer sex, String phoneNum, String address, String graduateSchool) {
+    private String birth;
+
+    private String dormitory;
+
+    public Student(Integer id, String account, String password, String stuName, Integer sex, String phoneNum, String address, String graduateSchool, String birth, String dormitory) {
         this.id = id;
         this.account = account;
         this.password = password;
@@ -26,6 +30,8 @@ public class Student {
         this.phoneNum = phoneNum;
         this.address = address;
         this.graduateSchool = graduateSchool;
+        this.birth = birth;
+        this.dormitory = dormitory;
     }
 
     public Student() {
@@ -94,5 +100,21 @@ public class Student {
 
     public void setGraduateSchool(String graduateSchool) {
         this.graduateSchool = graduateSchool == null ? null : graduateSchool.trim();
+    }
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth == null ? null : birth.trim();
+    }
+
+    public String getDormitory() {
+        return dormitory;
+    }
+
+    public void setDormitory(String dormitory) {
+        this.dormitory = dormitory == null ? null : dormitory.trim();
     }
 }
