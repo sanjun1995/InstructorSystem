@@ -50,7 +50,7 @@
                   //登录成功，把用户信息保存在sessionStorage中
                   sessionStorage.setItem('access-token', res.data.token);
                   //跳转到后台主界面
-                  this.$router.push({ path: '/student/homePage' });
+                  this.$router.push({ path: '/student/stuHomePage' });
                 } else {
                   alert("账号或密码错误！");
                 }
@@ -64,7 +64,7 @@
                   //登录成功，把用户信息保存在sessionStorage中
                   sessionStorage.setItem('access-token', res.data.token);
                   //跳转到后台主界面
-                  this.$router.push({ path: '/instructor/homePage' });
+                  this.$router.push({ path: '/instructor/insHomePage' });
                 } else {
                   alert("账号或密码错误！");
                 }

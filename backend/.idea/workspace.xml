@@ -2,41 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40af623d-0c09-4b68-aa60-04a3fa43ce63" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/config/cors/CorsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/build/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/Appointment.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/ChangePassword.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/HomePage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/Instructor.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/Leave.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/PersonalCenter.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/Tags.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/bus.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/img/img.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/static/css/color-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/static/css/icon.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/static/css/theme-green/color-green.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/static/css/theme-green/fonts/element-icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/static/css/theme-green/fonts/element-icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/static/css/theme-green/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/static/js/vendor.dll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/ClassInfo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/static/vuetable.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/build/webpack.dev.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/build/webpack.dev.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/build/webpack.prod.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/build/webpack.prod.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/student/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/assets/icon/iconfont.woff" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/views/instructor/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/HomePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/views/instructor/Instructor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/Instructor.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/views/instructor/Tags.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/Tags.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/views/login/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/login/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/views/student/Student.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/student/Student.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,27 +34,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/LoginController.java">
+        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="192">
+              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/config/cors/CorsConfig.java">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/instructor/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="92" column="12" selection-start-line="92" selection-end-line="118" selection-end-column="21" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java">
+        <entry file="file://$PROJECT_DIR$/student/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="316">
+              <caret line="133" column="21" selection-start-line="133" selection-start-column="21" selection-end-line="133" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -80,8 +63,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/StudentApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="216">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#260#261#0" expanded="true" />
@@ -191,7 +174,6 @@
         <option value="$PROJECT_DIR$/sysmanager/src/main/java/cn/instructorsystem/sysmanager/service/impl/SysManagerServiceImpl.java" />
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/config/cors/CorsConfig.java" />
         <option value="$PROJECT_DIR$/sysmanager/src/main/java/cn/instructorsystem/sysmanager/config/cors/CorsConfig.java" />
-        <option value="$PROJECT_DIR$/student/pom.xml" />
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/service/StudentService.java" />
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/service/impl/StudentServiceImpl.java" />
         <option value="$PROJECT_DIR$/student/src/main/resources/application.properties" />
@@ -216,6 +198,7 @@
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/util/TokenUtil.java" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/config/cors/CorsConfig.java" />
+        <option value="$PROJECT_DIR$/student/pom.xml" />
       </list>
     </option>
   </component>
@@ -235,7 +218,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -263,20 +246,29 @@
             </path>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
@@ -284,7 +276,7 @@
             </path>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
@@ -293,13 +285,13 @@
             </path>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="instructor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="student" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -314,7 +306,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546162304762" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546319448061" />
     <property name="last_opened_file_path" value="D:/Projects/DcManagementSystem" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -487,18 +479,20 @@
       <workItem from="1545958459194" duration="593000" />
       <workItem from="1546002309873" duration="2093000" />
       <workItem from="1546045311523" duration="4705000" />
-      <workItem from="1546086929086" duration="3029000" />
+      <workItem from="1546086929086" duration="3077000" />
+      <workItem from="1546239107393" duration="263000" />
+      <workItem from="1546315547105" duration="1423000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64927000" />
+    <option name="totallyTimeSpent" value="66661000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26541555" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27211797" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -509,7 +503,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.37252125" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.41359773" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.41359773" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -731,13 +725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/student/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2592">
-          <caret line="108" column="12" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sysmanager/src/main/resources/generatorConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1680">
@@ -773,13 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instructor/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="118" column="21" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/config/dao/SessionFactoryConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-240">
@@ -812,6 +792,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/config/cors/CorsConfig.java">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/StudentApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
+            <element signature="e#329#330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/model/res/ResponseResult.java">
       <provider selected="true" editor-type-id="text-editor" />
@@ -860,22 +852,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/StudentApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#260#261#0" expanded="true" />
-            <element signature="e#329#330#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="92" column="12" selection-start-line="92" selection-end-line="118" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="133" column="21" selection-start-line="133" selection-start-column="21" selection-end-line="133" selection-end-column="21" />
         </state>
       </provider>
     </entry>

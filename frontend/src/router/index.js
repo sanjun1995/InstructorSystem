@@ -14,6 +14,7 @@ import InsPersonalCenter from '@/views/instructor/PersonalCenter'
 import InsLeave from '@/views/instructor/Leave'
 import InsAppointment from '@/views/instructor/Appointment'
 import InsChangePassword from '@/views/instructor/ChangePassword'
+import InsClassInfo from '@/views/instructor/ClassInfo'
 
 Vue.use(vueRouter)
 
@@ -38,11 +39,11 @@ let router = new vueRouter({
       meta: { title: '学生端'},
       component: Student,
       children: [
-        {path: 'homePage', component: StuHomePage, name: 'homePage', meta: { title: '首页'}},
-        {path: 'personalCenter', component: StuPersonalCenter, name: 'personalCenter', meta: { title: '个人中心'}},
-        {path: 'leave', component: StuLeave, name: 'leave', meta: { title: '请假'}},
-        {path: 'appointment', component: StuAppointment, name: 'appointment', meta: { title: '预约'}},
-        {path: 'changePassword', component: StuChangePassword, name: 'changePassword', meta: { title: '修改密码'}}
+        {path: 'stuHomePage', component: StuHomePage, name: 'stuHomePage', meta: { title: '首页'}},
+        {path: 'stuPersonalCenter', component: StuPersonalCenter, name: 'stuPersonalCenter', meta: { title: '个人中心'}},
+        {path: 'stuLeave', component: StuLeave, name: 'stuLeave', meta: { title: '请假'}},
+        {path: 'stuAppointment', component: StuAppointment, name: 'stuAppointment', meta: { title: '预约'}},
+        {path: 'stuChangePassword', component: StuChangePassword, name: 'stuChangePassword', meta: { title: '修改密码'}}
       ]
     }, {
       path: '/instructor',
@@ -50,11 +51,12 @@ let router = new vueRouter({
       meta: { title: '辅导员端'},
       component: Instructor,
       children: [
-        {path: 'homePage', component: InsHomePage, name: 'homePage', meta: { title: '首页'}},
-        {path: 'personalCenter', component: InsPersonalCenter, name: 'personalCenter', meta: { title: '个人中心'}},
-        {path: 'leave', component: InsLeave, name: 'leave', meta: { title: '请假'}},
-        {path: 'appointment', component: InsAppointment, name: 'appointment', meta: { title: '预约'}},
-        {path: 'changePassword', component: InsChangePassword, name: 'changePassword', meta: { title: '修改密码'}}
+        {path: 'insHomePage', component: InsHomePage, name: 'insHomePage', meta: { title: '首页'}},
+        {path: 'insPersonalCenter', component: InsPersonalCenter, name: 'insPersonalCenter', meta: { title: '个人中心'}},
+        {path: 'insLeave', component: InsLeave, name: 'insLeave', meta: { title: '请假管理'}},
+        {path: 'insAppointment', component: InsAppointment, name: 'insAppointment', meta: { title: '预约管理'}},
+        {path: 'insChangePassword', component: InsChangePassword, name: 'insChangePassword', meta: { title: '修改密码'}},
+        {path: 'insClassInfo', component: InsClassInfo, name: 'insClassInfo', meta: { title: '班级管理'}}
       ]
     }
   ]

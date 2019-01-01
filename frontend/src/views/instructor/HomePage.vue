@@ -99,12 +99,12 @@
     <el-row :gutter="20">
       <el-col :span="12">
         <el-card shadow="hover">
-          <schart ref="bar" class="schart" canvasId="bar" :data="data" type="bar" :options="options"></schart>
+          <schart ref="line" class="schart" canvasId="line" :data="data" type="line" :options="options"></schart>
         </el-card>
       </el-col>
       <el-col :span="12">
         <el-card shadow="hover">
-          <schart ref="line" class="schart" canvasId="line" :data="data" type="line" :options="options2"></schart>
+          <schart class="schart" canvasId="pie" :data="data2" type="pie" :options="options2"></schart>
         </el-card>
       </el-col>
     </el-row>
@@ -118,6 +118,7 @@
     name: 'dashboard',
     data() {
       return {
+        bannerHeight: '',
         name: localStorage.getItem('ms_username'),
         todoList: [
           {
@@ -137,50 +138,58 @@
             status: false,
           },
         ],
-        data: [{
+        data: [
+          {
           name: '2018/09/04',
-          value: 1083
-        },
+          value: 13
+          },
           {
             name: '2018/09/05',
-            value: 941
+            value: 9
           },
           {
             name: '2018/09/06',
-            value: 1139
+            value: 11
           },
           {
             name: '2018/09/07',
-            value: 816
+            value: 6
           },
           {
             name: '2018/09/08',
-            value: 327
+            value: 7
           },
           {
             name: '2018/09/09',
-            value: 228
+            value: 14
           },
           {
             name: '2018/09/10',
-            value: 1065
+            value: 9
           }
         ],
+        data2: [
+          {name:'宿舍矛盾',value:3},
+          {name:'职业规划',value:5},
+          {name:'班级管理',value:8},
+          {name:'思想辅导',value:4},
+          {name:'其他',value:14}
+        ],
         options: {
-          title: '最近七天每天的用户访问量',
-          showValue: false,
-          fillColor: 'rgb(45, 140, 240)',
-          bottomPadding: 30,
-          topPadding: 30
-        },
-        options2: {
-          title: '最近七天用户访问趋势',
+          title: '本周请假人数',
           fillColor: '#FC6FA1',
           axisColor: '#008ACD',
           contentColor: '#EEEEEE',
           bgColor: '#F5F8FD',
           bottomPadding: 30,
           topPadding: 30
+        },
+        options2: {
+          title: '预约分析',
+          bgColor: '#F5F8FD',
+          titleColor: '#000',
+          legendColor: '#000',
+          radius: 120
         }
       }
     },
@@ -198,10 +207,6 @@
     },
     activated(){
       this.handleListener();
-    },
-    deactivated(){
-      window.removeEventListener('resize', this.renderChart);
-      bus.$off('collapse', this.handleBus);
     },
     methods: {
       changeDate(){
@@ -232,6 +237,25 @@
 
 
 <style scoped>
+  .schart-box{
+    display: inline-block;
+  }
+  .schart{
+    width: 500px;
+    height: 350px;
+  }
+  .content-title{
+    clear: both;
+    line-height: 10px;
+    margin: 10px 0;
+    font-size: 22px;
+    color: #1f2f3d;
+  }
+  .setitem-btn {
+    height: 100%;
+    width: 100%;
+  }
+
   .el-carousel__item h3 {
     color: #475669;
     font-size: 18px;

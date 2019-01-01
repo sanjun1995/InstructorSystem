@@ -78,19 +78,19 @@
       },
       handleSelect(key, keyPath) {
         if (key == "1") {
-          this.$router.push({ path: '/student/homePage' });
+          this.$router.push({ path: '/student/stuHomePage' });
         }
         if (key == "2") {
-          this.$router.push({ path: '/student/personalCenter' });
+          this.$router.push({ path: '/student/stuPersonalCenter' });
         }
         if (key == "3") {
-          this.$router.push({ path: '/student/leave' });
+          this.$router.push({ path: '/student/stuLeave' });
         }
         if (key == "4") {
-          this.$router.push({ path: '/student/appointment' });
+          this.$router.push({ path: '/student/stuAppointment' });
         }
         if (key == "5") {
-          this.$router.push({ path: '/student/changePassword' });
+          this.$router.push({ path: '/student/stuChangePassword' });
         }
       },
       logout(){
