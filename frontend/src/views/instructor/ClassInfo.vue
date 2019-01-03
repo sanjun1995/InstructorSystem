@@ -2,37 +2,43 @@
   <div class="table">
     <div class="container">
       <div class="handle-box">
-        <el-select v-model="select_cate" placeholder="选择班级" class="handle-select">
-          <el-option key="1" label="1515431" value="1515431"></el-option>
-          <el-option key="2" label="1515432" value="1515432"></el-option>
+        <el-select v-model="selectClass" @change="currentSel" placeholder="选择班级" class="handle-select">
+          <el-option key="1" label="全部班级" value=""></el-option>
+          <el-option key="2" label="1515431" value="1515431"></el-option>
+          <el-option key="3" label="1515432" value="1515432"></el-option>
         </el-select>
         <div class="select-stu">
-          姓名：<el-input v-model="stuName" class="handle-input"></el-input>
+          姓名：<el-input v-model="params.student.stuName" class="handle-input"></el-input>
+          宿舍：<el-input v-model="params.student.dormitory" class="handle-input"></el-input>
           <el-button type="primary" icon="search" @click="search">搜索</el-button>
         </div>
       </div>
       <div class="handle-table">
-        <el-table :data="data" border class="table" ref="multipleTable" @selection-change="handleSelectionChange">
+        <el-table :data="tableData" border ref="multipleTable" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="55" align="center"></el-table-column>
-          <el-table-column prop="account" label="学号" width="120">
+          <el-table-column prop="account" align="center" label="学号" width="120">
           </el-table-column>
-          <el-table-column prop="stuName" label="姓名" width="100">
+          <el-table-column align="center" label="姓名" width="80">
+            <template slot-scope="scope">
+              <span v-html="brightenKeyword(scope.row.stuName, params.student.stuName)" ></span>
+            </template>
           </el-table-column>
-          <el-table-column prop="sex" label="性别" width="50">
+          <el-table-column prop="sex" align="center" :formatter="formatSex" label="性别" width="50">
           </el-table-column>
-          <el-table-column prop="birth" label="出生年月" width="80">
+          <el-table-column prop="birth" align="center" label="出生年月日" width="120">
           </el-table-column>
-          <el-table-column prop="nativePlace" label="籍贯" width="162">
+          <el-table-column prop="address" align="center" label="籍贯" width="150">
           </el-table-column>
-          <el-table-column prop="dormitory" label="宿舍" width="100">
+          <el-table-column align="center" label="宿舍" width="120">
+            <template slot-scope="scope">
+              <span v-html="brightenKeyword(scope.row.dormitory, params.student.dormitory)" ></span>
+            </template>
           </el-table-column>
-          <el-table-column prop="phoneNum" label="手机号码" width="120">
+          <el-table-column prop="phoneNum" align="center" label="手机号码" width="120">
           </el-table-column>
-          <el-table-column prop="stuName" label="姓名" width="120">
+          <el-table-column prop="graduateSchool" align="center" label="高中毕业学校" width="150">
           </el-table-column>
-          <el-table-column prop="graduate_school" label="高中毕业学校" width="120">
-          </el-table-column>
-          <el-table-column label="操作" width="180" align="center">
+          <el-table-column label="操作" width="250" align="center">
             <template slot-scope="scope">
               <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
               <el-button type="text" icon="el-icon-delete" class="red" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
@@ -41,7 +47,7 @@
         </el-table>
       </div>
       <div class="pagination">
-        <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next" :total="1000">
+        <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next" :total="500">
         </el-pagination>
       </div>
     </div>
@@ -78,6 +84,7 @@
 </template>
 
 <script>
+  import axios from 'axios';
   export default {
     name: 'basetable',
     data() {
@@ -85,12 +92,9 @@
         url: './static/vuetable.json',
         stuName: '',
         tableData: [],
-        cur_page: 1,
         multipleSelection: [],
-        select_cate: '',
-        select_word: '',
-        del_list: [],
-        is_search: false,
+        selectClass: '',
+        delList: [],
         editVisible: false,
         delVisible: false,
         form: {
@@ -98,65 +102,61 @@
           date: '',
           address: ''
         },
+        params: {
+          pageNum: '1',
+          student: {
+            stuName: '',
+            account: '',
+            dormitory: ''
+          }
+        },
         idx: -1
       }
     },
     created() {
       this.getData();
     },
-    computed: {
-      data() {
-        return this.tableData.filter((d) => {
-          let is_del = false;
-          for (let i = 0; i < this.del_list.length; i++) {
-            if (d.name === this.del_list[i].name) {
-              is_del = true;
-              break;
-            }
-          }
-          if (!is_del) {
-            if (d.address.indexOf(this.select_cate) > -1 &&
-              (d.name.indexOf(this.select_word) > -1 ||
-                d.address.indexOf(this.select_word) > -1)
-            ) {
-              return d;
-            }
-          }
-        })
-      }
-    },
     methods: {
       // 分页导航
       handleCurrentChange(val) {
-        this.cur_page = val;
+        this.params.pageNum = val;
         this.getData();
       },
-      // 获取 easy-mock 的模拟数据
       getData() {
-        // 开发环境使用 easy-mock 数据，正式环境使用 json 文件
-        if (process.env.NODE_ENV === 'development') {
-          this.url = '/ms/table/list';
-        };
-        this.$axios.post(this.url, {
-          page: this.cur_page
-        }).then((res) => {
-          this.tableData = res.data.list;
-        })
+        var studentAxios = axios.create({
+          baseURL: 'http://localhost:8080/api/student/'
+        });
+        studentAxios.post('getStudentInfos', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.tableData = res.data.data;
+          } else {
+            alert(res.data.msg);
+          }
+        });
+      },
+      brightenKeyword(val, keyword) {
+        val = val + '';
+        if (val.indexOf(keyword) !== -1 && keyword !== '') {
+          return val.replace(keyword, '<font color="red">' + keyword + '</font>')
+        } else {
+          return val
+        }
+      },
+      formatSex(row, column) {
+        return row.sex == '1' ? "女" : "男";
+      },
+      currentSel(val) {
+        this.params.student.account = val;
+        this.getData();
       },
       search() {
-        this.is_search = true;
-      },
-      formatter(row, column) {
-        return row.address;
-      },
-      filterTag(value, row) {
-        return row.tag === value;
+        this.getData();
       },
       handleEdit(index, row) {
         this.idx = index;
         const item = this.tableData[index];
         this.form = {
-          name: item.name,
+          name: item.stuName,
           date: item.date,
           address: item.address
         }
@@ -165,16 +165,6 @@
       handleDelete(index, row) {
         this.idx = index;
         this.delVisible = true;
-      },
-      delAll() {
-        const length = this.multipleSelection.length;
-        let str = '';
-        this.del_list = this.del_list.concat(this.multipleSelection);
-        for (let i = 0; i < length; i++) {
-          str += this.multipleSelection[i].name + ' ';
-        }
-        this.$message.error('删除了' + str);
-        this.multipleSelection = [];
       },
       handleSelectionChange(val) {
         this.multipleSelection = val;

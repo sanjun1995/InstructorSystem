@@ -42,10 +42,10 @@
           if (valid) {
             var role = this.accountForm.role;
             if (role == 1) {
-              var managerAxios = axios.create({
+              var studentAxios = axios.create({
                 baseURL: 'http://localhost:8080/api/student/'
               });
-              managerAxios.post('login', this.accountForm).then(res => {
+              studentAxios.post('login', this.accountForm).then(res => {
                 if (res.data.code == 200) {
                   //登录成功，把用户信息保存在sessionStorage中
                   sessionStorage.setItem('access-token', res.data.token);
@@ -70,10 +70,10 @@
                 }
               });
             } else {
-              var studentAxios = axios.create({
+              var sysManagerAxios = axios.create({
                 baseURL: 'http://localhost:8082/api/sysManager/'
               });
-              studentAxios.post('login', this.accountForm);
+              sysManagerAxios.post('login', this.accountForm);
             }
           } else {
             alert("输入有误!")

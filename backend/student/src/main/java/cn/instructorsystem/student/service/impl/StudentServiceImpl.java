@@ -4,6 +4,8 @@ import cn.instructorsystem.student.dao.StudentMapper;
 import cn.instructorsystem.student.model.Student;
 import cn.instructorsystem.student.model.StudentExample;
 import cn.instructorsystem.student.service.StudentService;
+import cn.instructorsystem.student.vo.StudentReqVo;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +32,30 @@ public class StudentServiceImpl implements StudentService {
             return list.get(0);
         }
         return null;
+    }
+
+    @Override
+        public List<Student> getStudentInfosByPage(StudentReqVo vo) {
+        Integer pageNum = vo.getPageNum();
+        Integer pageSie = vo.getPageSize();
+        Student stu = vo.getStudent();
+        PageHelper.startPage(pageNum, pageSie);
+        StudentExample example = new StudentExample();
+        StudentExample.Criteria criteria = example.createCriteria();
+
+        String stuName = stu.getStuName();
+        String account = stu.getAccount();
+        String dormitory = stu.getDormitory();
+        if (!"".equals(stuName)) {
+            criteria.andStuNameLike("%" + stuName + "%");
+        }
+        if (!"".equals(account)) {
+            criteria.andAccountLike(account + "%");
+        }
+        if (!"".equals(dormitory)) {
+            criteria.andDormitoryLike("%" + dormitory + "%");
+        }
+        List<Student> stuInfos = studentMapper.selectByExample(example);
+        return stuInfos;
     }
 }
