@@ -13,6 +13,7 @@
       <arg column="graduate_school" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="birth" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="dormitory" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="head_path" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -75,7 +76,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, account, password, stu_name, sex, phone_num, address, graduate_school, birth, 
-    dormitory
+    dormitory, head_path
   </sql>
   <select id="selectByExample" parameterType="cn.instructorsystem.student.model.StudentExample" resultMap="BaseResultMap">
     select
@@ -112,11 +113,11 @@
     insert into student (id, account, password, 
       stu_name, sex, phone_num, 
       address, graduate_school, birth, 
-      dormitory)
+      dormitory, head_path)
     values (#{id,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{stuName,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{phoneNum,jdbcType=VARCHAR}, 
       #{address,jdbcType=VARCHAR}, #{graduateSchool,jdbcType=VARCHAR}, #{birth,jdbcType=VARCHAR}, 
-      #{dormitory,jdbcType=VARCHAR})
+      #{dormitory,jdbcType=VARCHAR}, #{headPath,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.instructorsystem.student.model.Student">
     insert into student
@@ -151,6 +152,9 @@
       <if test="dormitory != null">
         dormitory,
       </if>
+      <if test="headPath != null">
+        head_path,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -182,6 +186,9 @@
       </if>
       <if test="dormitory != null">
         #{dormitory,jdbcType=VARCHAR},
+      </if>
+      <if test="headPath != null">
+        #{headPath,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -218,6 +225,9 @@
       <if test="record.dormitory != null">
         dormitory = #{record.dormitory,jdbcType=VARCHAR},
       </if>
+      <if test="record.headPath != null">
+        head_path = #{record.headPath,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -234,7 +244,8 @@
       address = #{record.address,jdbcType=VARCHAR},
       graduate_school = #{record.graduateSchool,jdbcType=VARCHAR},
       birth = #{record.birth,jdbcType=VARCHAR},
-      dormitory = #{record.dormitory,jdbcType=VARCHAR}
+      dormitory = #{record.dormitory,jdbcType=VARCHAR},
+      head_path = #{record.headPath,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -269,6 +280,9 @@
       <if test="dormitory != null">
         dormitory = #{dormitory,jdbcType=VARCHAR},
       </if>
+      <if test="headPath != null">
+        head_path = #{headPath,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -282,7 +296,8 @@
       address = #{address,jdbcType=VARCHAR},
       graduate_school = #{graduateSchool,jdbcType=VARCHAR},
       birth = #{birth,jdbcType=VARCHAR},
-      dormitory = #{dormitory,jdbcType=VARCHAR}
+      dormitory = #{dormitory,jdbcType=VARCHAR},
+      head_path = #{headPath,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

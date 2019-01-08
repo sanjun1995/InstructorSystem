@@ -573,6 +573,76 @@ public class InstructorExample {
             addCriterion("office_location not between", value1, value2, "officeLocation");
             return (Criteria) this;
         }
+
+        public Criteria andHeadPathIsNull() {
+            addCriterion("head_path is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadPathIsNotNull() {
+            addCriterion("head_path is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadPathEqualTo(String value) {
+            addCriterion("head_path =", value, "headPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadPathNotEqualTo(String value) {
+            addCriterion("head_path <>", value, "headPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadPathGreaterThan(String value) {
+            addCriterion("head_path >", value, "headPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadPathGreaterThanOrEqualTo(String value) {
+            addCriterion("head_path >=", value, "headPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadPathLessThan(String value) {
+            addCriterion("head_path <", value, "headPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadPathLessThanOrEqualTo(String value) {
+            addCriterion("head_path <=", value, "headPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadPathLike(String value) {
+            addCriterion("head_path like", value, "headPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadPathNotLike(String value) {
+            addCriterion("head_path not like", value, "headPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadPathIn(List<String> values) {
+            addCriterion("head_path in", values, "headPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadPathNotIn(List<String> values) {
+            addCriterion("head_path not in", values, "headPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadPathBetween(String value1, String value2) {
+            addCriterion("head_path between", value1, value2, "headPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadPathNotBetween(String value1, String value2) {
+            addCriterion("head_path not between", value1, value2, "headPath");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

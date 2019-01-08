@@ -52,7 +52,7 @@
               </el-menu-item>
               <el-menu-item index="/instructor/insPersonalCenter">
                 <span class="fontFamily ins-gerenzhongxin"></span>
-                <span slot="title" class="menu-title">个人信息</span>
+                <span slot="title" class="menu-title">个人中心</span>
               </el-menu-item>
               <el-menu-item index="/instructor/insClassInfo">
                 <span class="fontFamily ins-gerenzhongxin"></span>
@@ -66,7 +66,7 @@
                 <span class="fontFamily ins-yidongduanicon-"></span>
                 <span slot="title" class="menu-title">预约管理</span>
               </el-menu-item>
-              <el-menu-item index="/instructor/insChangePassword">
+              <el-menu-item index="">
                 <span class="fontFamily ins-gonggao"></span>
                 <span slot="title" class="menu-title">公告</span>
               </el-menu-item>
@@ -82,7 +82,7 @@
                 <span class="fontFamily ins-chengjiguanli"></span>
                 <span slot="title" class="menu-title">成绩管理</span>
               </el-menu-item>
-              <el-menu-item index="">
+              <el-menu-item index="/instructor/insChangePassword">
                 <span class="fontFamily ins-xiugaimima"></span>
                 <span slot="title" class="menu-title">修改密码</span>
               </el-menu-item>

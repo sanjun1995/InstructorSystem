@@ -4,7 +4,9 @@ import cn.instructorsystem.student.dao.StudentMapper;
 import cn.instructorsystem.student.model.Student;
 import cn.instructorsystem.student.model.StudentExample;
 import cn.instructorsystem.student.service.StudentService;
-import cn.instructorsystem.student.vo.StudentReqVo;
+import cn.instructorsystem.student.util.TokenUtil;
+import cn.instructorsystem.student.vo.ChangePasswordReqVo;
+import cn.instructorsystem.student.vo.ClassInfoReqVo;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,7 +37,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-        public List<Student> getStudentInfosByPage(StudentReqVo vo) {
+        public List<Student> getStudentInfosByPage(ClassInfoReqVo vo) {
         Integer pageNum = vo.getPageNum();
         Integer pageSie = vo.getPageSize();
         Student stu = vo.getStudent();
@@ -57,5 +59,32 @@ public class StudentServiceImpl implements StudentService {
         }
         List<Student> stuInfos = studentMapper.selectByExample(example);
         return stuInfos;
+    }
+
+    @Override
+    public boolean changePassword(ChangePasswordReqVo vo) {
+        String token = vo.getToken();
+        String originPass = vo.getOriginPass();
+        String newPass = vo.getNewPass();
+        // 通过token获取登录账号
+        String account = TokenUtil.getContent(token);
+        StudentExample example = new StudentExample();
+        StudentExample.Criteria criteria = example.createCriteria();
+        criteria.andAccountEqualTo(account);
+        criteria.andPasswordEqualTo(originPass);
+        List<Student> students = studentMapper.selectByExample(example);
+        if (students.size() != 0) {
+            // 清空条件
+            example.clear();
+            criteria = example.createCriteria();
+            Student student = new Student();
+            student.setPassword(newPass);
+            criteria.andAccountEqualTo(account);
+            int n = studentMapper.updateByExampleSelective(student, example);
+            if (n != 0) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -15,7 +15,9 @@ public class Instructor {
 
     private String officeLocation;
 
-    public Instructor(Integer id, String account, String password, String insName, Integer sex, String phoneNum, String officeLocation) {
+    private String headPath;
+
+    public Instructor(Integer id, String account, String password, String insName, Integer sex, String phoneNum, String officeLocation, String headPath) {
         this.id = id;
         this.account = account;
         this.password = password;
@@ -23,6 +25,7 @@ public class Instructor {
         this.sex = sex;
         this.phoneNum = phoneNum;
         this.officeLocation = officeLocation;
+        this.headPath = headPath;
     }
 
     public Instructor() {
@@ -83,5 +86,13 @@ public class Instructor {
 
     public void setOfficeLocation(String officeLocation) {
         this.officeLocation = officeLocation == null ? null : officeLocation.trim();
+    }
+
+    public String getHeadPath() {
+        return headPath;
+    }
+
+    public void setHeadPath(String headPath) {
+        this.headPath = headPath == null ? null : headPath.trim();
     }
 }

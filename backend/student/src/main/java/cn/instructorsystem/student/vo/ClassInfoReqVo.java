@@ -6,7 +6,7 @@ import cn.instructorsystem.student.model.Student;
  * @Author: sanjun
  * @Date: 2019/1/1 23:55
  */
-public class StudentReqVo {
+public class ClassInfoReqVo {
     private Integer pageNum;
     private Integer pageSize = 10;
     private Student student;

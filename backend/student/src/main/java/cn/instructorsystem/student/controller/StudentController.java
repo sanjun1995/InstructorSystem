@@ -5,7 +5,8 @@ import cn.instructorsystem.student.model.res.ResResult;
 import cn.instructorsystem.student.service.StudentService;
 import cn.instructorsystem.student.util.ResponseCode;
 import cn.instructorsystem.student.util.TokenUtil;
-import cn.instructorsystem.student.vo.StudentReqVo;
+import cn.instructorsystem.student.vo.ChangePasswordReqVo;
+import cn.instructorsystem.student.vo.ClassInfoReqVo;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,14 +49,14 @@ public class StudentController {
     }
 
     @PostMapping(value = "/getStudentInfos")
-    public ResResult<Student> getStudentInfos(@RequestBody StudentReqVo studentReqVo) {
-        List<Student> students = studentService.getStudentInfosByPage(studentReqVo);
+    public ResResult<Student> getStudentInfos(@RequestBody ClassInfoReqVo vo) {
+        List<Student> students = studentService.getStudentInfosByPage(vo);
         ResResult<Student> res = new ResResult<>();
         if (students != null || students.size() != 0) {
             res.setData(students);
             res.setCode(ResponseCode.SUCCESS);
             res.setMsg("query student information success!");
-            logger.info("student.getStudentInfos() studentReqVo: {}，查询成功！", JSON.toJSONString(studentReqVo));
+            logger.info("student.getStudentInfos() studentReqVo: {}，获取学生列表成功！", JSON.toJSONString(vo));
         } else {
             res.setData(students);
             res.setCode(ResponseCode.FAILURE);
@@ -63,4 +64,27 @@ public class StudentController {
         }
         return res;
     }
+
+    @PostMapping(value = "/changePassword")
+    public ResResult<Student> changePassword(@RequestBody ChangePasswordReqVo vo) {
+        boolean isSuccess = studentService.changePassword(vo);
+        ResResult<Student> res = new ResResult<>();
+        Student student = new Student();
+        student.setAccount(TokenUtil.getContent(vo.getToken()));
+        List<Student> students = new ArrayList<>();
+        students.add(student);
+        res.setData(students);
+        res.setToken(vo.getToken());
+        if (isSuccess) {
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("change password success!");
+            logger.info("student.changePassword() ChangePasswordReqVo: {}，修改密码成功！", JSON.toJSONString(vo));
+        } else {
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("change password failure!");
+            logger.info("student.changePassword() ChangePasswordReqVo: {}，修改密码失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
 }

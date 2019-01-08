@@ -36,20 +36,25 @@
               align="center"
               text-color="#fff"
               active-text-color="#ffd04b">
-              <el-menu-item index="1">
-                <span slot="title">首页</span>
+              <el-menu-item index="/student/stuHomePage">
+                <span class="fontFamily ins-shouye"></span>
+                <span slot="title" class="menu-title">首页</span>
               </el-menu-item>
-              <el-menu-item index="2">
-                <span slot="title">个人中心</span>
+              <el-menu-item index="/student/stuPersonalCenter">
+                <span class="fontFamily ins-gerenzhongxin"></span>
+                <span slot="title" class="menu-title">个人中心</span>
               </el-menu-item>
-              <el-menu-item index="3">
-                <span slot="title">请假</span>
+              <el-menu-item index="/student/stuLeave">
+                <span class="fontFamily ins-qingjia"></span>
+                <span slot="title" class="menu-title">请假</span>
               </el-menu-item>
-              <el-menu-item index="4">
-                <span slot="title">预约</span>
+              <el-menu-item index="/student/stuAppointment">
+                <span class="fontFamily ins-yidongduanicon-"></span>
+                <span slot="title" class="menu-title">预约</span>
               </el-menu-item>
-              <el-menu-item index="5">
-                <span slot="title">修改密码</span>
+              <el-menu-item index="/student/stuChangePassword">
+                <span class="fontFamily ins-xiugaimima"></span>
+                <span slot="title" class="menu-title">修改密码</span>
               </el-menu-item>
             </el-menu>
           </el-col>
@@ -76,21 +81,11 @@
         this.defaultActiveIndex = url;
         this.$router.push(url); // 用go刷新
       },
-      handleSelect(key, keyPath) {
-        if (key == "1") {
-          this.$router.push({ path: '/student/stuHomePage' });
-        }
-        if (key == "2") {
-          this.$router.push({ path: '/student/stuPersonalCenter' });
-        }
-        if (key == "3") {
-          this.$router.push({ path: '/student/stuLeave' });
-        }
-        if (key == "4") {
-          this.$router.push({ path: '/student/stuAppointment' });
-        }
-        if (key == "5") {
-          this.$router.push({ path: '/student/stuChangePassword' });
+      handleSelect(route) {
+        if (route !== "") {
+          this.$router.push({path: route});
+        } else {
+          alert("该模块还在开发进行中")
         }
       },
       logout(){
@@ -118,6 +113,11 @@
   };
 </script>
 <style>
+
+  .menu-title {
+    padding-left: 10px;
+  }
+
   .el-header {
     background-color: #545c64;
     color: #333;

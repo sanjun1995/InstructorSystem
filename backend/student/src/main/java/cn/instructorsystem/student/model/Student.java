@@ -21,7 +21,9 @@ public class Student {
 
     private String dormitory;
 
-    public Student(Integer id, String account, String password, String stuName, Integer sex, String phoneNum, String address, String graduateSchool, String birth, String dormitory) {
+    private String headPath;
+
+    public Student(Integer id, String account, String password, String stuName, Integer sex, String phoneNum, String address, String graduateSchool, String birth, String dormitory, String headPath) {
         this.id = id;
         this.account = account;
         this.password = password;
@@ -32,6 +34,7 @@ public class Student {
         this.graduateSchool = graduateSchool;
         this.birth = birth;
         this.dormitory = dormitory;
+        this.headPath = headPath;
     }
 
     public Student() {
@@ -116,5 +119,13 @@ public class Student {
 
     public void setDormitory(String dormitory) {
         this.dormitory = dormitory == null ? null : dormitory.trim();
+    }
+
+    public String getHeadPath() {
+        return headPath;
+    }
+
+    public void setHeadPath(String headPath) {
+        this.headPath = headPath == null ? null : headPath.trim();
     }
 }

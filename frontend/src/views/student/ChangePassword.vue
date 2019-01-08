@@ -3,19 +3,19 @@
     <el-main>
       <div class="change-pwd">
         <p style="font-weight: bold; color: red">修改密码</p><br/><br/>
-        <el-form :model="ruleForm2" status-icon :rules="rules2" size="small" ref="ruleForm2" label-width="100px" class="demo-ruleForm form-container">
-          <el-form-item label="原密码" prop="pass">
-            <el-input type="password" v-model="ruleForm2.originPass" autocomplete="off"></el-input>
+        <el-form :model="ruleForm" status-icon :rules="rules" size="small" ref="ruleForm" label-width="100px" class="demo-ruleForm form-container">
+          <el-form-item label="原密码" prop="originPass">
+            <el-input type="password" v-model="ruleForm.originPass" autocomplete="off"></el-input>
           </el-form-item>
-          <el-form-item label="密码" prop="pass">
-            <el-input type="password" v-model="ruleForm2.pass" autocomplete="off"></el-input>
+          <el-form-item label="新密码" prop="newPass">
+            <el-input type="password" v-model="ruleForm.newPass" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item label="确认密码" prop="checkPass">
-            <el-input type="password" v-model="ruleForm2.checkPass" autocomplete="off"></el-input>
+            <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
-            <el-button @click="resetForm('ruleForm2')">重置</el-button>
+            <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+            <el-button @click="resetForm('ruleForm')">重置</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -24,30 +24,22 @@
 </template>
 
 <script>
+  import axios from 'axios';
   export default {
     data() {
-      var checkAge = (rule, value, callback) => {
-        if (!value) {
-          return callback(new Error('年龄不能为空'));
-        }
-        setTimeout(() => {
-          if (!Number.isInteger(value)) {
-            callback(new Error('请输入数字值'));
-          } else {
-            if (value < 18) {
-              callback(new Error('必须年满18岁'));
-            } else {
-              callback();
-            }
-          }
-        }, 1000);
-      };
-      var validatePass = (rule, value, callback) => {
+      var validateOriginPass = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入密码'));
         } else {
-          if (this.ruleForm2.checkPass !== '') {
-            this.$refs.ruleForm2.validateField('checkPass');
+          callback();
+        }
+      };
+      var validateNewPass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入密码'));
+        } else {
+          if (this.ruleForm.checkPass !== '') {
+            this.$refs.ruleForm.validateField('checkPass');
           }
           callback();
         }
@@ -55,28 +47,29 @@
       var validatePass2 = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请再次输入密码'));
-        } else if (value !== this.ruleForm2.pass) {
+        } else if (value !== this.ruleForm.newPass) {
           callback(new Error('两次输入密码不一致!'));
         } else {
           callback();
         }
       };
       return {
-        ruleForm2: {
+        ruleForm: {
           originPass: '',
-          pass: '',
+          newPass: '',
           checkPass: '',
+          token: ''
         },
-        rules2: {
-          pass: [
-            { validator: validatePass, trigger: 'blur' }
+        rules: {
+          originPass: [
+            { validator: validateOriginPass, trigger: 'blur' }
+          ],
+          newPass: [
+            { validator: validateNewPass, trigger: 'blur' }
           ],
           checkPass: [
             { validator: validatePass2, trigger: 'blur' }
           ],
-          age: [
-            { validator: checkAge, trigger: 'blur' }
-          ]
         }
       };
     },
@@ -84,9 +77,20 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            this.ruleForm.token = sessionStorage.getItem("access-token");
+            var studentAxios = axios.create({
+              baseURL: 'http://localhost:8080/api/student/'
+            });
+            studentAxios.post('changePassword', this.ruleForm).then(res => {
+              if (res.data.code == 200) {
+                this.$message.success('修改密码成功!');
+                this.resetForm('ruleForm');
+              } else {
+                this.$message.error('修改失败，原密码不正确!');
+              }
+            });
           } else {
-            console.log('error submit!!');
+            this.$message.error('error submit!!');
             return false;
           }
         });
@@ -99,6 +103,9 @@
 </script>
 
 <style scoped>
+  .el-main {
+    text-align: center;
+  }
   .form-container {
     /*box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);*/
     -webkit-border-radius: 5px;
