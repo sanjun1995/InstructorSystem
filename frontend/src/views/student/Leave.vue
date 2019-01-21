@@ -20,7 +20,7 @@
         placeholder="选择结束时间">
         </el-time-select>
       <div class="step">
-        <el-steps :space="200" :active="1" align-center="center" finish-status="success">
+        <el-steps :space="200" :active="1" :align-center="true" finish-status="success">
           <el-step title="已完成"></el-step>
           <el-step title="进行中"></el-step>
           <el-step title="步骤 3"></el-step>

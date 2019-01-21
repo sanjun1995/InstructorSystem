@@ -2,43 +2,40 @@
   <div>
     <div class="container">
       <div class="form-box">
-        <el-form ref="form" :model="form" label-width="150px">
+        <el-form ref="form" :model="params" label-width="150px">
           <el-form-item label="头像：">
             <div class="crop-demo">
-              <img :src="cropImg" class="pre-img">
+              <img :src="params.instructor.headPath" class="pre-img">
               <div class="crop-demo-btn">选择图片
                 <input class="crop-input" type="file" name="image" accept="image/*" @change="setImage"/>
               </div>
             </div>
 
             <el-dialog title="裁剪图片" :visible.sync="dialogVisible" width="30%">
-              <vue-cropper ref='cropper' :src="imgSrc" :ready="cropImage" :zoom="cropImage" :cropmove="cropImage" style="width:100%;height:300px;"></vue-cropper>
+              <vue-cropper ref='cropper' :src="params.instructor.headPath" :ready="cropImage" :zoom="cropImage" :cropmove="cropImage" style="width:100%;height:300px;"></vue-cropper>
               <span slot="footer" class="dialog-footer">
                     <el-button @click="cancelCrop">取 消</el-button>
                     <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
                 </span>
             </el-dialog>
           </el-form-item>
-          <el-form-item label="学号：">
-            <el-input v-model="form.account" style="width: 200px"></el-input>
+          <el-form-item label="工号：">
+            <el-input v-model="params.instructor.account" :disabled="true" style="width: 200px"></el-input>
           </el-form-item>
           <el-form-item label="姓名：">
-            <el-input v-model="form.name" style="width: 200px"></el-input>
+            <el-input v-model="params.instructor.insName" :disabled="true" style="width: 200px"></el-input>
           </el-form-item>
           <el-form-item label="性别：">
-            <el-radio-group v-model="form.sex">
-              <el-radio label="男"></el-radio>
-              <el-radio label="女"></el-radio>
+            <el-radio-group v-model="params.instructor.sex">
+              <el-radio :label="0">男</el-radio>
+              <el-radio :label="1">女</el-radio>
             </el-radio-group>
           </el-form-item>
-          <el-form-item label="籍贯：">
-            <el-input v-model="form.address" style="width: 250px"></el-input>
-          </el-form-item>
           <el-form-item label="手机号码：">
-            <el-input v-model="form.phoneNum" style="width: 250px"></el-input>
+            <el-input v-model="params.instructor.phoneNum" style="width: 250px"></el-input>
           </el-form-item>
-          <el-form-item label="高中毕业学校：">
-            <el-input v-model="form.school" style="width: 250px"></el-input>
+          <el-form-item label="办公室地址：">
+            <el-input v-model="params.instructor.officeLocation" style="width: 250px"></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="onSubmit">提交</el-button>
@@ -52,21 +49,23 @@
 </template>
 
 <script>
+  import axios from 'axios';
   import VueCropper  from 'vue-cropperjs';
   export default {
     data: function(){
       return {
-        form: {
-          account: '',
-          name: '',
-          sex: '',
-          address: '',
-          phoneNum: '',
-          school: ''
+        params: {
+          token: '',
+          instructor: {
+            account: '',
+            insName: '',
+            sex: '',
+            phoneNum: '',
+            officeLocation: '',
+            headPath: ''
+          }
         },
-        defaultSrc: require('./img/img.jpg'),
-        imgSrc: '',
-        cropImg: '',
+        defaultSrc: '../static/images/img.jpg',
         dialogVisible: false
       }
     },
@@ -75,7 +74,35 @@
     },
     methods: {
       onSubmit() {
-        this.$message.success('提交成功！');
+        this.params.token = sessionStorage.getItem("access-token");
+        var instructorAxios = axios.create({
+          baseURL: 'http://localhost:8081/api/instructor/'
+        });
+        instructorAxios.post('updatePersonalInfo', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.$message.success('提交成功！');
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
+      },
+      getData() {
+        this.params.token = sessionStorage.getItem("access-token");
+        var instructorAxios = axios.create({
+          baseURL: 'http://localhost:8081/api/instructor/'
+        });
+        instructorAxios.post('getPersonalInfo', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.params.instructor = (res.data.data)[0];
+            if (this.params.instructor.headPath != null) {
+              this.defaultSrc = this.params.instructor.headPath;
+            } else {
+              this.params.instructor.headPath = this.defaultSrc;
+            }
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
       },
       setImage(e){
         const file = e.target.files[0];
@@ -85,21 +112,22 @@
         const reader = new FileReader();
         reader.onload = (event) => {
           this.dialogVisible = true;
-          this.imgSrc = event.target.result;
+          this.params.instructor.headPath = event.target.result;
           this.$refs.cropper && this.$refs.cropper.replace(event.target.result);
         };
         reader.readAsDataURL(file);
       },
       cropImage () {
-        this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
+        this.params.instructor.headPath = this.$refs.cropper.getCroppedCanvas().toDataURL();
       },
       cancelCrop(){
         this.dialogVisible = false;
-        this.cropImg = this.defaultSrc;
+        this.params.instructor.headPath = this.defaultSrc;
       }
     },
     created(){
-      this.cropImg = this.defaultSrc;
+      this.params.instructor.headPath = this.defaultSrc;
+      this.getData();
     }
   }
 </script>

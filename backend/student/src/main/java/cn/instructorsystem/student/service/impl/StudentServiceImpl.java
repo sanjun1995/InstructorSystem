@@ -7,6 +7,7 @@ import cn.instructorsystem.student.service.StudentService;
 import cn.instructorsystem.student.util.TokenUtil;
 import cn.instructorsystem.student.vo.ChangePasswordReqVo;
 import cn.instructorsystem.student.vo.ClassInfoReqVo;
+import cn.instructorsystem.student.vo.PersonalCenterReqVo;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -84,6 +85,35 @@ public class StudentServiceImpl implements StudentService {
             if (n != 0) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    @Override
+    public Student getPersonalInfo(PersonalCenterReqVo personalCenterReqVo) {
+        String token = personalCenterReqVo.getToken();
+        String account = TokenUtil.getContent(token);
+        StudentExample example = new StudentExample();
+        StudentExample.Criteria criteria = example.createCriteria();
+        criteria.andAccountEqualTo(account);
+        List<Student> students = studentMapper.selectByExample(example);
+        if (students.size() != 0) {
+            return students.get(0);
+        }
+        return null;
+    }
+
+    @Override
+    public boolean updatePersonalInfo(PersonalCenterReqVo personalCenterReqVo) {
+        String token = personalCenterReqVo.getToken();
+        String account = TokenUtil.getContent(token);
+        Student student = personalCenterReqVo.getStudent();
+        StudentExample example = new StudentExample();
+        StudentExample.Criteria criteria = example.createCriteria();
+        criteria.andAccountEqualTo(account);
+        int n = studentMapper.updateByExampleSelective(student, example);
+        if (n != 0) {
+            return true;
         }
         return false;
     }

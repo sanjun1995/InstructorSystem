@@ -130,7 +130,7 @@
           if (res.data.code == 200) {
             this.tableData = res.data.data;
           } else {
-            alert(res.data.msg);
+            this.$message.error(res.data.msg);
           }
         });
       },

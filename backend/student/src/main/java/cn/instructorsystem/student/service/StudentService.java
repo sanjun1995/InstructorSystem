@@ -3,6 +3,7 @@ package cn.instructorsystem.student.service;
 import cn.instructorsystem.student.model.Student;
 import cn.instructorsystem.student.vo.ChangePasswordReqVo;
 import cn.instructorsystem.student.vo.ClassInfoReqVo;
+import cn.instructorsystem.student.vo.PersonalCenterReqVo;
 
 import java.util.List;
 
@@ -16,4 +17,8 @@ public interface StudentService {
     List<Student> getStudentInfosByPage(ClassInfoReqVo studentReqVo);
 
     boolean changePassword(ChangePasswordReqVo changePasswordReqVo);
+
+    Student getPersonalInfo(PersonalCenterReqVo personalCenterReqVo);
+
+    boolean updatePersonalInfo(PersonalCenterReqVo personalCenterReqVo);
 }

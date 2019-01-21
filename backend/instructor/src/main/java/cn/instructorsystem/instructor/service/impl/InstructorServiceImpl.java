@@ -6,6 +6,7 @@ import cn.instructorsystem.instructor.model.InstructorExample;
 import cn.instructorsystem.instructor.service.InstructorService;
 import cn.instructorsystem.instructor.util.TokenUtil;
 import cn.instructorsystem.instructor.vo.ChangePasswordReqVo;
+import cn.instructorsystem.instructor.vo.PersonalCenterReqVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,6 +58,35 @@ public class InstructorServiceImpl implements InstructorService {
             if (n != 0) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    @Override
+    public Instructor getPersonalInfo(PersonalCenterReqVo personalCenterReqVo) {
+        String token = personalCenterReqVo.getToken();
+        String account = TokenUtil.getContent(token);
+        InstructorExample example = new InstructorExample();
+        InstructorExample.Criteria criteria = example.createCriteria();
+        criteria.andAccountEqualTo(account);
+        List<Instructor> students = instructorMapper.selectByExample(example);
+        if (students.size() != 0) {
+            return students.get(0);
+        }
+        return null;
+    }
+
+    @Override
+    public boolean updatePersonalInfo(PersonalCenterReqVo personalCenterReqVo) {
+        String token = personalCenterReqVo.getToken();
+        String account = TokenUtil.getContent(token);
+        Instructor instructor = personalCenterReqVo.getInstructor();
+        InstructorExample example = new InstructorExample();
+        InstructorExample.Criteria criteria = example.createCriteria();
+        criteria.andAccountEqualTo(account);
+        int n = instructorMapper.updateByExampleSelective(instructor, example);
+        if (n != 0) {
+            return true;
         }
         return false;
     }

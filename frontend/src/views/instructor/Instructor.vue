@@ -17,17 +17,17 @@
           </el-tooltip>
           <span class="btn-bell-badge" v-if="message"></span>
         </div>
-        <div class="user-avator"><img src="./img/img.jpg"></div>
+        <div class="user-avator"><img :src="params.instructor.headPath"></div>
         <el-dropdown trigger="click" style="font-size: 17px;color: #fff;">
           <span class="el-dropdown-link">
-            {{params.stuName}}<i class="el-icon-caret-bottom el-icon--right"></i>
+            {{params.instructor.insName}}<i class="el-icon-caret-bottom el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>
-              <div @click="jumpTo('/student/profile')"><span style="color: #555;font-size: 14px;">个人信息</span></div>
+              <div @click="jumpTo('/instructor/insPersonalCenter')"><span style="color: #555;font-size: 14px;">个人中心</span></div>
             </el-dropdown-item>
             <el-dropdown-item>
-              <div @click="jumpTo('/student/changepwd')"><span style="color: #555;font-size: 14px;">修改密码</span></div>
+              <div @click="jumpTo('/instructor/insChangePassword')"><span style="color: #555;font-size: 14px;">修改密码</span></div>
             </el-dropdown-item>
             <el-dropdown-item divided @click.native = "logout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
@@ -108,6 +108,7 @@
 <script>
   import vTags from './Tags.vue';
   import bus from './bus.js';
+  import axios from 'axios';
   export default {
     data() {
       return {
@@ -115,17 +116,41 @@
         tagsList: [],
         message: 2,
         params: {
-          stuName: '卜翠娟'
+          token: '',
+          instructor: {
+            account: '',
+            insName: '',
+            headPath: ''
+          }
         },
         path: [
           '/instructor/insHomePage'
         ],
+        defaultSrc: '../static/images/img.jpg'
       }
     },
     components: {
       vTags
     },
     methods: {
+      getData() {
+        this.params.token = sessionStorage.getItem("access-token");
+        var instructorAxios = axios.create({
+          baseURL: 'http://localhost:8081/api/instructor/'
+        });
+        instructorAxios.post('getPersonalInfo', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.params.instructor = (res.data.data)[0];
+            if (this.params.instructor.headPath != null) {
+              this.defaultSrc = this.params.instructor.headPath;
+            } else {
+              this.params.instructor.headPath = this.defaultSrc;
+            }
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
+      },
       jumpTo(url){
         this.defaultActiveIndex = url;
         this.$router.push(url); // 用go刷新
@@ -138,24 +163,11 @@
         }
       },
       logout(){
-        let that = this;
         this.$confirm('确认退出吗?', '提示', {
           confirmButtonClass: 'el-button--warning'
         }).then(() => {
-          //确认
-          that.loading = true;
-          API.logout().then(function (result) {
-            that.loading = false;
-            localStorage.removeItem('access-user');
-            that.$router.go('/login'); //用go刷新
-          }, function (err) {
-            that.loading = false;
-            that.$message.error({showClose: true, message: err.toString(), duration: 2000});
-          }).catch(function (error) {
-            that.loading = false;
-            console.log(error);
-            that.$message.error({showClose: true, message: '请求出现异常', duration: 2000});
-          });
+          window.sessionStorage.removeItem('access-token');
+          this.$router.push("/login");
         }).catch(() => {});
       }
     },
@@ -167,7 +179,9 @@
           msg[i].name && arr.push(msg[i].name);
         }
         this.tagsList = arr;
-      })
+      });
+      this.params.instructor.headPath = this.defaultSrc;
+      this.getData();
     }
   };
 </script>

@@ -6,6 +6,7 @@ import cn.instructorsystem.instructor.service.InstructorService;
 import cn.instructorsystem.instructor.util.ResponseCode;
 import cn.instructorsystem.instructor.util.TokenUtil;
 import cn.instructorsystem.instructor.vo.ChangePasswordReqVo;
+import cn.instructorsystem.instructor.vo.PersonalCenterReqVo;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,6 +68,47 @@ public class InstructorController {
             res.setCode(ResponseCode.FAILURE);
             res.setMsg("change password failure!");
             logger.info("instructor.changePassword() ChangePasswordReqVo: {}，修改密码失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
+    @PostMapping(value = "/getPersonalInfo")
+    public ResResult<Instructor> getPersonalInfo(@RequestBody PersonalCenterReqVo vo) {
+        Instructor instructor = instructorService.getPersonalInfo(vo);
+        ResResult<Instructor> res = new ResResult<>();
+        res.setToken(vo.getToken());
+        if (instructor != null) {
+            List<Instructor> instructors = new ArrayList<>();
+            instructors.add(instructor);
+            res.setData(instructors);
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("getPersonalInfo success!");
+            logger.info("instructor.getPersonalInfo() PersonalCenterReqVo: {}，获取个人信息成功！", JSON.toJSONString(vo));
+        } else {
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("getPersonalInfo failure!");
+            logger.info("instructor.getPersonalInfo() PersonalCenterReqVo: {}，修改个人信息失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
+    @PostMapping(value = "/updatePersonalInfo")
+    public ResResult<Instructor> updatePersonalInfo(@RequestBody PersonalCenterReqVo vo) {
+        boolean isUpdate = instructorService.updatePersonalInfo(vo);
+        ResResult<Instructor> res = new ResResult<>();
+        res.setToken(vo.getToken());
+        if (isUpdate) {
+            List<Instructor> instructors = new ArrayList<>();
+            Instructor instructor = instructorService.getPersonalInfo(vo);
+            instructors.add(instructor);
+            res.setData(instructors);
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("updateInstructorInfo success!");
+            logger.info("instructor.updateInstructorInfo() PersonalCenterReqVo: {}，更新个人信息成功！", JSON.toJSONString(vo));
+        } else {
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("updateInstructorInfo failure!");
+            logger.info("instructor.updateInstructorInfo() PersonalCenterReqVo: {}，更新个人信息失败！", JSON.toJSONString(vo));
         }
         return res;
     }
