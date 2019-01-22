@@ -10,7 +10,7 @@
         <div class="select-stu">
           姓名：<el-input v-model="params.student.stuName" class="handle-input"></el-input>
           宿舍：<el-input v-model="params.student.dormitory" class="handle-input"></el-input>
-          <el-button type="primary" icon="search" @click="search">搜索</el-button>
+          <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
         </div>
       </div>
       <div class="handle-table">

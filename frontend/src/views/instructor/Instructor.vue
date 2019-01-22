@@ -66,19 +66,19 @@
                 <span class="fontFamily ins-yidongduanicon-"></span>
                 <span slot="title" class="menu-title">预约管理</span>
               </el-menu-item>
-              <el-menu-item index="">
+              <el-menu-item index="/instructor/insNotice">
                 <span class="fontFamily ins-gonggao"></span>
                 <span slot="title" class="menu-title">公告</span>
               </el-menu-item>
-              <el-menu-item index="">
+              <el-menu-item index="/instructor/insMemorandum">
                 <span class="fontFamily ins-beiwanglushili"></span>
                 <span slot="title" class="menu-title">备忘录</span>
               </el-menu-item>
-              <el-menu-item index="">
+              <el-menu-item index="/instructor/insBulletinCriticism">
                 <span class="fontFamily ins-jinggao"></span>
                 <span slot="title" class="menu-title">通报管理</span>
               </el-menu-item>
-              <el-menu-item index="">
+              <el-menu-item index="/instructor/insScore">
                 <span class="fontFamily ins-chengjiguanli"></span>
                 <span slot="title" class="menu-title">成绩管理</span>
               </el-menu-item>
@@ -112,7 +112,7 @@
   export default {
     data() {
       return {
-        defaultActiveIndex: "0",
+        defaultActiveIndex: '',
         tagsList: [],
         message: 2,
         params: {
@@ -156,11 +156,7 @@
         this.$router.push(url); // 用go刷新
       },
       handleSelect(route) {
-        if (route !== "") {
           this.$router.push({path: route});
-        } else {
-          alert("该模块还在开发进行中")
-        }
       },
       logout(){
         this.$confirm('确认退出吗?', '提示', {
@@ -221,10 +217,11 @@
   .user-avator img{
     display: block;
     float: left;
-    width:40px;
-    height:40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
   }
+
   .el-header {
     background-color: #545c64;
     color: #333;
@@ -233,6 +230,10 @@
 
   .el-aside {
     color: #333;
+  }
+
+  .el-dropdown {
+    padding-left: 10px;
   }
 
   .topbar-logo {
@@ -251,7 +252,7 @@
 
   .topbar-account {
     float: right;
-    width: 160px;
+    width: 180px;
     padding-right: 12px;
   }
   .topbar-btn {

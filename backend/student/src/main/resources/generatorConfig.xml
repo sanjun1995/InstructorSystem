@@ -66,7 +66,17 @@
 
         <!--生成对应表及类名-->
 
-        <table tableName="student" domainObjectName="Student" enableCountByExample="false"
+<!--        <table tableName="student" domainObjectName="Student" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>-->
+
+        <table tableName="leave" domainObjectName="Leave" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>
+
+        <table tableName="appointment" domainObjectName="Appointment" enableCountByExample="false"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>

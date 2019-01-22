@@ -8,16 +8,17 @@
         <span style="font-size: 18px;color: #fff;">辅导员管理系统（学生端）</span>
       </div>
       <div class="topbar-account topbar-btn">
+        <div class="user-avator"><img :src="params.student.headPath"></div>
         <el-dropdown trigger="click" style="font-size: 15px;color: #fff;">
           <span class="el-dropdown-link">
-            {{params.stuName}}<i class="el-icon-caret-bottom el-icon--right"></i>
+            {{params.student.stuName}}<i class="el-icon-caret-bottom el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>
-              <div @click="jumpTo('/student/profile')"><span style="color: #555;font-size: 14px;">个人信息</span></div>
+              <div @click="jumpTo('/student/stuPersonalCenter')"><span style="color: #555;font-size: 14px;">个人信息</span></div>
             </el-dropdown-item>
             <el-dropdown-item>
-              <div @click="jumpTo('/student/changepwd')"><span style="color: #555;font-size: 14px;">修改密码</span></div>
+              <div @click="jumpTo('/student/stuChangePassword')"><span style="color: #555;font-size: 14px;">修改密码</span></div>
             </el-dropdown-item>
             <el-dropdown-item divided @click.native = "logout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
@@ -25,7 +26,7 @@
       </div>
     </el-header>
     <el-container>
-      <el-aside width="150px" style="background-color: #333744">
+      <el-aside width="230px" style="background-color: #333744">
         <el-row class="tac">
           <el-col :span="24">
             <el-menu
@@ -61,54 +62,92 @@
         </el-row>
       </el-aside>
       <el-main>
-        <router-view></router-view>
+        <div class="content-box">
+          <v-tags></v-tags>
+          <div class="content">
+            <transition name="move" mode="out-in">
+              <keep-alive :include="tagsList">
+                <router-view></router-view>
+              </keep-alive>
+            </transition>
+          </div>
+        </div>
       </el-main>
     </el-container>
   </el-container>
 </template>
 <script>
+  import vTags from './Tags.vue';
+  import bus from './bus.js';
+  import axios from 'axios';
   export default {
     data() {
       return {
-        defaultActiveIndex: "0",
+        defaultActiveIndex: '',
+        tagsList: [],
         params: {
-          stuName: '曹志鑫'
-        }
+          token: '',
+          student: {
+            account: '',
+            stuName: '',
+            headPath: ''
+          }
+        },
+        path: [
+          '/student/insHomePage'
+        ],
+        defaultSrc: '../static/images/img.jpg'
       }
     },
+    components: {
+      vTags
+    },
     methods: {
+      getData() {
+        this.params.token = sessionStorage.getItem("access-token");
+        var studentAxios = axios.create({
+          baseURL: 'http://localhost:8080/api/student/'
+        });
+        studentAxios.post('getPersonalInfo', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.params.student = (res.data.data)[0];
+            if (this.params.student.headPath != null) {
+              this.defaultSrc = this.params.student.headPath;
+            } else {
+              this.params.student.headPath = this.defaultSrc;
+            }
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
+      },
       jumpTo(url){
         this.defaultActiveIndex = url;
         this.$router.push(url); // 用go刷新
       },
       handleSelect(route) {
-        if (route !== "") {
           this.$router.push({path: route});
-        } else {
-          alert("该模块还在开发进行中")
-        }
       },
       logout(){
-        let that = this;
         this.$confirm('确认退出吗?', '提示', {
           confirmButtonClass: 'el-button--warning'
         }).then(() => {
-          //确认
-          that.loading = true;
-          API.logout().then(function (result) {
-            that.loading = false;
-            localStorage.removeItem('access-user');
-            that.$router.go('/login'); //用go刷新
-          }, function (err) {
-            that.loading = false;
-            that.$message.error({showClose: true, message: err.toString(), duration: 2000});
-          }).catch(function (error) {
-            that.loading = false;
-            console.log(error);
-            that.$message.error({showClose: true, message: '请求出现异常', duration: 2000});
-          });
+          window.sessionStorage.removeItem('access-token');
+          this.$router.push("/login");
         }).catch(() => {});
       }
+    },
+    created() {
+      // 只有在标签页列表里的页面才使用keep-alive，即关闭标签之后就不保存到内存中了。
+      bus.$on('tags', msg => {
+        let arr = [];
+        for(let i = 0, len = msg.length; i < len; i ++){
+          msg[i].name && arr.push(msg[i].name);
+        }
+        this.tagsList = arr;
+      });
+      this.params.student.headPath = this.defaultSrc;
+      this.getData();
     }
   };
 </script>
@@ -128,6 +167,10 @@
     color: #333;
   }
 
+  .el-dropdown {
+    padding-left: 10px;
+  }
+
   .topbar-logo {
     float: left;
     line-height: 26px;
@@ -144,8 +187,18 @@
 
   .topbar-account {
     float: right;
-    padding-right: 12px;
+    width: 130px;
+    padding-right: 10px;
   }
+
+  .user-avator img{
+    display: block;
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
   .topbar-btn {
     color: #fff;
   }

@@ -2,23 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40af623d-0c09-4b68-aa60-04a3fa43ce63" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/vo/PersonalCenterReqVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/views/student/img/zhixin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/static/images/img.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/static/images/zhixin.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/BulletinCriticism.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/Memorandum.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/Score.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/views/student/Tags.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/views/student/bus.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/InstructorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/InstructorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/InstructorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/InstructorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/InstructorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/InstructorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/controller/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/service/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/service/impl/StudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/service/impl/StudentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/vo/PersonalCenterReqVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/vo/PersonalCenterReqVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/build/webpack.base.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/build/webpack.base.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/views/instructor/ClassInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/ClassInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/views/student/Leave.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/student/Leave.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/views/student/PersonalCenter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/student/PersonalCenter.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructor/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/instructor/src/main/resources/generatorConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/resources/generatorConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/views/instructor/Instructor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/Instructor.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/views/instructor/Notice.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/Notice.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/views/student/Student.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/student/Student.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,25 +29,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/vo/PersonalCenterReqVo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-              <folding>
-                <element signature="e#212#213#0" expanded="true" />
-                <element signature="e#240#241#0" expanded="true" />
-                <element signature="e#282#283#0" expanded="true" />
-                <element signature="e#316#317#0" expanded="true" />
-                <element signature="e#351#352#0" expanded="true" />
-                <element signature="e#381#382#0" expanded="true" />
-                <element signature="e#428#429#0" expanded="true" />
-                <element signature="e#466#467#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/vo/PersonalCenterReqVo.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
@@ -60,18 +36,6 @@
               <folding>
                 <element signature="e#354#355#0" expanded="true" />
                 <element signature="e#384#385#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/service/StudentService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="20" selection-start-line="20" selection-end-line="22" selection-end-column="72" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -92,11 +56,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/InstructorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="763">
+            <state relative-caret-position="173">
               <caret line="112" column="19" lean-forward="true" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/dao/InstructorMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/mapper/InstructorMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/generatorConfig.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1364">
+              <caret line="76" column="14" lean-forward="true" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/student/src/main/resources/generatorConfig.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="78" column="58" selection-start-line="78" selection-start-column="58" selection-end-line="78" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -126,31 +126,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/vo/ChangePasswordReqVo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/service/impl/StudentServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="90" selection-start-line="90" selection-end-line="118" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+            <state relative-caret-position="192">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -188,7 +167,6 @@
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/config/dao/DruidDBConfig.java" />
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/dao/StudentMapper.java" />
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/dao/SysManagerMapper.java" />
-        <option value="$PROJECT_DIR$/student/src/main/resources/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/util/cache/RedisCache.java" />
         <option value="$PROJECT_DIR$/sysmanager/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/sysmanager/src/main/java/cn/instructorsystem/sysmanager/service/impl/SysManagerServiceImpl.java" />
@@ -201,7 +179,6 @@
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/config/dao/DruidDBConfig.java" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/config/service/TransactionManagementConfiguration.java" />
         <option value="$PROJECT_DIR$/instructor/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/instructor/src/main/resources/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/instructor/pom.xml" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/InstructorService.java" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/Instructor.java" />
@@ -232,6 +209,8 @@
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/vo/PersonalCenterReqVo.java" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/InstructorServiceImpl.java" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/InstructorController.java" />
+        <option value="$PROJECT_DIR$/student/src/main/resources/generatorConfig.xml" />
+        <option value="$PROJECT_DIR$/instructor/src/main/resources/generatorConfig.xml" />
       </list>
     </option>
   </component>
@@ -326,6 +305,28 @@
               <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="instructor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="dao" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="instructor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="model" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="instructor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -350,6 +351,21 @@
               <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="instructor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="vo" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="mapper" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -434,6 +450,13 @@
               <item name="service" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="impl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
+            <path>
+              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -447,7 +470,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548040275258" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548124477699" />
     <property name="last_opened_file_path" value="D:/JoinPay/gw_pay" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -481,7 +504,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.InstructorApplication">
+  <component name="RunManager" selected="Maven.mybatis:generate">
     <configuration name="TokenUtil (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.instructorsystem.instructor.util.TokenUtil" />
       <module name="instructor" />
@@ -656,12 +679,12 @@
       <workItem from="1547082415310" duration="1454000" />
       <workItem from="1547904797635" duration="1360000" />
       <workItem from="1547960586109" duration="1197000" />
-      <workItem from="1548031475658" duration="4915000" />
+      <workItem from="1548031475658" duration="9211000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126591000" />
+    <option name="totallyTimeSpent" value="130887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -678,7 +701,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.37252125" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.35835695" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.43909347" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -708,7 +731,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/jre/lib/jce.jar!/javax/crypto/KeyGenerator.class" />
     <entry file="file://$PROJECT_DIR$/sysmanager/src/main/java/cn/instructorsystem/sysmanager/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -761,13 +783,6 @@
     <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/mybatis-config.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/generatorConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sysmanager/src/main/resources/generatorConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1680">
@@ -817,13 +832,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/model/res/ResponseResult.java" />
-    <entry file="file://$PROJECT_DIR$/student/src/main/resources/generatorConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/student/src/test/java/cn/instructorsystem/student/StudentApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -912,13 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/mapper/InstructorMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6072">
-          <caret line="253" column="11" selection-start-line="253" selection-start-column="11" selection-end-line="253" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/model/res/ResResult.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -926,13 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student/src/main/resources/mapper/StudentMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6312">
-          <caret line="263" column="11" selection-start-line="263" selection-start-column="11" selection-end-line="263" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1060,9 +1054,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/InstructorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
+        <state relative-caret-position="173">
           <caret line="112" column="19" lean-forward="true" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1070,10 +1071,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java">
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/dao/InstructorMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/mapper/InstructorMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/main/resources/mapper/StudentMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="263" column="11" selection-start-line="263" selection-start-column="11" selection-end-line="263" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/main/resources/generatorConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="78" column="58" selection-start-line="78" selection-start-column="58" selection-end-line="78" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/generatorConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1364">
+          <caret line="76" column="14" lean-forward="true" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
         </state>
       </provider>
     </entry>

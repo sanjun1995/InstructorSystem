@@ -15,6 +15,10 @@ import InsLeave from '@/views/instructor/Leave'
 import InsAppointment from '@/views/instructor/Appointment'
 import InsChangePassword from '@/views/instructor/ChangePassword'
 import InsClassInfo from '@/views/instructor/ClassInfo'
+import insNotice from '@/views/instructor/Notice'
+import insMemorandum from '@/views/instructor/Memorandum'
+import insBulletinCriticism from '@/views/instructor/BulletinCriticism'
+import insScore from '@/views/instructor/Score'
 
 Vue.use(vueRouter)
 
@@ -56,7 +60,11 @@ let router = new vueRouter({
         {path: 'insLeave', component: InsLeave, name: 'insLeave', meta: { title: '请假管理'}},
         {path: 'insAppointment', component: InsAppointment, name: 'insAppointment', meta: { title: '预约管理'}},
         {path: 'insChangePassword', component: InsChangePassword, name: 'insChangePassword', meta: { title: '修改密码'}},
-        {path: 'insClassInfo', component: InsClassInfo, name: 'insClassInfo', meta: { title: '班级管理'}}
+        {path: 'insClassInfo', component: InsClassInfo, name: 'insClassInfo', meta: { title: '班级管理'}},
+        {path: 'insNotice', component: insNotice, name: 'insNotice', meta: { title: '公告'}},
+        {path: 'insMemorandum', component: insMemorandum, name: 'insMemorandum', meta: { title: '备忘录'}},
+        {path: 'insBulletinCriticism', component: insBulletinCriticism, name: 'insBulletinCriticism', meta: { title: '通报管理'}},
+        {path: 'insScore', component: insScore, name: 'insScore', meta: { title: '成绩管理'}}
       ]
     }
   ]
