@@ -1,5 +1,7 @@
 package cn.instructorsystem.student.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Leave {
@@ -7,27 +9,33 @@ public class Leave {
 
     private String account;
 
-    private String insName;
+    private String stuName;
 
-    private String type;
+    private String leaveType;
 
     private Date startTime;
 
     private Date endTime;
 
-    private String cause;
+    private String reason;
 
-    private Integer state;
+    private Integer status;
 
-    public Leave(Integer id, String account, String insName, String type, Date startTime, Date endTime, String cause, Integer state) {
+    private String attachment;
+
+    private String duration;
+
+    public Leave(Integer id, String account, String stuName, String leaveType, Date startTime, Date endTime, String reason, Integer status, String attachment, String duration) {
         this.id = id;
         this.account = account;
-        this.insName = insName;
-        this.type = type;
+        this.stuName = stuName;
+        this.leaveType = leaveType;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.cause = cause;
-        this.state = state;
+        this.reason = reason;
+        this.status = status;
+        this.attachment = attachment;
+        this.duration = duration;
     }
 
     public Leave() {
@@ -50,20 +58,20 @@ public class Leave {
         this.account = account == null ? null : account.trim();
     }
 
-    public String getInsName() {
-        return insName;
+    public String getStuName() {
+        return stuName;
     }
 
-    public void setInsName(String insName) {
-        this.insName = insName == null ? null : insName.trim();
+    public void setStuName(String stuName) {
+        this.stuName = stuName == null ? null : stuName.trim();
     }
 
-    public String getType() {
-        return type;
+    public String getLeaveType() {
+        return leaveType;
     }
 
-    public void setType(String type) {
-        this.type = type == null ? null : type.trim();
+    public void setLeaveType(String leaveType) {
+        this.leaveType = leaveType == null ? null : leaveType.trim();
     }
 
     public Date getStartTime() {
@@ -82,19 +90,35 @@ public class Leave {
         this.endTime = endTime;
     }
 
-    public String getCause() {
-        return cause;
+    public String getReason() {
+        return reason;
     }
 
-    public void setCause(String cause) {
-        this.cause = cause == null ? null : cause.trim();
+    public void setReason(String reason) {
+        this.reason = reason == null ? null : reason.trim();
     }
 
-    public Integer getState() {
-        return state;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getAttachment() {
+        return attachment;
+    }
+
+    public void setAttachment(String attachment) {
+        this.attachment = attachment == null ? null : attachment.trim();
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration == null ? null : duration.trim();
     }
 }

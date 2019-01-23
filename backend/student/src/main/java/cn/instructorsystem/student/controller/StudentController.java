@@ -62,6 +62,7 @@ public class StudentController {
             res.setData(students);
             res.setCode(ResponseCode.FAILURE);
             res.setMsg("query student information failure!");
+            logger.info("student.getStudentInfos() studentReqVo: {}，获取学生列表失败！", JSON.toJSONString(vo));
         }
         return res;
     }

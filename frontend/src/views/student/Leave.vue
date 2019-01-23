@@ -8,19 +8,22 @@
       </div>
       <div class="handle-table">
         <el-table :data="tableData">
-          <el-table-column prop="type" align="center" label="休假类型" width="150">
+          <el-table-column prop="leaveType" align="center" :formatter="formatType" label="休假类型" width="150">
           </el-table-column>
-          <el-table-column prop="startTime" align="center" label="开始时间" width="230">
+          <el-table-column prop="startTime" align="center" :formatter="formatStartTime" label="开始时间" width="230">
           </el-table-column>
-          <el-table-column prop="endTime" align="center" label="结束时间" width="230">
+          <el-table-column prop="endTime" align="center" :formatter="formatEndTime" label="结束时间" width="230">
           </el-table-column>
           <el-table-column prop="duration" align="center" label="时长" width="100">
           </el-table-column>
-          <el-table-column prop="cause" align="center" label="事由" width="240">
+          <el-table-column prop="reason" align="center" label="事由" width="240">
           </el-table-column>
           <el-table-column prop="attachment" align="center" label="附件" width="100">
           </el-table-column>
-          <el-table-column prop="state" align="center" label="审批状态" width="150">
+          <el-table-column align="center" label="审批状态" width="150">
+            <template slot-scope="scope">
+              <span v-html="brightenKeyword(scope.row.status)" ></span>
+            </template>
           </el-table-column>
         </el-table>
       </div>
@@ -38,7 +41,8 @@
           <el-date-picker
             v-model="params.leave.startTime"
             type="datetime"
-            placeholder="选择日期时间">
+            placeholder="选择日期时间"
+            default-time="08:00:00">
           </el-date-picker>
         </div>
         <div class="end-time">
@@ -46,7 +50,8 @@
           <el-date-picker
             v-model="params.leave.endTime"
             type="datetime"
-            placeholder="选择日期时间">
+            placeholder="选择日期时间"
+            default-time="20:30:00">
           </el-date-picker>
         </div>
         <div class="leave-type">
@@ -55,6 +60,7 @@
             <el-option key="1" label="事假" value="1"></el-option>
             <el-option key="2" label="病假" value="2"></el-option>
             <el-option key="3" label="公假" value="3"></el-option>
+            <el-option key="4" label="其他" value="4"></el-option>
           </el-select>
         </div>
         <div class="duration">
@@ -72,7 +78,7 @@
             type="textarea"
             :rows="4"
             placeholder=""
-            v-model="params.leave.cause" class="handle-textarea">
+            v-model="params.leave.reason" class="handle-textarea">
           </el-input>
         </div>
         <div class="attachment">
@@ -95,60 +101,104 @@
 
 <script>
   import axios from 'axios';
+  import {formatDate} from "../../../static/js/date";
   export default {
     name: 'basetable',
     data() {
       return {
-        url: './static/vuetable.json',
-        stuName: '',
         params: {
+          token: '',
+          pageNum: '1',
           leave: {
-            type: '',
+            leaveType: '',
+            account: '',
+            stuName: '',
             startTime: '',
             endTime: '',
             duration: '',
-            cause: ''
+            reason: '',
+            attachment: '',
+            status: '0'
           }
         },
-        tableData: [
-          {
-            type: '事假',
-            startTime: '2019-01-11 09:00:00',
-            endTime: '2019-01-18 18:00:00',
-            duration: '6天',
-            cause: '学校班级出游',
-            attachment: '',
-            state: '通过'
-          }, {
-            type: '病假',
-            startTime: '2018-12-22 09:00:00',
-            endTime: '2018-12-22 18:00:00',
-            duration: '1天',
-            cause: '感冒，看医生',
-            attachment: '',
-            state: '待审批'
-          }
-        ],
         selectType: '',
         editVisible: false,
-        delVisible: false,
-        idx: -1
+        tableData: []
       }
     },
     methods: {
       // 分页导航
       handleCurrentChange(val) {
         this.params.pageNum = val;
+        this.getData();
+      },
+      getData() {
+        this.params.leave.account = this.$store.state.account;
+        var studentAxios = axios.create({
+          baseURL: 'http://localhost:8080/api/leave/'
+        });
+        studentAxios.post('getLeaveInfos', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.tableData = res.data.data;
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
       },
       showLeave() {
         this.editVisible = true;
       },
       saveLeave() {
-
+        this.editVisible = false;
+        this.params.token = sessionStorage.getItem("access-token");
+        this.params.leave.stuName = this.$store.state.name;
+        this.params.leave.account = this.$store.state.account;
+        var leaveAxios = axios.create({
+          baseURL: 'http://localhost:8080/api/leave/'
+        });
+        leaveAxios.post('insertLeaveInfo', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.$message.success("请假已进入审批中");
+            this.getData();
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
       },
       currentSel(val) {
-        this.params.leave.type = val;
+        this.params.leave.leaveType = val;
+      },
+      formatType(row, column) {
+        var result = '';
+        if (row.leaveType == 1) {
+          result = '事假';
+        } else if (row.leaveType == 2) {
+          result = '病假';
+        } else if (row.leaveType == 3) {
+          result = '公假';
+        } else {
+          result = '其他';
+        }
+        return result;
+      },
+      formatStartTime(row, column) {
+        var date = new Date(row.startTime);
+        return formatDate(date, "yyyy-MM-dd hh:mm:ss");
+      },
+      formatEndTime(row, column) {
+        var date = new Date(row.endTime);
+        return formatDate(date, "yyyy-MM-dd hh:mm:ss");
+      },
+      brightenKeyword(val) {
+        if (val == 0) {
+          return '<font color="red">待审批</font>';
+        } else {
+          return '<font color="green">通过</font>';
+        }
       }
+    },
+    created() {
+      this.getData();
     }
   }
 

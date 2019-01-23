@@ -15,10 +15,11 @@ import InsLeave from '@/views/instructor/Leave'
 import InsAppointment from '@/views/instructor/Appointment'
 import InsChangePassword from '@/views/instructor/ChangePassword'
 import InsClassInfo from '@/views/instructor/ClassInfo'
-import insNotice from '@/views/instructor/Notice'
-import insMemorandum from '@/views/instructor/Memorandum'
-import insBulletinCriticism from '@/views/instructor/BulletinCriticism'
-import insScore from '@/views/instructor/Score'
+import InsNotice from '@/views/instructor/Notice'
+import InsMemorandum from '@/views/instructor/Memorandum'
+import InsBulletinCriticism from '@/views/instructor/BulletinCriticism'
+import InsScore from '@/views/instructor/Score'
+import InsNotifications from '@/views/instructor/Notifications'
 
 Vue.use(vueRouter)
 
@@ -61,10 +62,11 @@ let router = new vueRouter({
         {path: 'insAppointment', component: InsAppointment, name: 'insAppointment', meta: { title: '预约管理'}},
         {path: 'insChangePassword', component: InsChangePassword, name: 'insChangePassword', meta: { title: '修改密码'}},
         {path: 'insClassInfo', component: InsClassInfo, name: 'insClassInfo', meta: { title: '班级管理'}},
-        {path: 'insNotice', component: insNotice, name: 'insNotice', meta: { title: '公告'}},
-        {path: 'insMemorandum', component: insMemorandum, name: 'insMemorandum', meta: { title: '备忘录'}},
-        {path: 'insBulletinCriticism', component: insBulletinCriticism, name: 'insBulletinCriticism', meta: { title: '通报管理'}},
-        {path: 'insScore', component: insScore, name: 'insScore', meta: { title: '成绩管理'}}
+        {path: 'insNotifications', component: InsNotifications, name: 'insNotifications', meta: { title: '消息管理'}},
+        {path: 'insNotice', component: InsNotice, name: 'insNotice', meta: { title: '公告'}},
+        {path: 'insMemorandum', component: InsMemorandum, name: 'insMemorandum', meta: { title: '备忘录'}},
+        {path: 'insBulletinCriticism', component: InsBulletinCriticism, name: 'insBulletinCriticism', meta: { title: '通报管理'}},
+        {path: 'insScore', component: InsScore, name: 'insScore', meta: { title: '成绩管理'}}
       ]
     }
   ]

@@ -30,6 +30,7 @@
         accountForm: {
           account: '19990',
           password: '123456',
+          name: '',
           role: '2'
         },
         rules: {
@@ -49,6 +50,8 @@
                 if (res.data.code == 200) {
                   //登录成功，把用户信息保存在sessionStorage中
                   sessionStorage.setItem('access-token', res.data.token);
+                  this.$store.commit("setAccount", res.data.data[0].account);
+                  this.$store.commit("setName", res.data.data[0].stuName);
                   //跳转到后台主界面
                   this.$router.push({ path: '/student/stuHomePage' });
                 } else {
@@ -63,6 +66,8 @@
                 if (res.data.code == 200) {
                   //登录成功，把用户信息保存在sessionStorage中
                   sessionStorage.setItem('access-token', res.data.token);
+                  this.$store.commit("setAccount", res.data.data[0].account);
+                  this.$store.commit("setName", res.data.data[0].insName);
                   //跳转到后台主界面
                   this.$router.push({ path: '/instructor/insHomePage' });
                 } else {

@@ -70,7 +70,11 @@
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>-->
-        <table tableName="instructor_student" domainObjectName="InstructorStudent" enableCountByExample="false"
+<!--        <table tableName="instructor_student" domainObjectName="InstructorStudent" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>-->
+        <table tableName="notification" domainObjectName="Notification" enableCountByExample="false"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>

@@ -71,7 +71,7 @@
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>-->
 
-        <table tableName="leave" domainObjectName="Leave" enableCountByExample="false"
+        <table tableName="t_leave" domainObjectName="Leave" enableCountByExample="false"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>

@@ -40,9 +40,9 @@ public class StudentServiceImpl implements StudentService {
     @Override
         public List<Student> getStudentInfosByPage(ClassInfoReqVo vo) {
         Integer pageNum = vo.getPageNum();
-        Integer pageSie = vo.getPageSize();
+        Integer pageSize = vo.getPageSize();
         Student stu = vo.getStudent();
-        PageHelper.startPage(pageNum, pageSie);
+        PageHelper.startPage(pageNum, pageSize);
         StudentExample example = new StudentExample();
         StudentExample.Criteria criteria = example.createCriteria();
 
