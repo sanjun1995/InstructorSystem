@@ -4,10 +4,11 @@
   <resultMap id="BaseResultMap" type="cn.instructorsystem.instructor.model.Notification" >
     <constructor >
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="account" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="account" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="stu_name" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="news_type" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="is_read" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="news_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="is_read" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="ins_account" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, account, stu_name, news_type, is_read
+    id, account, stu_name, news_type, is_read, ins_account
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.instructorsystem.instructor.model.NotificationExample" >
     select
@@ -104,9 +105,11 @@
   </delete>
   <insert id="insert" parameterType="cn.instructorsystem.instructor.model.Notification" >
     insert into notification (id, account, stu_name, 
-      news_type, is_read)
-    values (#{id,jdbcType=INTEGER}, #{account,jdbcType=INTEGER}, #{stuName,jdbcType=VARCHAR}, 
-      #{newsType,jdbcType=VARCHAR}, #{isRead,jdbcType=VARCHAR})
+      news_type, is_read, ins_account
+      )
+    values (#{id,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{stuName,jdbcType=VARCHAR}, 
+      #{newsType,jdbcType=INTEGER}, #{isRead,jdbcType=INTEGER}, #{insAccount,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.instructorsystem.instructor.model.Notification" >
     insert into notification
@@ -126,22 +129,28 @@
       <if test="isRead != null" >
         is_read,
       </if>
+      <if test="insAccount != null" >
+        ins_account,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
       <if test="account != null" >
-        #{account,jdbcType=INTEGER},
+        #{account,jdbcType=VARCHAR},
       </if>
       <if test="stuName != null" >
         #{stuName,jdbcType=VARCHAR},
       </if>
       <if test="newsType != null" >
-        #{newsType,jdbcType=VARCHAR},
+        #{newsType,jdbcType=INTEGER},
       </if>
       <if test="isRead != null" >
-        #{isRead,jdbcType=VARCHAR},
+        #{isRead,jdbcType=INTEGER},
+      </if>
+      <if test="insAccount != null" >
+        #{insAccount,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -152,16 +161,19 @@
         id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.account != null" >
-        account = #{record.account,jdbcType=INTEGER},
+        account = #{record.account,jdbcType=VARCHAR},
       </if>
       <if test="record.stuName != null" >
         stu_name = #{record.stuName,jdbcType=VARCHAR},
       </if>
       <if test="record.newsType != null" >
-        news_type = #{record.newsType,jdbcType=VARCHAR},
+        news_type = #{record.newsType,jdbcType=INTEGER},
       </if>
       <if test="record.isRead != null" >
-        is_read = #{record.isRead,jdbcType=VARCHAR},
+        is_read = #{record.isRead,jdbcType=INTEGER},
+      </if>
+      <if test="record.insAccount != null" >
+        ins_account = #{record.insAccount,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -171,10 +183,11 @@
   <update id="updateByExample" parameterType="map" >
     update notification
     set id = #{record.id,jdbcType=INTEGER},
-      account = #{record.account,jdbcType=INTEGER},
+      account = #{record.account,jdbcType=VARCHAR},
       stu_name = #{record.stuName,jdbcType=VARCHAR},
-      news_type = #{record.newsType,jdbcType=VARCHAR},
-      is_read = #{record.isRead,jdbcType=VARCHAR}
+      news_type = #{record.newsType,jdbcType=INTEGER},
+      is_read = #{record.isRead,jdbcType=INTEGER},
+      ins_account = #{record.insAccount,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -183,26 +196,30 @@
     update notification
     <set >
       <if test="account != null" >
-        account = #{account,jdbcType=INTEGER},
+        account = #{account,jdbcType=VARCHAR},
       </if>
       <if test="stuName != null" >
         stu_name = #{stuName,jdbcType=VARCHAR},
       </if>
       <if test="newsType != null" >
-        news_type = #{newsType,jdbcType=VARCHAR},
+        news_type = #{newsType,jdbcType=INTEGER},
       </if>
       <if test="isRead != null" >
-        is_read = #{isRead,jdbcType=VARCHAR},
+        is_read = #{isRead,jdbcType=INTEGER},
+      </if>
+      <if test="insAccount != null" >
+        ins_account = #{insAccount,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.instructorsystem.instructor.model.Notification" >
     update notification
-    set account = #{account,jdbcType=INTEGER},
+    set account = #{account,jdbcType=VARCHAR},
       stu_name = #{stuName,jdbcType=VARCHAR},
-      news_type = #{newsType,jdbcType=VARCHAR},
-      is_read = #{isRead,jdbcType=VARCHAR}
+      news_type = #{newsType,jdbcType=INTEGER},
+      is_read = #{isRead,jdbcType=INTEGER},
+      ins_account = #{insAccount,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

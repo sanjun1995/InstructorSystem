@@ -11,7 +11,7 @@
         <!-- 消息中心 -->
         <div class="btn-bell">
           <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">
-            <router-link to="/tabs">
+            <router-link to="/instructor/insNotifications">
               <i class="el-icon-bell"></i>
             </router-link>
           </el-tooltip>
@@ -65,6 +65,10 @@
               <el-menu-item index="/instructor/insAppointment">
                 <span class="fontFamily ins-yidongduanicon-"></span>
                 <span slot="title" class="menu-title">预约管理</span>
+              </el-menu-item>
+              <el-menu-item index="/instructor/insNotifications">
+                <span class="el-icon-bell"></span>
+                <span slot="title" class="menu-title">消息管理</span>
               </el-menu-item>
               <el-menu-item index="/instructor/insNotice">
                 <span class="fontFamily ins-gonggao"></span>
@@ -163,8 +167,26 @@
           confirmButtonClass: 'el-button--warning'
         }).then(() => {
           window.sessionStorage.removeItem('access-token');
+          this.over();
           this.$router.push("/login");
         }).catch(() => {});
+      },
+      initWebSocket() {
+        let ws = new WebSocket('ws://localhost:8081/websocket/instructor')
+        ws.onopen = () => {
+          ws.send('Hello');
+          console.log('数据发送中');
+        }
+        ws.onmessage = evt => {
+          console.log('数据已接收');
+        }
+        ws.onclose = () => {
+          console.log('连接已关闭');
+        }
+        // 组件销毁时调用，中断websocket连接
+        this.over = () => {
+          ws.close();
+        }
       }
     },
     created() {
@@ -178,6 +200,7 @@
       });
       this.params.instructor.headPath = this.defaultSrc;
       this.getData();
+      this.initWebSocket();
     }
   };
 </script>

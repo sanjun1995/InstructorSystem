@@ -174,52 +174,62 @@ public class NotificationExample {
             return (Criteria) this;
         }
 
-        public Criteria andAccountEqualTo(Integer value) {
+        public Criteria andAccountEqualTo(String value) {
             addCriterion("account =", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountNotEqualTo(Integer value) {
+        public Criteria andAccountNotEqualTo(String value) {
             addCriterion("account <>", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountGreaterThan(Integer value) {
+        public Criteria andAccountGreaterThan(String value) {
             addCriterion("account >", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountGreaterThanOrEqualTo(Integer value) {
+        public Criteria andAccountGreaterThanOrEqualTo(String value) {
             addCriterion("account >=", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountLessThan(Integer value) {
+        public Criteria andAccountLessThan(String value) {
             addCriterion("account <", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountLessThanOrEqualTo(Integer value) {
+        public Criteria andAccountLessThanOrEqualTo(String value) {
             addCriterion("account <=", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountIn(List<Integer> values) {
+        public Criteria andAccountLike(String value) {
+            addCriterion("account like", value, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNotLike(String value) {
+            addCriterion("account not like", value, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIn(List<String> values) {
             addCriterion("account in", values, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountNotIn(List<Integer> values) {
+        public Criteria andAccountNotIn(List<String> values) {
             addCriterion("account not in", values, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountBetween(Integer value1, Integer value2) {
+        public Criteria andAccountBetween(String value1, String value2) {
             addCriterion("account between", value1, value2, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountNotBetween(Integer value1, Integer value2) {
+        public Criteria andAccountNotBetween(String value1, String value2) {
             addCriterion("account not between", value1, value2, "account");
             return (Criteria) this;
         }
@@ -304,62 +314,52 @@ public class NotificationExample {
             return (Criteria) this;
         }
 
-        public Criteria andNewsTypeEqualTo(String value) {
+        public Criteria andNewsTypeEqualTo(Integer value) {
             addCriterion("news_type =", value, "newsType");
             return (Criteria) this;
         }
 
-        public Criteria andNewsTypeNotEqualTo(String value) {
+        public Criteria andNewsTypeNotEqualTo(Integer value) {
             addCriterion("news_type <>", value, "newsType");
             return (Criteria) this;
         }
 
-        public Criteria andNewsTypeGreaterThan(String value) {
+        public Criteria andNewsTypeGreaterThan(Integer value) {
             addCriterion("news_type >", value, "newsType");
             return (Criteria) this;
         }
 
-        public Criteria andNewsTypeGreaterThanOrEqualTo(String value) {
+        public Criteria andNewsTypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("news_type >=", value, "newsType");
             return (Criteria) this;
         }
 
-        public Criteria andNewsTypeLessThan(String value) {
+        public Criteria andNewsTypeLessThan(Integer value) {
             addCriterion("news_type <", value, "newsType");
             return (Criteria) this;
         }
 
-        public Criteria andNewsTypeLessThanOrEqualTo(String value) {
+        public Criteria andNewsTypeLessThanOrEqualTo(Integer value) {
             addCriterion("news_type <=", value, "newsType");
             return (Criteria) this;
         }
 
-        public Criteria andNewsTypeLike(String value) {
-            addCriterion("news_type like", value, "newsType");
-            return (Criteria) this;
-        }
-
-        public Criteria andNewsTypeNotLike(String value) {
-            addCriterion("news_type not like", value, "newsType");
-            return (Criteria) this;
-        }
-
-        public Criteria andNewsTypeIn(List<String> values) {
+        public Criteria andNewsTypeIn(List<Integer> values) {
             addCriterion("news_type in", values, "newsType");
             return (Criteria) this;
         }
 
-        public Criteria andNewsTypeNotIn(List<String> values) {
+        public Criteria andNewsTypeNotIn(List<Integer> values) {
             addCriterion("news_type not in", values, "newsType");
             return (Criteria) this;
         }
 
-        public Criteria andNewsTypeBetween(String value1, String value2) {
+        public Criteria andNewsTypeBetween(Integer value1, Integer value2) {
             addCriterion("news_type between", value1, value2, "newsType");
             return (Criteria) this;
         }
 
-        public Criteria andNewsTypeNotBetween(String value1, String value2) {
+        public Criteria andNewsTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("news_type not between", value1, value2, "newsType");
             return (Criteria) this;
         }
@@ -374,63 +374,123 @@ public class NotificationExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsReadEqualTo(String value) {
+        public Criteria andIsReadEqualTo(Integer value) {
             addCriterion("is_read =", value, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsReadNotEqualTo(String value) {
+        public Criteria andIsReadNotEqualTo(Integer value) {
             addCriterion("is_read <>", value, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsReadGreaterThan(String value) {
+        public Criteria andIsReadGreaterThan(Integer value) {
             addCriterion("is_read >", value, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsReadGreaterThanOrEqualTo(String value) {
+        public Criteria andIsReadGreaterThanOrEqualTo(Integer value) {
             addCriterion("is_read >=", value, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsReadLessThan(String value) {
+        public Criteria andIsReadLessThan(Integer value) {
             addCriterion("is_read <", value, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsReadLessThanOrEqualTo(String value) {
+        public Criteria andIsReadLessThanOrEqualTo(Integer value) {
             addCriterion("is_read <=", value, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsReadLike(String value) {
-            addCriterion("is_read like", value, "isRead");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsReadNotLike(String value) {
-            addCriterion("is_read not like", value, "isRead");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsReadIn(List<String> values) {
+        public Criteria andIsReadIn(List<Integer> values) {
             addCriterion("is_read in", values, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsReadNotIn(List<String> values) {
+        public Criteria andIsReadNotIn(List<Integer> values) {
             addCriterion("is_read not in", values, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsReadBetween(String value1, String value2) {
+        public Criteria andIsReadBetween(Integer value1, Integer value2) {
             addCriterion("is_read between", value1, value2, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsReadNotBetween(String value1, String value2) {
+        public Criteria andIsReadNotBetween(Integer value1, Integer value2) {
             addCriterion("is_read not between", value1, value2, "isRead");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountIsNull() {
+            addCriterion("ins_account is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountIsNotNull() {
+            addCriterion("ins_account is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountEqualTo(String value) {
+            addCriterion("ins_account =", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountNotEqualTo(String value) {
+            addCriterion("ins_account <>", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountGreaterThan(String value) {
+            addCriterion("ins_account >", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountGreaterThanOrEqualTo(String value) {
+            addCriterion("ins_account >=", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountLessThan(String value) {
+            addCriterion("ins_account <", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountLessThanOrEqualTo(String value) {
+            addCriterion("ins_account <=", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountLike(String value) {
+            addCriterion("ins_account like", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountNotLike(String value) {
+            addCriterion("ins_account not like", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountIn(List<String> values) {
+            addCriterion("ins_account in", values, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountNotIn(List<String> values) {
+            addCriterion("ins_account not in", values, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountBetween(String value1, String value2) {
+            addCriterion("ins_account between", value1, value2, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountNotBetween(String value1, String value2) {
+            addCriterion("ins_account not between", value1, value2, "insAccount");
             return (Criteria) this;
         }
     }

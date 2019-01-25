@@ -764,6 +764,76 @@ public class LeaveExample {
             addCriterion("duration not between", value1, value2, "duration");
             return (Criteria) this;
         }
+
+        public Criteria andInsAccountIsNull() {
+            addCriterion("ins_account is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountIsNotNull() {
+            addCriterion("ins_account is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountEqualTo(String value) {
+            addCriterion("ins_account =", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountNotEqualTo(String value) {
+            addCriterion("ins_account <>", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountGreaterThan(String value) {
+            addCriterion("ins_account >", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountGreaterThanOrEqualTo(String value) {
+            addCriterion("ins_account >=", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountLessThan(String value) {
+            addCriterion("ins_account <", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountLessThanOrEqualTo(String value) {
+            addCriterion("ins_account <=", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountLike(String value) {
+            addCriterion("ins_account like", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountNotLike(String value) {
+            addCriterion("ins_account not like", value, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountIn(List<String> values) {
+            addCriterion("ins_account in", values, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountNotIn(List<String> values) {
+            addCriterion("ins_account not in", values, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountBetween(String value1, String value2) {
+            addCriterion("ins_account between", value1, value2, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andInsAccountNotBetween(String value1, String value2) {
+            addCriterion("ins_account not between", value1, value2, "insAccount");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

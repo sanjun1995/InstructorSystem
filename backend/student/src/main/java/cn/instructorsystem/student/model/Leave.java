@@ -1,7 +1,5 @@
 package cn.instructorsystem.student.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.util.Date;
 
 public class Leave {
@@ -25,7 +23,9 @@ public class Leave {
 
     private String duration;
 
-    public Leave(Integer id, String account, String stuName, String leaveType, Date startTime, Date endTime, String reason, Integer status, String attachment, String duration) {
+    private String insAccount;
+
+    public Leave(Integer id, String account, String stuName, String leaveType, Date startTime, Date endTime, String reason, Integer status, String attachment, String duration, String insAccount) {
         this.id = id;
         this.account = account;
         this.stuName = stuName;
@@ -36,6 +36,7 @@ public class Leave {
         this.status = status;
         this.attachment = attachment;
         this.duration = duration;
+        this.insAccount = insAccount;
     }
 
     public Leave() {
@@ -120,5 +121,13 @@ public class Leave {
 
     public void setDuration(String duration) {
         this.duration = duration == null ? null : duration.trim();
+    }
+
+    public String getInsAccount() {
+        return insAccount;
+    }
+
+    public void setInsAccount(String insAccount) {
+        this.insAccount = insAccount == null ? null : insAccount.trim();
     }
 }

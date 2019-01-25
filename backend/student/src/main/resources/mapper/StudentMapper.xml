@@ -1,40 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.instructorsystem.student.dao.StudentMapper">
-  <resultMap id="BaseResultMap" type="cn.instructorsystem.student.model.Student">
-    <constructor>
-      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="account" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="stu_name" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="sex" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="phone_num" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="graduate_school" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="birth" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="dormitory" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="head_path" javaType="java.lang.String" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.instructorsystem.student.dao.StudentMapper" >
+  <resultMap id="BaseResultMap" type="cn.instructorsystem.student.model.Student" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="account" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="password" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="stu_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sex" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="phone_num" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="address" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="graduate_school" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="birth" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="dormitory" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ins_account" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="head_path" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -45,25 +46,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -74,166 +75,171 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     id, account, password, stu_name, sex, phone_num, address, graduate_school, birth, 
-    dormitory, head_path
+    dormitory, ins_account, head_path
   </sql>
-  <select id="selectByExample" parameterType="cn.instructorsystem.student.model.StudentExample" resultMap="BaseResultMap">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.instructorsystem.student.model.StudentExample" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
     from student
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from student
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from student
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.instructorsystem.student.model.StudentExample">
+  <delete id="deleteByExample" parameterType="cn.instructorsystem.student.model.StudentExample" >
     delete from student
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.instructorsystem.student.model.Student">
+  <insert id="insert" parameterType="cn.instructorsystem.student.model.Student" >
     insert into student (id, account, password, 
       stu_name, sex, phone_num, 
       address, graduate_school, birth, 
-      dormitory, head_path)
+      dormitory, ins_account, head_path
+      )
     values (#{id,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{stuName,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{phoneNum,jdbcType=VARCHAR}, 
       #{address,jdbcType=VARCHAR}, #{graduateSchool,jdbcType=VARCHAR}, #{birth,jdbcType=VARCHAR}, 
-      #{dormitory,jdbcType=VARCHAR}, #{headPath,jdbcType=VARCHAR})
+      #{dormitory,jdbcType=VARCHAR}, #{insAccount,jdbcType=VARCHAR}, #{headPath,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="cn.instructorsystem.student.model.Student">
+  <insert id="insertSelective" parameterType="cn.instructorsystem.student.model.Student" >
     insert into student
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         id,
       </if>
-      <if test="account != null">
+      <if test="account != null" >
         account,
       </if>
-      <if test="password != null">
+      <if test="password != null" >
         password,
       </if>
-      <if test="stuName != null">
+      <if test="stuName != null" >
         stu_name,
       </if>
-      <if test="sex != null">
+      <if test="sex != null" >
         sex,
       </if>
-      <if test="phoneNum != null">
+      <if test="phoneNum != null" >
         phone_num,
       </if>
-      <if test="address != null">
+      <if test="address != null" >
         address,
       </if>
-      <if test="graduateSchool != null">
+      <if test="graduateSchool != null" >
         graduate_school,
       </if>
-      <if test="birth != null">
+      <if test="birth != null" >
         birth,
       </if>
-      <if test="dormitory != null">
+      <if test="dormitory != null" >
         dormitory,
       </if>
-      <if test="headPath != null">
+      <if test="insAccount != null" >
+        ins_account,
+      </if>
+      <if test="headPath != null" >
         head_path,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="account != null">
+      <if test="account != null" >
         #{account,jdbcType=VARCHAR},
       </if>
-      <if test="password != null">
+      <if test="password != null" >
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="stuName != null">
+      <if test="stuName != null" >
         #{stuName,jdbcType=VARCHAR},
       </if>
-      <if test="sex != null">
+      <if test="sex != null" >
         #{sex,jdbcType=INTEGER},
       </if>
-      <if test="phoneNum != null">
+      <if test="phoneNum != null" >
         #{phoneNum,jdbcType=VARCHAR},
       </if>
-      <if test="address != null">
+      <if test="address != null" >
         #{address,jdbcType=VARCHAR},
       </if>
-      <if test="graduateSchool != null">
+      <if test="graduateSchool != null" >
         #{graduateSchool,jdbcType=VARCHAR},
       </if>
-      <if test="birth != null">
+      <if test="birth != null" >
         #{birth,jdbcType=VARCHAR},
       </if>
-      <if test="dormitory != null">
+      <if test="dormitory != null" >
         #{dormitory,jdbcType=VARCHAR},
       </if>
-      <if test="headPath != null">
+      <if test="insAccount != null" >
+        #{insAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="headPath != null" >
         #{headPath,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map" >
     update student
-    <set>
-      <if test="record.id != null">
+    <set >
+      <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.account != null">
+      <if test="record.account != null" >
         account = #{record.account,jdbcType=VARCHAR},
       </if>
-      <if test="record.password != null">
+      <if test="record.password != null" >
         password = #{record.password,jdbcType=VARCHAR},
       </if>
-      <if test="record.stuName != null">
+      <if test="record.stuName != null" >
         stu_name = #{record.stuName,jdbcType=VARCHAR},
       </if>
-      <if test="record.sex != null">
+      <if test="record.sex != null" >
         sex = #{record.sex,jdbcType=INTEGER},
       </if>
-      <if test="record.phoneNum != null">
+      <if test="record.phoneNum != null" >
         phone_num = #{record.phoneNum,jdbcType=VARCHAR},
       </if>
-      <if test="record.address != null">
+      <if test="record.address != null" >
         address = #{record.address,jdbcType=VARCHAR},
       </if>
-      <if test="record.graduateSchool != null">
+      <if test="record.graduateSchool != null" >
         graduate_school = #{record.graduateSchool,jdbcType=VARCHAR},
       </if>
-      <if test="record.birth != null">
+      <if test="record.birth != null" >
         birth = #{record.birth,jdbcType=VARCHAR},
       </if>
-      <if test="record.dormitory != null">
+      <if test="record.dormitory != null" >
         dormitory = #{record.dormitory,jdbcType=VARCHAR},
       </if>
-      <if test="record.headPath != null">
+      <if test="record.insAccount != null" >
+        ins_account = #{record.insAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.headPath != null" >
         head_path = #{record.headPath,jdbcType=VARCHAR},
       </if>
     </set>
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map">
+  <update id="updateByExample" parameterType="map" >
     update student
     set id = #{record.id,jdbcType=INTEGER},
       account = #{record.account,jdbcType=VARCHAR},
@@ -245,48 +251,51 @@
       graduate_school = #{record.graduateSchool,jdbcType=VARCHAR},
       birth = #{record.birth,jdbcType=VARCHAR},
       dormitory = #{record.dormitory,jdbcType=VARCHAR},
-      head_path = #{record.headPath,jdbcType=VARCHAR}
-    <if test="_parameter != null">
+      ins_account = #{record.insAccount,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.instructorsystem.student.model.Student">
+  <update id="updateByPrimaryKeySelective" parameterType="cn.instructorsystem.student.model.Student" >
     update student
-    <set>
-      <if test="account != null">
+    <set >
+      <if test="account != null" >
         account = #{account,jdbcType=VARCHAR},
       </if>
-      <if test="password != null">
+      <if test="password != null" >
         password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="stuName != null">
+      <if test="stuName != null" >
         stu_name = #{stuName,jdbcType=VARCHAR},
       </if>
-      <if test="sex != null">
+      <if test="sex != null" >
         sex = #{sex,jdbcType=INTEGER},
       </if>
-      <if test="phoneNum != null">
+      <if test="phoneNum != null" >
         phone_num = #{phoneNum,jdbcType=VARCHAR},
       </if>
-      <if test="address != null">
+      <if test="address != null" >
         address = #{address,jdbcType=VARCHAR},
       </if>
-      <if test="graduateSchool != null">
+      <if test="graduateSchool != null" >
         graduate_school = #{graduateSchool,jdbcType=VARCHAR},
       </if>
-      <if test="birth != null">
+      <if test="birth != null" >
         birth = #{birth,jdbcType=VARCHAR},
       </if>
-      <if test="dormitory != null">
+      <if test="dormitory != null" >
         dormitory = #{dormitory,jdbcType=VARCHAR},
       </if>
-      <if test="headPath != null">
+      <if test="insAccount != null" >
+        ins_account = #{insAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="headPath != null" >
         head_path = #{headPath,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.instructorsystem.student.model.Student">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.instructorsystem.student.model.Student" >
     update student
     set account = #{account,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
@@ -297,7 +306,23 @@
       graduate_school = #{graduateSchool,jdbcType=VARCHAR},
       birth = #{birth,jdbcType=VARCHAR},
       dormitory = #{dormitory,jdbcType=VARCHAR},
+      ins_account = #{insAccount,jdbcType=VARCHAR},
       head_path = #{headPath,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.instructorsystem.student.model.Student" >
+    update student
+    set account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      stu_name = #{stuName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      phone_num = #{phoneNum,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      graduate_school = #{graduateSchool,jdbcType=VARCHAR},
+      birth = #{birth,jdbcType=VARCHAR},
+      dormitory = #{dormitory,jdbcType=VARCHAR},
+      head_path = #{headPath,jdbcType=VARCHAR},
+      ins_account = #{insAccount,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -51,6 +51,7 @@
                   //登录成功，把用户信息保存在sessionStorage中
                   sessionStorage.setItem('access-token', res.data.token);
                   this.$store.commit("setAccount", res.data.data[0].account);
+                  this.$store.commit("setInsAccount", res.data.data[0].insAccount);
                   this.$store.commit("setName", res.data.data[0].stuName);
                   //跳转到后台主界面
                   this.$router.push({ path: '/student/stuHomePage' });

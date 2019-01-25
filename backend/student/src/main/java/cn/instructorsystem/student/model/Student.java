@@ -21,9 +21,15 @@ public class Student {
 
     private String dormitory;
 
+    private String insAccount;
+
     private String headPath;
 
-    public Student(Integer id, String account, String password, String stuName, Integer sex, String phoneNum, String address, String graduateSchool, String birth, String dormitory, String headPath) {
+    public Student() {
+        super();
+    }
+
+    public Student(Integer id, String account, String password, String stuName, Integer sex, String phoneNum, String address, String graduateSchool, String birth, String dormitory, String insAccount, String headPath) {
         this.id = id;
         this.account = account;
         this.password = password;
@@ -34,11 +40,8 @@ public class Student {
         this.graduateSchool = graduateSchool;
         this.birth = birth;
         this.dormitory = dormitory;
+        this.insAccount = insAccount;
         this.headPath = headPath;
-    }
-
-    public Student() {
-        super();
     }
 
     public Integer getId() {
@@ -119,6 +122,14 @@ public class Student {
 
     public void setDormitory(String dormitory) {
         this.dormitory = dormitory == null ? null : dormitory.trim();
+    }
+
+    public String getInsAccount() {
+        return insAccount;
+    }
+
+    public void setInsAccount(String insAccount) {
+        this.insAccount = insAccount == null ? null : insAccount.trim();
     }
 
     public String getHeadPath() {

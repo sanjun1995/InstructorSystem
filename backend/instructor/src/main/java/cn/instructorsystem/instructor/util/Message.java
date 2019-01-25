@@ -1,6 +1,12 @@
-package cn.instructorsystem.instructor.model;
+package cn.instructorsystem.instructor.util;
 
-public class Notification {
+import java.io.Serializable;
+
+/**
+ * @author sanjun
+ * @date 2019/1/24 10:48
+ */
+public class Message implements Serializable {
     private Integer id;
 
     private String account;
@@ -10,21 +16,6 @@ public class Notification {
     private Integer newsType;
 
     private Integer isRead;
-
-    private String insAccount;
-
-    public Notification(Integer id, String account, String stuName, Integer newsType, Integer isRead, String insAccount) {
-        this.id = id;
-        this.account = account;
-        this.stuName = stuName;
-        this.newsType = newsType;
-        this.isRead = isRead;
-        this.insAccount = insAccount;
-    }
-
-    public Notification() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -39,7 +30,7 @@ public class Notification {
     }
 
     public void setAccount(String account) {
-        this.account = account == null ? null : account.trim();
+        this.account = account;
     }
 
     public String getStuName() {
@@ -47,7 +38,7 @@ public class Notification {
     }
 
     public void setStuName(String stuName) {
-        this.stuName = stuName == null ? null : stuName.trim();
+        this.stuName = stuName;
     }
 
     public Integer getNewsType() {
@@ -66,11 +57,13 @@ public class Notification {
         this.isRead = isRead;
     }
 
-    public String getInsAccount() {
-        return insAccount;
-    }
-
-    public void setInsAccount(String insAccount) {
-        this.insAccount = insAccount == null ? null : insAccount.trim();
+    @Override
+    public String toString() {
+        return "Message{" +
+                ", account='" + account + '\'' +
+                ", stuName='" + stuName + '\'' +
+                ", newsType='" + newsType + '\'' +
+                ", isRead='" + isRead + '\'' +
+                '}';
     }
 }
