@@ -17,6 +17,10 @@ public class Message implements Serializable {
 
     private Integer isRead;
 
+    private String insAccount;
+
+    private String orderNumber;
+
     public Integer getId() {
         return id;
     }
@@ -57,13 +61,31 @@ public class Message implements Serializable {
         this.isRead = isRead;
     }
 
+    public String getInsAccount() {
+        return insAccount;
+    }
+
+    public void setInsAccount(String insAccount) {
+        this.insAccount = insAccount;
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
     @Override
     public String toString() {
         return "Message{" +
-                ", account='" + account + '\'' +
+                "account='" + account + '\'' +
                 ", stuName='" + stuName + '\'' +
-                ", newsType='" + newsType + '\'' +
-                ", isRead='" + isRead + '\'' +
+                ", newsType=" + newsType +
+                ", isRead=" + isRead +
+                ", insAccount='" + insAccount + '\'' +
+                ", orderNumber='" + orderNumber + '\'' +
                 '}';
     }
 }

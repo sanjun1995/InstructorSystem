@@ -13,13 +13,16 @@ public class Notification {
 
     private String insAccount;
 
-    public Notification(Integer id, String account, String stuName, Integer newsType, Integer isRead, String insAccount) {
+    private String orderNumber;
+
+    public Notification(Integer id, String account, String stuName, Integer newsType, Integer isRead, String insAccount, String orderNumber) {
         this.id = id;
         this.account = account;
         this.stuName = stuName;
         this.newsType = newsType;
         this.isRead = isRead;
         this.insAccount = insAccount;
+        this.orderNumber = orderNumber;
     }
 
     public Notification() {
@@ -72,5 +75,13 @@ public class Notification {
 
     public void setInsAccount(String insAccount) {
         this.insAccount = insAccount == null ? null : insAccount.trim();
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber == null ? null : orderNumber.trim();
     }
 }

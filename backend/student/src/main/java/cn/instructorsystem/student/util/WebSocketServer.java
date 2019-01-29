@@ -1,7 +1,11 @@
 package cn.instructorsystem.student.util;
 
+import cn.instructorsystem.student.model.Leave;
+import cn.instructorsystem.student.service.LeaveService;
+import cn.instructorsystem.student.vo.LeaveInfoReqVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
@@ -16,6 +20,10 @@ import java.util.concurrent.CopyOnWriteArraySet;
 @ServerEndpoint("/websocket/{sid}")
 @Component
 public class WebSocketServer {
+
+    @Autowired
+    private LeaveService leaveService;
+
     private static Logger logger = LoggerFactory.getLogger(WebSocketServer.class);
 
     // 静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
@@ -57,16 +65,37 @@ public class WebSocketServer {
     @OnMessage
     public void onMessage(String message, Session session) {
         logger.info("来自客户端的消息:" + message);
-
-        // 群发消息
-        for (WebSocketServer server : webSocketSet) {
-            try {
-                server.sendMessage(message);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        String[] arr = message.split("-");
+        String newsType = arr[0];
+        if ("leave".equals(newsType)) {
+            handleLeaveInfo(arr);
+        } else {
+            handleAppoinmentInfo(arr);
         }
     }
+
+    private void handleAppoinmentInfo(String[] arr) {
+    }
+
+    private void handleLeaveInfo(String[] arr) {
+        String status = arr[1];
+        String orderNumber = arr[2];
+        LeaveInfoReqVo vo = new LeaveInfoReqVo();
+        Leave leave = new Leave();
+        leave.setOrderNumber(orderNumber);
+        if ("agree".equals(status)) {
+            leave.setStatus(1);
+        } else {
+            leave.setStatus(2);
+        }
+        boolean success = leaveService.updateLeaveInfo(vo);
+        if (success) {
+            logger.info("WebSocket updateLeaveInfo success!");
+        } else {
+            logger.info("WebSocket updateLeaveInfo failure!");
+        }
+    }
+
 
     @OnError
     public void onError(Session session, Throwable error) {

@@ -10,5 +10,9 @@ import java.util.List;
 public interface LeaveService {
     int insertLeaveInfo(LeaveInfoReqVo leaveInfoReqVo);
 
-    List<Leave> getLeaveInfosByPage(LeaveInfoReqVo LeaveInfoReqVo);
+    List<Leave> getLeaveInfosByPage(LeaveInfoReqVo leaveInfoReqVo);
+
+    Leave getLeaveInfoByOrderNumber(LeaveInfoReqVo leaveInfoReqVo);
+
+    boolean updateLeaveInfo(LeaveInfoReqVo leaveInfoReqVo);
 }

@@ -13,9 +13,13 @@ public class Message implements Serializable {
 
     private String stuName;
 
-    private String newsType;
+    private Integer newsType;
 
-    private String isRead;
+    private Integer isRead;
+
+    private String insAccount;
+
+    private String orderNumber;
 
     public Integer getId() {
         return id;
@@ -41,19 +45,47 @@ public class Message implements Serializable {
         this.stuName = stuName;
     }
 
-    public String getNewsType() {
+    public Integer getNewsType() {
         return newsType;
     }
 
-    public void setNewsType(String newsType) {
+    public void setNewsType(Integer newsType) {
         this.newsType = newsType;
     }
 
-    public String getIsRead() {
+    public Integer getIsRead() {
         return isRead;
     }
 
-    public void setIsRead(String isRead) {
+    public void setIsRead(Integer isRead) {
         this.isRead = isRead;
+    }
+
+    public String getInsAccount() {
+        return insAccount;
+    }
+
+    public void setInsAccount(String insAccount) {
+        this.insAccount = insAccount;
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "account='" + account + '\'' +
+                ", stuName='" + stuName + '\'' +
+                ", newsType=" + newsType +
+                ", isRead=" + isRead +
+                ", insAccount='" + insAccount + '\'' +
+                ", orderNumber='" + orderNumber + '\'' +
+                '}';
     }
 }

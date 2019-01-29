@@ -10,7 +10,7 @@
       <div class="topbar-account topbar-btn">
         <!-- 消息中心 -->
         <div class="btn-bell">
-          <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">
+          <el-tooltip effect="dark" :content="message?`有${message}条未处理 消息`:`消息中心`" placement="bottom">
             <router-link to="/instructor/insNotifications">
               <i class="el-icon-bell"></i>
             </router-link>
@@ -118,13 +118,19 @@
       return {
         defaultActiveIndex: '',
         tagsList: [],
-        message: 2,
+        message: 0,
         params: {
           token: '',
           instructor: {
             account: '',
             insName: '',
             headPath: ''
+          },
+        },
+       notificationParams: {
+          notification: {
+            isAccount: '',
+            isRead: ''
           }
         },
         path: [
@@ -154,6 +160,21 @@
             this.$message.error(res.data.msg);
           }
         });
+        this.getNotificationData();
+      },
+      getNotificationData() {
+        var notificationAxios = axios.create({
+          baseURL: 'http://localhost:8081/api/notification/'
+        });
+        this.notificationParams.notification.isAccount = this.$store.state.account;
+        this.notificationParams.notification.isRead = 0;
+        notificationAxios.post('getNotificationsByPage', this.notificationParams).then(res => {
+          if (res.data.code == 200) {
+            this.message = res.data.data.length;
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
       },
       jumpTo(url){
         this.defaultActiveIndex = url;
@@ -174,11 +195,9 @@
       initWebSocket() {
         let ws = new WebSocket('ws://localhost:8081/websocket/instructor')
         ws.onopen = () => {
-          ws.send('Hello');
-          console.log('数据发送中');
         }
         ws.onmessage = evt => {
-          console.log('数据已接收');
+          this.getNotificationData();
         }
         ws.onclose = () => {
           console.log('连接已关闭');

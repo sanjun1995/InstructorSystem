@@ -38,7 +38,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-        public List<Student> getStudentInfosByPage(ClassInfoReqVo vo) {
+    public List<Student> getStudentInfosByPage(ClassInfoReqVo vo) {
         Integer pageNum = vo.getPageNum();
         Integer pageSize = vo.getPageSize();
         Student stu = vo.getStudent();

@@ -36,11 +36,11 @@ public class WebSocketServer {
         // 在线数加1
         addOnlineCount();
         logger.info("有新连接加入！当前在线人数为:" + getOnlineCount());
-        try {
+/*        try {
             sendMessage("连接成功");
         } catch (IOException e) {
             logger.error("WebSocket IO异常");
-        }
+        }*/
     }
 
     // 连接关闭调用的方法

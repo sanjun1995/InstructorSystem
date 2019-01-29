@@ -91,8 +91,8 @@
         </div>
       </el-form>
       <span slot="footer" class="dialog-footer">
-          <el-button @click="editVisible = false">取 消</el-button>
-          <el-button type="primary" @click="saveLeave">确 定</el-button>
+        <el-button type="primary" @click="saveLeave">确 定</el-button>
+        <el-button @click="editVisible = false">取 消</el-button>
       </span>
     </el-dialog>
 
@@ -118,7 +118,8 @@
             duration: '',
             reason: '',
             attachment: '',
-            status: '0'
+            status: '0',
+            insAccount: ''
           }
         },
         selectType: '',
@@ -153,6 +154,7 @@
         this.params.token = sessionStorage.getItem("access-token");
         this.params.leave.stuName = this.$store.state.name;
         this.params.leave.account = this.$store.state.account;
+        this.params.leave.insAccount = this.$store.state.insAccount;
         var leaveAxios = axios.create({
           baseURL: 'http://localhost:8080/api/leave/'
         });

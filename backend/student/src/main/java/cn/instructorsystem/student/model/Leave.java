@@ -25,7 +25,9 @@ public class Leave {
 
     private String insAccount;
 
-    public Leave(Integer id, String account, String stuName, String leaveType, Date startTime, Date endTime, String reason, Integer status, String attachment, String duration, String insAccount) {
+    private String orderNumber;
+
+    public Leave(Integer id, String account, String stuName, String leaveType, Date startTime, Date endTime, String reason, Integer status, String attachment, String duration, String insAccount, String orderNumber) {
         this.id = id;
         this.account = account;
         this.stuName = stuName;
@@ -37,6 +39,7 @@ public class Leave {
         this.attachment = attachment;
         this.duration = duration;
         this.insAccount = insAccount;
+        this.orderNumber = orderNumber;
     }
 
     public Leave() {
@@ -129,5 +132,13 @@ public class Leave {
 
     public void setInsAccount(String insAccount) {
         this.insAccount = insAccount == null ? null : insAccount.trim();
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber == null ? null : orderNumber.trim();
     }
 }
