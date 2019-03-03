@@ -16,7 +16,7 @@
           </el-table-column>
           <el-table-column prop="endTime" align="center" :formatter="formatEndTime" label="结束时间" width="160">
           </el-table-column>
-          <el-table-column prop="appointmentNum" align="center" :formatter="formatNum" label="预约人数" width="100">
+          <el-table-column prop="appointmentNumber" align="center" :formatter="formatNum" label="预约人数" width="100">
           </el-table-column>
           <el-table-column prop="reason" align="center" label="事由" width="260">
           </el-table-column>
@@ -85,14 +85,6 @@
             v-model="params.appointment.reason" class="handle-textarea">
           </el-input>
         </div>
-        <div class="attachment">
-          <span class="demonstration">附件</span>
-          <el-upload
-            class="upload-demo"
-            action="">
-            <el-button size="small" type="primary">上传</el-button>
-          </el-upload>
-        </div>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="saveAppointment">确 定</el-button>
@@ -119,7 +111,7 @@
             startTime: '',
             endTime: '',
             reason: '',
-            appointmentNum: '',
+            appointmentNumber: '',
             status: '0',
             insAccount: ''
           }
@@ -136,28 +128,17 @@
         this.getData();
       },
       getData() {
-/*        this.params.appointment.account = this.$store.state.account;
+        this.params.appointment.account = this.$store.state.account;
         var studentAxios = axios.create({
           baseURL: 'http://localhost:8080/api/appointment/'
         });
-        studentAxios.post('getAppointmentInfos', this.params).then(res => {
+        studentAxios.post('getAppointmentInfosByStuAccount', this.params).then(res => {
           if (res.data.code == 200) {
             this.tableData = res.data.data;
           } else {
             this.$message.error(res.data.msg);
           }
-        });*/
-        this.tableData = [
-          {appointmentType: '1', operationTime: '2019-02-28 11:10:24', startTime: '2019-03-01 09:30:00',
-            endTime: '2019-03-01 10:00:00', appointmentNum: '3', reason: '某某同学不协调宿舍工作', status: '0'
-          },
-          {appointmentType: '2', operationTime: '2018-12-24 10:10:54', startTime: '2018-12-25 14:40:00',
-            endTime: '2018-12-25 15:40:00', appointmentNum: '2', reason: '请教一些关于班级管理的经验', status: '1'
-          },
-          {appointmentType: '3', operationTime: '2019-03-25 15:10:24', startTime: '2019-03-27 11:00:00',
-            endTime: '2019-03-27 12:00:00', appointmentNum: '1', reason: '某某同学不协调宿舍工作', status: '2',
-            rejectReason: '不好意思，老师今天出差，改天再预约哈'
-          }]
+        });
       },
       showAppointment() {
         this.editVisible = true;
@@ -184,7 +165,7 @@
         this.params.appointment.appointmentType = val;
       },
       currentSelNum(val) {
-        this.params.appointment.appointmentNum = val;
+        this.params.appointment.appointmentNumber = val;
       },
       formatType(row, column) {
         var result = '';
@@ -205,15 +186,15 @@
       },
       formatNum(row, column) {
         var result = '';
-        if (row.appointmentNum == 1) {
+        if (row.appointmentNumber == 1) {
           result = '1个';
-        } else if (row.appointmentNum == 2) {
+        } else if (row.appointmentNumber == 2) {
           result = '2个';
-        } else if (row.appointmentNum == 3) {
+        } else if (row.appointmentNumber == 3) {
           result = '3个';
-        } else if (row.appointmentNum == 4) {
+        } else if (row.appointmentNumber == 4) {
           result = '4个';
-        } else if (row.appointmentNum == 5) {
+        } else if (row.appointmentNumber == 5) {
           result = '5个以上';
         }
         return result;

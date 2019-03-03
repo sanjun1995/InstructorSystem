@@ -5,8 +5,15 @@
         <el-tab-pane label="预约信息" name="first">
           <div class="handle-box">
             <div class="select-stu">
-              姓名：<el-input v-model="params.student.stuName" class="handle-input"></el-input>
-              请假类型：<el-input v-model="params.student.dormitory" class="handle-input"></el-input>
+              <el-select v-model="selectType" @change="currentSel" placeholder="预约类型" class="handle-select">
+                <el-option key="1" label="宿舍矛盾" value="1"></el-option>
+                <el-option key="2" label="班级管理" value="2"></el-option>
+                <el-option key="3" label="心理辅导" value="3"></el-option>
+                <el-option key="4" label="思想交流" value="4"></el-option>
+                <el-option key="5" label="职业规划" value="5"></el-option>
+                <el-option key="6" label="其他" value="6"></el-option>
+              </el-select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              姓名：<el-input v-model="params.appointment.stuName" class="handle-input"></el-input>
               <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
             </div>
           </div>
@@ -14,7 +21,10 @@
             <el-table :data="tableData">
               <el-table-column prop="account" align="center" label="学号" width="100">
               </el-table-column>
-              <el-table-column prop="stuName" align="center" label="姓名" width="100">
+              <el-table-column align="center" label="姓名" width="150">
+                <template slot-scope="scope">
+                  <span v-html="brightenKeywordForSearch(scope.row.stuName, params.appointment.stuName)" ></span>
+                </template>
               </el-table-column>
               <el-table-column prop="leaveType" align="center" :formatter="formatType" label="休假类型" width="100">
               </el-table-column>
@@ -24,11 +34,7 @@
               </el-table-column>
               <el-table-column prop="endTime" align="center" :formatter="formatEndTime" label="结束时间" width="160">
               </el-table-column>
-              <el-table-column prop="duration" align="center" label="时长" width="80">
-              </el-table-column>
               <el-table-column prop="reason" align="center" label="事由" width="240">
-              </el-table-column>
-              <el-table-column prop="attachment" align="center" label="附件" width="100">
               </el-table-column>
               <el-table-column align="center" label="审批状态" width="120">
                 <template slot-scope="scope">
@@ -46,67 +52,26 @@
         </el-tab-pane>
       </el-tabs>
     </div>
-
-    <!-- 编辑弹出框 -->
-    <el-dialog title="编辑" :visible.sync="editVisible" width="30%">
-      <el-form ref="form" :model="form" label-width="50px">
-        <el-form-item label="日期">
-          <el-date-picker type="date" placeholder="选择日期" v-model="form.date" value-format="yyyy-MM-dd" style="width: 100%;"></el-date-picker>
-        </el-form-item>
-        <el-form-item label="姓名">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="地址">
-          <el-input v-model="form.address"></el-input>
-        </el-form-item>
-
-      </el-form>
-      <span slot="footer" class="dialog-footer">
-                <el-button @click="editVisible = false">取 消</el-button>
-                <el-button type="primary" @click="saveEdit">确 定</el-button>
-            </span>
-    </el-dialog>
-
-    <!-- 删除提示框 -->
-    <el-dialog title="提示" :visible.sync="delVisible" width="300px" center>
-      <div class="del-dialog-cnt">删除不可恢复，是否确定删除？</div>
-      <span slot="footer" class="dialog-footer">
-                <el-button @click="delVisible = false">取 消</el-button>
-                <el-button type="primary" @click="deleteRow">确 定</el-button>
-            </span>
-    </el-dialog>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
+  import {formatDate} from "../../../static/js/date";
   export default {
     name: 'basetable',
     data() {
       return {
         activeName: 'first',
-        url: './static/vuetable.json',
-        stuName: '',
+        selectType: '',
         tableData: [],
-        multipleSelection: [],
-        selectClass: '',
-        delList: [],
-        editVisible: false,
-        delVisible: false,
-        form: {
-          name: '',
-          date: '',
-          address: ''
-        },
         params: {
           pageNum: '1',
-          student: {
+          appointment: {
             stuName: '',
-            account: '',
-            dormitory: ''
+            insAccount: ''
           }
-        },
-        idx: -1
+        }
       }
     },
     created() {
@@ -119,10 +84,11 @@
         this.getData();
       },
       getData() {
-        var studentAxios = axios.create({
-          baseURL: 'http://localhost:8080/api/student/'
+        this.params.appointment.insAccount = this.$store.state.account;
+        var appointmentAxios = axios.create({
+          baseURL: 'http://localhost:8080/api/appointment/'
         });
-        studentAxios.post('getLeaveInfosByPage', this.params).then(res => {
+        appointmentAxios.post('getAppointmentInfosByInsAccount', this.params).then(res => {
           if (res.data.code == 200) {
             this.tableData = res.data.data;
           } else {
@@ -150,44 +116,52 @@
           return val
         }
       },
-      formatSex(row, column) {
-        return row.sex == '1' ? "女" : "男";
-      },
       currentSel(val) {
-        this.params.student.account = val;
+        this.params.appointment.appointmentType = val;
         this.getData();
       },
       search() {
         this.getData();
       },
-      handleEdit(index, row) {
-        this.idx = index;
-        const item = this.tableData[index];
-        this.form = {
-          name: item.stuName,
-          date: item.date,
-          address: item.address
+      handleClick(tab, event) {
+      var active = this.activeName;
+      if (active == 'first') {
+        this.getData();
+      }
+    },
+      formatType(row, column) {
+        var result = '';
+        if (row.appointmentType == 1) {
+          result = '宿舍矛盾';
+        } else if (row.appointmentType == 2) {
+          result = '班级管理';
+        } else if (row.appointmentType == 3) {
+          result = '心理辅导';
+        } else if (row.appointmentType == 4) {
+          result = '思想交流';
+        } else if (row.appointmentType == 5) {
+          result = '职业规划';
+        } else {
+          result = '其他';
         }
-        this.editVisible = true;
+        return result;
       },
-      handleDelete(index, row) {
-        this.idx = index;
-        this.delVisible = true;
+      brightenKeyword(val) {
+        if (val == 0) {
+          return '<font color="red">待审批</font>';
+        } else if (val == 1) {
+          return '<font color="green">通过</font>';
+        } else {
+          return '<font color="red">驳回</font>';
+        }
       },
-      handleSelectionChange(val) {
-        this.multipleSelection = val;
-      },
-      // 保存编辑
-      saveEdit() {
-        this.$set(this.tableData, this.idx, this.form);
-        this.editVisible = false;
-        this.$message.success(`修改第 ${this.idx+1} 行成功`);
-      },
-      // 确定删除
-      deleteRow(){
-        this.tableData.splice(this.idx, 1);
-        this.$message.success('删除成功');
-        this.delVisible = false;
+      brightenKeywordForSearch(val, keyword) {
+        val = val + '';
+        if (val.indexOf(keyword) !== -1 && keyword !== '') {
+          return val.replace(keyword, '<font color="red">' + keyword + '</font>')
+        } else {
+          return val
+        }
       }
     }
   }

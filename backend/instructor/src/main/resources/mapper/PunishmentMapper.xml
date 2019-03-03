@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.instructorsystem.instructor.dao.PunishmentMapper" >
+  <resultMap id="BaseResultMap" type="cn.instructorsystem.instructor.model.Punishment" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="account" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="stu_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="punishment_reason" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="punishment_time" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="ins_account" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, account, stu_name, punishment_reason, punishment_time, ins_account
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.instructorsystem.instructor.model.PunishmentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from punishment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from punishment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from punishment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.instructorsystem.instructor.model.PunishmentExample" >
+    delete from punishment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.instructorsystem.instructor.model.Punishment" >
+    insert into punishment (id, account, stu_name, 
+      punishment_reason, punishment_time, ins_account
+      )
+    values (#{id,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{stuName,jdbcType=VARCHAR}, 
+      #{punishmentReason,jdbcType=VARCHAR}, #{punishmentTime,jdbcType=DATE}, #{insAccount,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.instructorsystem.instructor.model.Punishment" >
+    insert into punishment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="stuName != null" >
+        stu_name,
+      </if>
+      <if test="punishmentReason != null" >
+        punishment_reason,
+      </if>
+      <if test="punishmentTime != null" >
+        punishment_time,
+      </if>
+      <if test="insAccount != null" >
+        ins_account,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="stuName != null" >
+        #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentReason != null" >
+        #{punishmentReason,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentTime != null" >
+        #{punishmentTime,jdbcType=DATE},
+      </if>
+      <if test="insAccount != null" >
+        #{insAccount,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update punishment
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.account != null" >
+        account = #{record.account,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuName != null" >
+        stu_name = #{record.stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishmentReason != null" >
+        punishment_reason = #{record.punishmentReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishmentTime != null" >
+        punishment_time = #{record.punishmentTime,jdbcType=DATE},
+      </if>
+      <if test="record.insAccount != null" >
+        ins_account = #{record.insAccount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update punishment
+    set id = #{record.id,jdbcType=INTEGER},
+      account = #{record.account,jdbcType=VARCHAR},
+      stu_name = #{record.stuName,jdbcType=VARCHAR},
+      punishment_reason = #{record.punishmentReason,jdbcType=VARCHAR},
+      punishment_time = #{record.punishmentTime,jdbcType=DATE},
+      ins_account = #{record.insAccount,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.instructorsystem.instructor.model.Punishment" >
+    update punishment
+    <set >
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="stuName != null" >
+        stu_name = #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentReason != null" >
+        punishment_reason = #{punishmentReason,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentTime != null" >
+        punishment_time = #{punishmentTime,jdbcType=DATE},
+      </if>
+      <if test="insAccount != null" >
+        ins_account = #{insAccount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.instructorsystem.instructor.model.Punishment" >
+    update punishment
+    set account = #{account,jdbcType=VARCHAR},
+      stu_name = #{stuName,jdbcType=VARCHAR},
+      punishment_reason = #{punishmentReason,jdbcType=VARCHAR},
+      punishment_time = #{punishmentTime,jdbcType=DATE},
+      ins_account = #{insAccount,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

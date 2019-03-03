@@ -74,7 +74,21 @@
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>-->
-        <table tableName="notification" domainObjectName="Notification" enableCountByExample="false"
+<!--        <table tableName="notification" domainObjectName="Notification" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>-->
+        <table tableName="achievement" domainObjectName="Achievement" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>
+
+        <table tableName="punishment" domainObjectName="Punishment" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>
+
+        <table tableName="notice" domainObjectName="Notice" enableCountByExample="false"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>

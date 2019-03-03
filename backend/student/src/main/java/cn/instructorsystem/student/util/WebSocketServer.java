@@ -1,7 +1,10 @@
 package cn.instructorsystem.student.util;
 
+import cn.instructorsystem.student.model.Appointment;
 import cn.instructorsystem.student.model.Leave;
+import cn.instructorsystem.student.service.AppointmentService;
 import cn.instructorsystem.student.service.LeaveService;
+import cn.instructorsystem.student.vo.AppointmentInfoReqVo;
 import cn.instructorsystem.student.vo.LeaveInfoReqVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,9 +28,17 @@ public class WebSocketServer {
     // webSocket会生成多个对象，而spring的单例模式只会注入一次，所以用static
     private static LeaveService leaveService;
 
+    // webSocket会生成多个对象，而spring的单例模式只会注入一次，所以用static
+    private static AppointmentService appointmentService;
+
     @Autowired
     public void setLeaveService(LeaveService leaveService) {
         WebSocketServer.leaveService = leaveService;
+    }
+
+    @Autowired
+    public void setAppointmentService(AppointmentService appointmentService) {
+        WebSocketServer.appointmentService = appointmentService;
     }
 
     // 静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
@@ -74,6 +85,25 @@ public class WebSocketServer {
     }
 
     private void handleAppoinmentInfo(String[] arr) {
+        String status = arr[1];
+        String orderNumber = arr[2];
+        AppointmentInfoReqVo vo = new AppointmentInfoReqVo();
+        Appointment appointment = new Appointment();
+        appointment.setOrderNumber(orderNumber);
+        if ("agree".equals(status)) {
+            appointment.setStatus(1);
+        } else {
+            appointment.setStatus(2);
+            String rejectReason = arr[3];
+            appointment.setRejectReason(rejectReason);
+        }
+        vo.setAppointment(appointment);
+        boolean success = appointmentService.updateAppointmentInfo(vo);
+        if (success) {
+            logger.info("WebSocket updateAppointmentInfo success!");
+        } else {
+            logger.info("WebSocket updateAppointmentInfo failure!");
+        }
     }
 
     private void handleLeaveInfo(String[] arr) {

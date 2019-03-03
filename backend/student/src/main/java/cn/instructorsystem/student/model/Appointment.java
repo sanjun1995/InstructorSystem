@@ -9,7 +9,7 @@ public class Appointment {
 
     private String stuName;
 
-    private String type;
+    private String appointmentType;
 
     private Date startTime;
 
@@ -17,11 +17,11 @@ public class Appointment {
 
     private String reason;
 
-    private Integer number;
+    private Integer appointmentNumber;
 
-    private Integer state;
+    private Integer status;
 
-    private Date operateTime;
+    private Date operationTime;
 
     private String rejectReason;
 
@@ -29,17 +29,17 @@ public class Appointment {
 
     private String insAccount;
 
-    public Appointment(Integer id, String account, String stuName, String type, Date startTime, Date endTime, String reason, Integer number, Integer state, Date operateTime, String rejectReason, String orderNumber, String insAccount) {
+    public Appointment(Integer id, String account, String stuName, String appointmentType, Date startTime, Date endTime, String reason, Integer appointmentNumber, Integer status, Date operationTime, String rejectReason, String orderNumber, String insAccount) {
         this.id = id;
         this.account = account;
         this.stuName = stuName;
-        this.type = type;
+        this.appointmentType = appointmentType;
         this.startTime = startTime;
         this.endTime = endTime;
         this.reason = reason;
-        this.number = number;
-        this.state = state;
-        this.operateTime = operateTime;
+        this.appointmentNumber = appointmentNumber;
+        this.status = status;
+        this.operationTime = operationTime;
         this.rejectReason = rejectReason;
         this.orderNumber = orderNumber;
         this.insAccount = insAccount;
@@ -73,12 +73,12 @@ public class Appointment {
         this.stuName = stuName == null ? null : stuName.trim();
     }
 
-    public String getType() {
-        return type;
+    public String getAppointmentType() {
+        return appointmentType;
     }
 
-    public void setType(String type) {
-        this.type = type == null ? null : type.trim();
+    public void setAppointmentType(String appointmentType) {
+        this.appointmentType = appointmentType == null ? null : appointmentType.trim();
     }
 
     public Date getStartTime() {
@@ -105,28 +105,28 @@ public class Appointment {
         this.reason = reason == null ? null : reason.trim();
     }
 
-    public Integer getNumber() {
-        return number;
+    public Integer getAppointmentNumber() {
+        return appointmentNumber;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
+    public void setAppointmentNumber(Integer appointmentNumber) {
+        this.appointmentNumber = appointmentNumber;
     }
 
-    public Integer getState() {
-        return state;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public Date getOperateTime() {
-        return operateTime;
+    public Date getOperationTime() {
+        return operationTime;
     }
 
-    public void setOperateTime(Date operateTime) {
-        this.operateTime = operateTime;
+    public void setOperationTime(Date operationTime) {
+        this.operationTime = operationTime;
     }
 
     public String getRejectReason() {

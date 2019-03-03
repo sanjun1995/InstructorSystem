@@ -5,7 +5,7 @@
         <el-tab-pane label="请假信息" name="first">
           <div class="handle-box">
             <div class="select-stu">
-              <el-select v-model="selectType" @change="currentSel" placeholder="休假类型" class="handle-select">
+              <el-select v-model="selectType" @change="currentSel" placeholder="请假类型" class="handle-select">
                 <el-option key="1" label="事假" value="1"></el-option>
                 <el-option key="2" label="病假" value="2"></el-option>
                 <el-option key="3" label="公假" value="3"></el-option>
@@ -93,8 +93,7 @@
             stuName: '',
             insAccount: ''
           }
-        },
-        idx: -1
+        }
       }
     },
     created() {
@@ -199,7 +198,7 @@
         } else {
           return val
         }
-      },
+      }
     }
   }
 

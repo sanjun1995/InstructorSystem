@@ -76,9 +76,9 @@
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>-->
 
-        <table tableName="appointment" domainObjectName="Appointment" enableCountByExample="false"
+<!--        <table tableName="appointment" domainObjectName="Appointment" enableCountByExample="false"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
-        </table>
+        </table>-->
     </context>
 </generatorConfiguration>

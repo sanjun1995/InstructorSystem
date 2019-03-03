@@ -38,11 +38,11 @@ public class LeaveController {
         if (n != 0) {
             res.setCode(ResponseCode.SUCCESS);
             res.setMsg("insertLeaveInfo success!");
-            logger.info("leave.insertLeaveInfo() LeaveInfoReqVo: {}，更新个人信息成功！", JSON.toJSONString(vo));
+            logger.info("leave.insertLeaveInfo() LeaveInfoReqVo: {}，更新请假信息成功！", JSON.toJSONString(vo));
         } else {
             res.setCode(ResponseCode.FAILURE);
             res.setMsg("insertLeaveInfo failure!");
-            logger.info("leave.insertLeaveInfo() LeaveInfoReqVo: {}，更新个人信息失败！", JSON.toJSONString(vo));
+            logger.info("leave.insertLeaveInfo() LeaveInfoReqVo: {}，更新请假信息失败！", JSON.toJSONString(vo));
         }
         return res;
     }

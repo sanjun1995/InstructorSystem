@@ -48,7 +48,7 @@
         </div>
 
     <!-- 请假消息弹出框 -->
-    <el-dialog title="请假信息" :visible.sync="editVisible" width="25%">
+    <el-dialog title="请假信息" :visible.sync="editLeaveVisible" width="25%">
       <el-form ref="form" :model="params.leave">
         <div class="account">
           <span class="demonstration">学号：</span>
@@ -86,7 +86,46 @@
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="leaveAgree">同意</el-button>
         <el-button type="danger" @click="leaveReject">驳回</el-button>
-        <el-button @click="editVisible = false">取 消</el-button>
+        <el-button @click="editLeaveVisible = false">取 消</el-button>
+      </span>
+    </el-dialog>
+
+    <!-- 预约消息弹出框 -->
+    <el-dialog title="请假信息" :visible.sync="editAppointmentVisible" width="25%">
+      <el-form ref="form" :model="params.appointment">
+        <div class="account">
+          <span class="demonstration">学号：</span>
+          {{params.appointment.account}}
+        </div>
+        <div class="stuName">
+          <span class="demonstration">姓名：</span>
+          {{params.appointment.stuName}}
+        </div>
+        <div class="leave-type">
+          <span class="demonstration">预约类型：</span>
+          {{params.appointment.appointmentType}}
+        </div>
+        <div class="leave-type">
+          <span class="demonstration">预约人数：</span>
+          {{params.appointment.appointmentNumber}}
+        </div>
+        <div class="start-time">
+          <span class="demonstration">开始时间：</span>
+          {{params.appointment.startTime}}
+        </div>
+        <div class="end-time">
+          <span class="demonstration">结束时间：</span>
+          {{params.appointment.endTime}}
+        </div>
+        <div class="cause">
+          <span class="demonstration">事由：</span>
+          {{params.appointment.reason}}
+        </div>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="appointmentAgree">同意</el-button>
+        <el-button type="danger" @click="appointmentReject">驳回</el-button>
+        <el-button @click="editAppointmentVisible = false">取 消</el-button>
       </span>
     </el-dialog>
 
@@ -139,6 +178,51 @@
       </span>
     </el-dialog>
 
+    <!-- 查看预约信息弹出框 -->
+    <el-dialog title="请假信息" :visible.sync="checkAppointmentVisible" width="25%">
+      <el-form ref="form" :model="params.appointment">
+        <div class="status">
+          <span class="demonstration">审批状态：</span>
+          <span v-html="brightenKeyword(params.appointment.status)" ></span>
+        </div>
+        <div class="rejectReason">
+          <span class="demonstration">驳回理由：</span>
+          {{params.appointment.rejectReason}}
+        </div>
+        <div class="account">
+          <span class="demonstration">学号：</span>
+          {{params.appointment.account}}
+        </div>
+        <div class="stuName">
+          <span class="demonstration">姓名：</span>
+          {{params.appointment.stuName}}
+        </div>
+        <div class="leave-type">
+          <span class="demonstration">预约类型：</span>
+          {{params.appointment.appointmentType}}
+        </div>
+        <div class="leave-type">
+          <span class="demonstration">预约人数：</span>
+          {{params.appointment.appointmentNumber}}
+        </div>
+        <div class="start-time">
+          <span class="demonstration">开始时间：</span>
+          {{params.appointment.startTime}}
+        </div>
+        <div class="end-time">
+          <span class="demonstration">结束时间：</span>
+          {{params.appointment.endTime}}
+        </div>
+        <div class="cause">
+          <span class="demonstration">事由：</span>
+          {{params.appointment.reason}}
+        </div>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="checkAppointmentVisible = false">确定</el-button>
+      </span>
+    </el-dialog>
+
     <!-- 驳回请假弹出框 -->
     <el-dialog title="驳回理由" :visible.sync="editLeaveRejectVisible" width="25%">
       <el-form ref="form" :model="params.leave">
@@ -152,8 +236,26 @@
         </div>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="confirmReject">确认</el-button>
+        <el-button type="primary" @click="confirmLeaveReject">确认</el-button>
         <el-button @click="editLeaveRejectVisible = false">取 消</el-button>
+      </span>
+    </el-dialog>
+
+    <!-- 驳回预约弹出框 -->
+    <el-dialog title="驳回理由" :visible.sync="editAppointmentRejectVisible" width="25%">
+      <el-form ref="form" :model="params.appointment">
+        <div class="reject-reason">
+          <el-input
+            type="textarea"
+            :rows="4"
+            placeholder=""
+            v-model="params.appointment.rejectReason" class="handle-textarea">
+          </el-input>
+        </div>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="confirmAppointmentReject">确认</el-button>
+        <el-button @click="editAppointmentRejectVisible = false">取 消</el-button>
       </span>
     </el-dialog>
   </div>
@@ -180,6 +282,18 @@
             status: '0',
             orderNumber: '',
             rejectReason: ''
+          },
+          appointment: {
+            appointmentType: '',
+            account: '',
+            stuName: '',
+            startTime: '',
+            endTime: '',
+            reason: '',
+            status: '0',
+            orderNumber: '',
+            rejectReason: '',
+            appointmentNumber: ''
           }
         },
         unreadParams: {
@@ -198,9 +312,12 @@
             orderNumber: ''
           }
         },
-        editVisible: false,
+        editLeaveVisible: false,
+        editAppointmentVisible: false,
         editLeaveRejectVisible: false,
+        editAppointmentRejectVisible: false,
         checkLeaveVisible: false,
+        checkAppointmentVisible: false,
         unreadData: [],
         readData: [],
         ws: null
@@ -274,6 +391,36 @@
           }
         });
       },
+      getAppointmentData() {
+        var appointmentAios = axios.create({
+          baseURL: 'http://localhost:8080/api/appointment/'
+        });
+        appointmentAios.post('getAppointmentInfoByOrderNumber', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.params.appointment = (res.data.data)[0];
+            var type = this.params.appointment.appointmentType;
+            if (type == 1) {
+              this.params.appointment.appointmentType = '宿舍矛盾';
+            } else if (type == 2) {
+              this.params.appointment.appointmentType = '班级管理';
+            } else if (type == 3) {
+              this.params.appointment.appointmentType = '心理辅导';
+            } else if (type == 4) {
+              this.params.appointment.appointmentType = '思想交流';
+            } else if (type == 5) {
+              this.params.appointment.appointmentType = '职业规划';
+            }else {
+              this.params.appointment.appointmentType = '其他';
+            }
+            var startDate = new Date(this.params.appointment.startTime);
+            var endDate = new Date(this.params.appointment.endTime);
+            this.params.appointment.startTime = formatDate(startDate, "yyyy-MM-dd hh:mm:ss");
+            this.params.appointment.endTime = formatDate(endDate, "yyyy-MM-dd hh:mm:ss");
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
+      },
       brightenKeyword(val) {
         if (val == 0) {
           return '<font color="red">待审批</font>';
@@ -306,29 +453,49 @@
         const item = this.unreadData[index];
         if (item.newsType == 1) {
           this.handleUnreadLeaveEdit(index, row);
+        } else if (item.newsType == 2) {
+          this.handleUnreadAppointmentEdit(index, row);
         }
       },
       handleUnreadLeaveEdit(index, row) {
         const item = this.unreadData[index];
-        this.params.leave = {},
+        this.params.leave = {};
         this.params.leave.orderNumber = item.orderNumber;
         this.unreadParams.notification.orderNumber = item.orderNumber;
         this.getLeaveData();
-        this.editVisible = true;
+        this.editLeaveVisible = true;
+      },
+      handleUnreadAppointmentEdit(index, row) {
+        const item = this.unreadData[index];
+        this.params.appointment = {},
+        this.params.appointment.orderNumber = item.orderNumber
+        this.unreadParams.notification.orderNumber = item.orderNumber;
+        this.getAppointmentData();
+        this.editAppointmentVisible = true;
       },
       handleReadEdit(index, row) {
         const item = this.readData[index];
         if (item.newsType == 1) {
           this.handleReadLeaveEdit(index, row);
+        } else if (item.newsType == 2) {
+          this.handleReadAppointmentEdit(index, row);
         }
       },
       handleReadLeaveEdit(index, row) {
         const item = this.readData[index];
-        this.params.leave = {},
+        this.params.leave = {};
         this.params.leave.orderNumber = item.orderNumber;
         this.readParams.notification.orderNumber = item.orderNumber;
         this.getLeaveData();
         this.checkLeaveVisible = true;
+      },
+      handleReadAppointmentEdit(index, row) {
+        const item = this.readData[index];
+        this.params.appointment = {};
+          this.params.appointment.orderNumber = item.orderNumber;
+        this.readParams.notification.orderNumber = item.orderNumber;
+        this.getAppointmentData();
+        this.checkAppointmentVisible = true;
       },
       leaveAgree() {
         this.$confirm('您确认同意吗?').then(e => {
@@ -341,7 +508,25 @@
             if (res.data.code == 200) {
               this.$message.success("同意请假!");
               this.getUnreadData();
-              this.editVisible = false;
+              this.editLeaveVisible = false;
+            } else {
+              this.$message.error(res.data.msg);
+            }
+          });
+        });
+      },
+      appointmentAgree() {
+        this.$confirm('您确认同意吗?').then(e => {
+          this.websocketsend("appointment-agree-" + this.params.appointment.orderNumber);
+          var leaveAxios = axios.create({
+            baseURL: 'http://localhost:8081/api/notification/'
+          });
+          this.unreadParams.notification.isRead = 1;
+          leaveAxios.post('updateNotificationInfo', this.unreadParams).then(res => {
+            if (res.data.code == 200) {
+              this.$message.success("同意预约!");
+              this.getUnreadData();
+              this.editAppointmentVisible = false;
             } else {
               this.$message.error(res.data.msg);
             }
@@ -349,11 +534,12 @@
         });
       },
       leaveReject() {
-        // this.websocketsend("reject");
-        // this.editVisible = false;
         this.editLeaveRejectVisible = true;
       },
-      confirmReject() {
+      appointmentReject() {
+        this.editAppointmentRejectVisible = true;
+      },
+      confirmLeaveReject() {
         this.$confirm('您确认驳回吗?').then(e => {
           this.websocketsend("leave-reject-" + this.params.leave.orderNumber + "-" + this.params.leave.rejectReason);
           var leaveAxios = axios.create({
@@ -365,7 +551,26 @@
               this.$message.success("已经驳回!");
               this.getUnreadData();
               this.editLeaveRejectVisible = false;
-              this.editVisible = false;
+              this.editLeaveVisible = false;
+            } else {
+              this.$message.error(res.data.msg);
+            }
+          });
+        });
+      },
+      confirmAppointmentReject() {
+        this.$confirm('您确认驳回吗?').then(e => {
+          this.websocketsend("appointment-reject-" + this.params.appointment.orderNumber + "-" + this.params.leave.rejectReason);
+          var leaveAxios = axios.create({
+            baseURL: 'http://localhost:8081/api/notification/'
+          });
+          this.unreadParams.notification.isRead = 1;
+          leaveAxios.post('updateNotificationInfo', this.unreadParams).then(res => {
+            if (res.data.code == 200) {
+              this.$message.success("已经驳回!");
+              this.getUnreadData();
+              this.editAppointmentRejectVisible = false;
+              this.editAppointmentVisible = false;
             } else {
               this.$message.error(res.data.msg);
             }
