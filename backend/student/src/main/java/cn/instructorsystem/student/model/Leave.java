@@ -27,7 +27,11 @@ public class Leave {
 
     private String orderNumber;
 
-    public Leave(Integer id, String account, String stuName, String leaveType, Date startTime, Date endTime, String reason, Integer status, String attachment, String duration, String insAccount, String orderNumber) {
+    private String rejectReason;
+
+    private Date operationTime;
+
+    public Leave(Integer id, String account, String stuName, String leaveType, Date startTime, Date endTime, String reason, Integer status, String attachment, String duration, String insAccount, String orderNumber, String rejectReason, Date operationTime) {
         this.id = id;
         this.account = account;
         this.stuName = stuName;
@@ -40,6 +44,8 @@ public class Leave {
         this.duration = duration;
         this.insAccount = insAccount;
         this.orderNumber = orderNumber;
+        this.rejectReason = rejectReason;
+        this.operationTime = operationTime;
     }
 
     public Leave() {
@@ -140,5 +146,21 @@ public class Leave {
 
     public void setOrderNumber(String orderNumber) {
         this.orderNumber = orderNumber == null ? null : orderNumber.trim();
+    }
+
+    public String getRejectReason() {
+        return rejectReason;
+    }
+
+    public void setRejectReason(String rejectReason) {
+        this.rejectReason = rejectReason == null ? null : rejectReason.trim();
+    }
+
+    public Date getOperationTime() {
+        return operationTime;
+    }
+
+    public void setOperationTime(Date operationTime) {
+        this.operationTime = operationTime;
     }
 }

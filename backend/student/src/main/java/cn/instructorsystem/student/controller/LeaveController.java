@@ -1,12 +1,11 @@
 package cn.instructorsystem.student.controller;
 
 import cn.instructorsystem.student.model.Leave;
-import cn.instructorsystem.student.model.Student;
+import cn.instructorsystem.student.model.res.LeaveRanking;
 import cn.instructorsystem.student.model.res.ResResult;
 import cn.instructorsystem.student.service.LeaveService;
 import cn.instructorsystem.student.util.ResponseCode;
 import cn.instructorsystem.student.vo.LeaveInfoReqVo;
-import cn.instructorsystem.student.vo.PersonalCenterReqVo;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,20 +47,38 @@ public class LeaveController {
         return res;
     }
 
-    @PostMapping(value = "/getLeaveInfos")
-    public ResResult<Leave> getLeaveInfos(@RequestBody LeaveInfoReqVo vo) {
-        List<Leave> leaves = leaveService.getLeaveInfosByPage(vo);
+    @PostMapping(value = "/getLeaveInfosByStuAccount")
+    public ResResult<Leave> getLeaveInfosByStuAccount(@RequestBody LeaveInfoReqVo vo) {
+        List<Leave> leaves = leaveService.getLeaveInfosByStuAccount(vo);
         ResResult<Leave> res = new ResResult<>();
         if (leaves != null || leaves.size() != 0) {
             res.setData(leaves);
             res.setCode(ResponseCode.SUCCESS);
             res.setMsg("query leave information success!");
-            logger.info("leave.getLeaveInfos() leaveReqVo: {}，获取请假信息成功！", JSON.toJSONString(vo));
+            logger.info("leave.getLeaveInfosByStuAccount() leaveReqVo: {}，获取请假信息成功！", JSON.toJSONString(vo));
         } else {
             res.setData(leaves);
             res.setCode(ResponseCode.FAILURE);
             res.setMsg("query leave information failure!");
-            logger.info("leave.getLeaveInfos() leaveReqVo: {}，获取请假信息失败！", JSON.toJSONString(vo));
+            logger.info("leave.getLeaveInfosByStuAccount() leaveReqVo: {}，获取请假信息失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
+    @PostMapping(value = "/getLeaveInfosByInsAccount")
+    public ResResult<Leave> getLeaveInfosByInsAccount(@RequestBody LeaveInfoReqVo vo) {
+        List<Leave> leaves = leaveService.getLeaveInfosByInsAccount(vo);
+        ResResult<Leave> res = new ResResult<>();
+        if (leaves != null || leaves.size() != 0) {
+            res.setData(leaves);
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("query leave information success!");
+            logger.info("leave.getLeaveInfosByInsAccount() leaveReqVo: {}，获取请假信息成功！", JSON.toJSONString(vo));
+        } else {
+            res.setData(leaves);
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("query leave information failure!");
+            logger.info("leave.getLeaveInfosByInsAccount() leaveReqVo: {}，获取请假信息失败！", JSON.toJSONString(vo));
         }
         return res;
     }
@@ -82,6 +99,24 @@ public class LeaveController {
             res.setCode(ResponseCode.FAILURE);
             res.setMsg("getLeaveInfoByOrderNumber failure!");
             logger.info("leave.getLeaveInfoByOrderNumber() LeaveInfoReqVo: {}，修改个人请假信息失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
+    @PostMapping(value = "/getLeaveRankingInfos")
+    public ResResult<LeaveRanking> getLeaveRankingInfos(@RequestBody LeaveInfoReqVo vo) {
+        List<LeaveRanking> leaves = leaveService.getLeaveRankingInfos(vo);
+        ResResult<LeaveRanking> res = new ResResult<>();
+        if (leaves != null || leaves.size() != 0) {
+            res.setData(leaves);
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("query leave ranking information success!");
+            logger.info("leave.getLeaveRankingInfos() leaveReqVo: {}，获取请假排行成功！", JSON.toJSONString(vo));
+        } else {
+            res.setData(leaves);
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("query leave information failure!");
+            logger.info("leave.getLeaveRankingInfos() leaveReqVo: {}，获取请假排行失败！", JSON.toJSONString(vo));
         }
         return res;
     }

@@ -8,22 +8,26 @@
       </div>
       <div class="handle-table">
         <el-table :data="tableData">
-          <el-table-column prop="leaveType" align="center" :formatter="formatType" label="休假类型" width="150">
+          <el-table-column prop="leaveType" align="center" :formatter="formatType" label="休假类型" width="100">
           </el-table-column>
-          <el-table-column prop="startTime" align="center" :formatter="formatStartTime" label="开始时间" width="230">
+          <el-table-column prop="operationTime" align="center" :formatter="formatOperationTime" label="申请时间" width="160">
           </el-table-column>
-          <el-table-column prop="endTime" align="center" :formatter="formatEndTime" label="结束时间" width="230">
+          <el-table-column prop="startTime" align="center" :formatter="formatStartTime" label="开始时间" width="160">
           </el-table-column>
-          <el-table-column prop="duration" align="center" label="时长" width="100">
+          <el-table-column prop="endTime" align="center" :formatter="formatEndTime" label="结束时间" width="160">
+          </el-table-column>
+          <el-table-column prop="duration" align="center" label="时长" width="80">
           </el-table-column>
           <el-table-column prop="reason" align="center" label="事由" width="240">
           </el-table-column>
           <el-table-column prop="attachment" align="center" label="附件" width="100">
           </el-table-column>
-          <el-table-column align="center" label="审批状态" width="150">
+          <el-table-column align="center" label="审批状态" width="120">
             <template slot-scope="scope">
               <span v-html="brightenKeyword(scope.row.status)" ></span>
             </template>
+          </el-table-column>
+          <el-table-column prop="rejectReason" align="center" label="驳回原因" width="240">
           </el-table-column>
         </el-table>
       </div>
@@ -32,7 +36,6 @@
         </el-pagination>
       </div>
     </div>
-
     <!-- 请假弹出框 -->
     <el-dialog title="请假" :visible.sync="editVisible" width="42%">
       <el-form ref="form" :model="params.leave">
@@ -64,14 +67,14 @@
           </el-select>
         </div>
         <div class="duration">
-          <span class="demonstration">时长</span>
-          <el-input
-            placeholder=""
-            v-model="params.leave.duration"
-            :disabled="true"
-            class="handle-input">
-          </el-input>
-        </div>
+        <span class="demonstration">时长</span>
+        <el-input
+          placeholder=""
+          v-model="params.leave.duration"
+          :disabled="true"
+          class="handle-input">
+        </el-input>
+      </div>
         <div class="cause">
           <span class="demonstration">事由</span>
           <el-input
@@ -95,7 +98,6 @@
         <el-button @click="editVisible = false">取 消</el-button>
       </span>
     </el-dialog>
-
   </div>
 </template>
 
@@ -138,7 +140,7 @@
         var studentAxios = axios.create({
           baseURL: 'http://localhost:8080/api/leave/'
         });
-        studentAxios.post('getLeaveInfos', this.params).then(res => {
+        studentAxios.post('getLeaveInfosByStuAccount', this.params).then(res => {
           if (res.data.code == 200) {
             this.tableData = res.data.data;
           } else {
@@ -183,6 +185,10 @@
         }
         return result;
       },
+      formatOperationTime(row, column) {
+        var date = new Date(row.operationTime);
+        return formatDate(date, "yyyy-MM-dd hh:mm:ss");
+      },
       formatStartTime(row, column) {
         var date = new Date(row.startTime);
         return formatDate(date, "yyyy-MM-dd hh:mm:ss");
@@ -194,8 +200,10 @@
       brightenKeyword(val) {
         if (val == 0) {
           return '<font color="red">待审批</font>';
-        } else {
+        } else if (val == 1) {
           return '<font color="green">通过</font>';
+        } else {
+          return '<font color="red">驳回</font>';
         }
       }
     },

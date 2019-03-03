@@ -78,4 +78,20 @@ public class NotificationServiceImpl implements NotificationService {
         List<Notification> notifications = notificationMapper.selectByExample(example);
         return notifications;
     }
+
+    @Override
+    public boolean updateNotificationInfo(NotificationReqVo vo) {
+        Integer isRead = vo.getNotification().getIsRead();
+        String orderNumber = vo.getNotification().getOrderNumber();
+        Notification notification = new Notification();
+        notification.setIsRead(isRead);
+        NotificationExample example = new NotificationExample();
+        NotificationExample.Criteria criteria = example.createCriteria();
+        criteria.andOrderNumberEqualTo(orderNumber);
+        int n = notificationMapper.updateByExampleSelective(notification, example);
+        if (n != 0) {
+            return true;
+        }
+        return false;
+    }
 }

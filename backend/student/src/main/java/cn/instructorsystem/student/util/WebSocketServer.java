@@ -6,7 +6,7 @@ import cn.instructorsystem.student.vo.LeaveInfoReqVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
@@ -17,14 +17,18 @@ import java.util.concurrent.CopyOnWriteArraySet;
  * @author sanjun
  * @date 2019/1/23 17:49
  */
+@Controller
 @ServerEndpoint("/websocket/{sid}")
-@Component
 public class WebSocketServer {
+    private static Logger logger = LoggerFactory.getLogger(WebSocketServer.class);
+
+    // webSocket会生成多个对象，而spring的单例模式只会注入一次，所以用static
+    private static LeaveService leaveService;
 
     @Autowired
-    private LeaveService leaveService;
-
-    private static Logger logger = LoggerFactory.getLogger(WebSocketServer.class);
+    public void setLeaveService(LeaveService leaveService) {
+        WebSocketServer.leaveService = leaveService;
+    }
 
     // 静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
     private static int onlineCount = 0;
@@ -44,11 +48,6 @@ public class WebSocketServer {
         // 在线数加1
         addOnlineCount();
         logger.info("有新连接加入！当前在线人数为:" + getOnlineCount());
-        try {
-            sendMessage("连接成功");
-        } catch (IOException e) {
-            logger.error("WebSocket IO异常");
-        }
     }
 
     // 连接关闭调用的方法
@@ -87,7 +86,10 @@ public class WebSocketServer {
             leave.setStatus(1);
         } else {
             leave.setStatus(2);
+            String rejectReason = arr[3];
+            leave.setRejectReason(rejectReason);
         }
+        vo.setLeave(leave);
         boolean success = leaveService.updateLeaveInfo(vo);
         if (success) {
             logger.info("WebSocket updateLeaveInfo success!");
@@ -95,7 +97,6 @@ public class WebSocketServer {
             logger.info("WebSocket updateLeaveInfo failure!");
         }
     }
-
 
     @OnError
     public void onError(Session session, Throwable error) {

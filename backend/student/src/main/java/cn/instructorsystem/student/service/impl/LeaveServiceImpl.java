@@ -1,10 +1,9 @@
 package cn.instructorsystem.student.service.impl;
 
-import cn.instructorsystem.student.controller.LeaveController;
 import cn.instructorsystem.student.dao.LeaveMapper;
-import cn.instructorsystem.student.dao.StudentMapper;
 import cn.instructorsystem.student.model.Leave;
 import cn.instructorsystem.student.model.LeaveExample;
+import cn.instructorsystem.student.model.res.LeaveRanking;
 import cn.instructorsystem.student.service.LeaveService;
 import cn.instructorsystem.student.util.Message;
 import cn.instructorsystem.student.util.UUIDUtil;
@@ -20,8 +19,10 @@ import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 import org.springframework.util.concurrent.ListenableFuture;
 
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author sanjun
@@ -51,6 +52,7 @@ public class LeaveServiceImpl implements LeaveService {
         }
         leave.setOrderNumber(UUIDUtil.getUUID());
         leave.setDuration(Integer.toString(days) + "天");
+        leave.setOperationTime(new Date());
         int n = leaveMapper.insertSelective(leave);
         if (n != 0) {
             Message message = new Message();
@@ -66,8 +68,15 @@ public class LeaveServiceImpl implements LeaveService {
         return n;
     }
 
+    // kafka发送消息方法
+    public void send(Message message) {
+        logger.info("kafka send() message = {}", gson.toJson(message));
+        ListenableFuture<SendResult<String, String>> resultListenableFuture
+                =  kafkaTemplate.send("notification", gson.toJson(message));
+    }
+
     @Override
-    public List<Leave> getLeaveInfosByPage(LeaveInfoReqVo vo) {
+    public List<Leave> getLeaveInfosByStuAccount(LeaveInfoReqVo vo) {
         Integer pageNum = vo.getPageNum();
         Integer pageSize = vo.getPageSize();
         Leave leave = vo.getLeave();
@@ -78,6 +87,37 @@ public class LeaveServiceImpl implements LeaveService {
         LeaveExample.Criteria criteria = example.createCriteria();
         criteria.andAccountEqualTo(account);
         List<Leave> leaves = leaveMapper.selectByExample(example);
+        return leaves;
+    }
+
+    @Override
+    public List<Leave> getLeaveInfosByInsAccount(LeaveInfoReqVo vo) {
+        Integer pageNum = vo.getPageNum();
+        Integer pageSize = vo.getPageSize();
+        Leave leave = vo.getLeave();
+        String insAccount = leave.getInsAccount();
+        String leaveType = leave.getLeaveType();
+        String stuName = leave.getStuName();
+
+        PageHelper.startPage(pageNum, pageSize);
+        LeaveExample example = new LeaveExample();
+        LeaveExample.Criteria criteria = example.createCriteria();
+        criteria.andInsAccountEqualTo(insAccount);
+        if (leaveType != null) {
+            criteria.andLeaveTypeEqualTo(leaveType);
+        }
+        if (stuName != null) {
+            criteria.andStuNameLike("%" + stuName + "%");
+        }
+        List<Leave> leaves = leaveMapper.selectByExample(example);
+        return leaves;
+    }
+
+    @Override
+    public List<LeaveRanking> getLeaveRankingInfos(LeaveInfoReqVo vo) {
+        Leave leave = vo.getLeave();
+        List<LeaveRanking> leaves = leaveMapper.countLeavesByAccount(leave);
+        leaves = leaves.stream().sorted(Comparator.comparing(LeaveRanking::getLeaveTimes).reversed()).collect(Collectors.toList());
         return leaves;
     }
 
@@ -98,8 +138,10 @@ public class LeaveServiceImpl implements LeaveService {
     public boolean updateLeaveInfo(LeaveInfoReqVo leaveInfoReqVo) {
         String orderNumber = leaveInfoReqVo.getLeave().getOrderNumber();
         Integer status = leaveInfoReqVo.getLeave().getStatus();
+        String rejectReason = leaveInfoReqVo.getLeave().getRejectReason();
         Leave leave = new Leave();
         leave.setStatus(status);
+        leave.setRejectReason(rejectReason);
         LeaveExample example = new LeaveExample();
         LeaveExample.Criteria criteria = example.createCriteria();
         criteria.andOrderNumberEqualTo(orderNumber);
@@ -110,9 +152,6 @@ public class LeaveServiceImpl implements LeaveService {
         return false;
     }
 
-    // kafka发送消息方法
-    public void send(Message message) {
-        logger.info("kafka send() message = {}", gson.toJson(message));
-        ListenableFuture<SendResult<String, String>> resultListenableFuture =  kafkaTemplate.send("notification", gson.toJson(message));
-    }
+
+
 }

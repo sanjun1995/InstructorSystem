@@ -904,6 +904,136 @@ public class LeaveExample {
             addCriterion("order_number not between", value1, value2, "orderNumber");
             return (Criteria) this;
         }
+
+        public Criteria andRejectReasonIsNull() {
+            addCriterion("reject_reason is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRejectReasonIsNotNull() {
+            addCriterion("reject_reason is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRejectReasonEqualTo(String value) {
+            addCriterion("reject_reason =", value, "rejectReason");
+            return (Criteria) this;
+        }
+
+        public Criteria andRejectReasonNotEqualTo(String value) {
+            addCriterion("reject_reason <>", value, "rejectReason");
+            return (Criteria) this;
+        }
+
+        public Criteria andRejectReasonGreaterThan(String value) {
+            addCriterion("reject_reason >", value, "rejectReason");
+            return (Criteria) this;
+        }
+
+        public Criteria andRejectReasonGreaterThanOrEqualTo(String value) {
+            addCriterion("reject_reason >=", value, "rejectReason");
+            return (Criteria) this;
+        }
+
+        public Criteria andRejectReasonLessThan(String value) {
+            addCriterion("reject_reason <", value, "rejectReason");
+            return (Criteria) this;
+        }
+
+        public Criteria andRejectReasonLessThanOrEqualTo(String value) {
+            addCriterion("reject_reason <=", value, "rejectReason");
+            return (Criteria) this;
+        }
+
+        public Criteria andRejectReasonLike(String value) {
+            addCriterion("reject_reason like", value, "rejectReason");
+            return (Criteria) this;
+        }
+
+        public Criteria andRejectReasonNotLike(String value) {
+            addCriterion("reject_reason not like", value, "rejectReason");
+            return (Criteria) this;
+        }
+
+        public Criteria andRejectReasonIn(List<String> values) {
+            addCriterion("reject_reason in", values, "rejectReason");
+            return (Criteria) this;
+        }
+
+        public Criteria andRejectReasonNotIn(List<String> values) {
+            addCriterion("reject_reason not in", values, "rejectReason");
+            return (Criteria) this;
+        }
+
+        public Criteria andRejectReasonBetween(String value1, String value2) {
+            addCriterion("reject_reason between", value1, value2, "rejectReason");
+            return (Criteria) this;
+        }
+
+        public Criteria andRejectReasonNotBetween(String value1, String value2) {
+            addCriterion("reject_reason not between", value1, value2, "rejectReason");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeIsNull() {
+            addCriterion("operation_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeIsNotNull() {
+            addCriterion("operation_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeEqualTo(Date value) {
+            addCriterion("operation_time =", value, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeNotEqualTo(Date value) {
+            addCriterion("operation_time <>", value, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeGreaterThan(Date value) {
+            addCriterion("operation_time >", value, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("operation_time >=", value, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeLessThan(Date value) {
+            addCriterion("operation_time <", value, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeLessThanOrEqualTo(Date value) {
+            addCriterion("operation_time <=", value, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeIn(List<Date> values) {
+            addCriterion("operation_time in", values, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeNotIn(List<Date> values) {
+            addCriterion("operation_time not in", values, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeBetween(Date value1, Date value2) {
+            addCriterion("operation_time between", value1, value2, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeNotBetween(Date value1, Date value2) {
+            addCriterion("operation_time not between", value1, value2, "operationTime");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

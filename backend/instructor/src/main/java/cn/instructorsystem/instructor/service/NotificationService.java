@@ -14,4 +14,6 @@ public interface NotificationService {
     void insertNotificationInfo(Message message) throws IOException;
 
     List<Notification> getNotificationsByPage(NotificationReqVo vo);
+
+    boolean updateNotificationInfo(NotificationReqVo vo);
 }

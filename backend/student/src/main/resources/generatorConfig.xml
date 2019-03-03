@@ -71,14 +71,14 @@
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>-->
 
-        <table tableName="t_leave" domainObjectName="Leave" enableCountByExample="false"
-               enableUpdateByExample="true" enableDeleteByExample="true"
-               enableSelectByExample="true" selectByExampleQueryId="true">
-        </table>
-
-<!--        <table tableName="appointment" domainObjectName="Appointment" enableCountByExample="false"
+<!--        <table tableName="t_leave" domainObjectName="Leave" enableCountByExample="false"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>-->
+
+        <table tableName="appointment" domainObjectName="Appointment" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>
     </context>
 </generatorConfiguration>

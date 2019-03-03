@@ -15,6 +15,8 @@
       <arg column="duration" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ins_account" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="order_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="reject_reason" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="operation_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -77,7 +79,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, account, stu_name, leave_type, start_time, end_time, reason, status, attachment, 
-    duration, ins_account, order_number
+    duration, ins_account, order_number, reject_reason, operation_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.instructorsystem.student.model.LeaveExample" >
     select
@@ -114,13 +116,13 @@
     insert into t_leave (id, account, stu_name, 
       leave_type, start_time, end_time, 
       reason, status, attachment, 
-      duration, ins_account, order_number
-      )
+      duration, ins_account, order_number, 
+      reject_reason, operation_time)
     values (#{id,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{stuName,jdbcType=VARCHAR}, 
       #{leaveType,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
       #{reason,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{attachment,jdbcType=VARCHAR}, 
-      #{duration,jdbcType=VARCHAR}, #{insAccount,jdbcType=VARCHAR}, #{orderNumber,jdbcType=VARCHAR}
-      )
+      #{duration,jdbcType=VARCHAR}, #{insAccount,jdbcType=VARCHAR}, #{orderNumber,jdbcType=VARCHAR}, 
+      #{rejectReason,jdbcType=VARCHAR}, #{operationTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.instructorsystem.student.model.Leave" >
     insert into t_leave
@@ -161,6 +163,12 @@
       <if test="orderNumber != null" >
         order_number,
       </if>
+      <if test="rejectReason != null" >
+        reject_reason,
+      </if>
+      <if test="operationTime != null" >
+        operation_time,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -198,6 +206,12 @@
       </if>
       <if test="orderNumber != null" >
         #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectReason != null" >
+        #{rejectReason,jdbcType=VARCHAR},
+      </if>
+      <if test="operationTime != null" >
+        #{operationTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -240,6 +254,12 @@
       <if test="record.orderNumber != null" >
         order_number = #{record.orderNumber,jdbcType=VARCHAR},
       </if>
+      <if test="record.rejectReason != null" >
+        reject_reason = #{record.rejectReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operationTime != null" >
+        operation_time = #{record.operationTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -258,7 +278,9 @@
       attachment = #{record.attachment,jdbcType=VARCHAR},
       duration = #{record.duration,jdbcType=VARCHAR},
       ins_account = #{record.insAccount,jdbcType=VARCHAR},
-      order_number = #{record.orderNumber,jdbcType=VARCHAR}
+      order_number = #{record.orderNumber,jdbcType=VARCHAR},
+      reject_reason = #{record.rejectReason,jdbcType=VARCHAR},
+      operation_time = #{record.operationTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -299,6 +321,12 @@
       <if test="orderNumber != null" >
         order_number = #{orderNumber,jdbcType=VARCHAR},
       </if>
+      <if test="rejectReason != null" >
+        reject_reason = #{rejectReason,jdbcType=VARCHAR},
+      </if>
+      <if test="operationTime != null" >
+        operation_time = #{operationTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -314,7 +342,9 @@
       attachment = #{attachment,jdbcType=VARCHAR},
       duration = #{duration,jdbcType=VARCHAR},
       ins_account = #{insAccount,jdbcType=VARCHAR},
-      order_number = #{orderNumber,jdbcType=VARCHAR}
+      order_number = #{orderNumber,jdbcType=VARCHAR},
+      reject_reason = #{rejectReason,jdbcType=VARCHAR},
+      operation_time = #{operationTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

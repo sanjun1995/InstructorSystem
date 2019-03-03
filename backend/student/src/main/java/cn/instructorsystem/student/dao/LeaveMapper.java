@@ -3,6 +3,8 @@ package cn.instructorsystem.student.dao;
 import cn.instructorsystem.student.model.Leave;
 import cn.instructorsystem.student.model.LeaveExample;
 import java.util.List;
+
+import cn.instructorsystem.student.model.res.LeaveRanking;
 import org.apache.ibatis.annotations.Param;
 
 public interface LeaveMapper {
@@ -25,4 +27,6 @@ public interface LeaveMapper {
     int updateByPrimaryKeySelective(Leave record);
 
     int updateByPrimaryKey(Leave record);
+
+    List<LeaveRanking> countLeavesByAccount(Leave record);
 }

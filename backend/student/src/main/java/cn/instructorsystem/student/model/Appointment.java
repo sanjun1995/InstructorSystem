@@ -7,7 +7,7 @@ public class Appointment {
 
     private String account;
 
-    private String insName;
+    private String stuName;
 
     private String type;
 
@@ -15,22 +15,34 @@ public class Appointment {
 
     private Date endTime;
 
-    private String cause;
+    private String reason;
 
     private Integer number;
 
     private Integer state;
 
-    public Appointment(Integer id, String account, String insName, String type, Date startTime, Date endTime, String cause, Integer number, Integer state) {
+    private Date operateTime;
+
+    private String rejectReason;
+
+    private String orderNumber;
+
+    private String insAccount;
+
+    public Appointment(Integer id, String account, String stuName, String type, Date startTime, Date endTime, String reason, Integer number, Integer state, Date operateTime, String rejectReason, String orderNumber, String insAccount) {
         this.id = id;
         this.account = account;
-        this.insName = insName;
+        this.stuName = stuName;
         this.type = type;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.cause = cause;
+        this.reason = reason;
         this.number = number;
         this.state = state;
+        this.operateTime = operateTime;
+        this.rejectReason = rejectReason;
+        this.orderNumber = orderNumber;
+        this.insAccount = insAccount;
     }
 
     public Appointment() {
@@ -53,12 +65,12 @@ public class Appointment {
         this.account = account == null ? null : account.trim();
     }
 
-    public String getInsName() {
-        return insName;
+    public String getStuName() {
+        return stuName;
     }
 
-    public void setInsName(String insName) {
-        this.insName = insName == null ? null : insName.trim();
+    public void setStuName(String stuName) {
+        this.stuName = stuName == null ? null : stuName.trim();
     }
 
     public String getType() {
@@ -85,12 +97,12 @@ public class Appointment {
         this.endTime = endTime;
     }
 
-    public String getCause() {
-        return cause;
+    public String getReason() {
+        return reason;
     }
 
-    public void setCause(String cause) {
-        this.cause = cause == null ? null : cause.trim();
+    public void setReason(String reason) {
+        this.reason = reason == null ? null : reason.trim();
     }
 
     public Integer getNumber() {
@@ -107,5 +119,37 @@ public class Appointment {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public Date getOperateTime() {
+        return operateTime;
+    }
+
+    public void setOperateTime(Date operateTime) {
+        this.operateTime = operateTime;
+    }
+
+    public String getRejectReason() {
+        return rejectReason;
+    }
+
+    public void setRejectReason(String rejectReason) {
+        this.rejectReason = rejectReason == null ? null : rejectReason.trim();
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber == null ? null : orderNumber.trim();
+    }
+
+    public String getInsAccount() {
+        return insAccount;
+    }
+
+    public void setInsAccount(String insAccount) {
+        this.insAccount = insAccount == null ? null : insAccount.trim();
     }
 }

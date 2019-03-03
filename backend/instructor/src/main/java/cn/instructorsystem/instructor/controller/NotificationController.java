@@ -28,7 +28,7 @@ public class NotificationController {
     @Autowired
     private NotificationService notificationService;
 
-    @PostMapping(value = "getNotificationsByPage")
+    @PostMapping(value = "/getNotificationsByPage")
     public ResResult<Notification> getNotificationsByPage(@RequestBody NotificationReqVo vo) {
         List<Notification> notifications = notificationService.getNotificationsByPage(vo);
         int size = notifications.size();
@@ -37,12 +37,30 @@ public class NotificationController {
         if (notifications != null) {
             res.setCode(ResponseCode.SUCCESS);
             res.setMsg("getNotificationsByIsRead success!");
-            logger.info("notification.getNotificationsByIsRead() NotificationReqVo: {}，查询未读消息成功！", JSON.toJSONString(vo));
+            logger.info("notification.getNotificationsByIsRead() NotificationReqVo: {}，查询消息成功！", JSON.toJSONString(vo));
         } else {
             res.setCode(ResponseCode.FAILURE);
             res.setMsg("getNotificationsByIsRead failure!");
-            logger.info("notification.getNotificationsByIsRead() NotificationReqVo: {}，查询未读消息失败！", JSON.toJSONString(vo));
+            logger.info("notification.getNotificationsByIsRead() NotificationReqVo: {}，查询消息失败！", JSON.toJSONString(vo));
         }
         return res;
     }
+
+    @PostMapping(value = "/updateNotificationInfo")
+    public ResResult<Notification> updateNotificationInfo(@RequestBody NotificationReqVo vo) {
+        boolean isUpdate = notificationService.updateNotificationInfo(vo);
+        ResResult<Notification> res = new ResResult<>();
+        if (isUpdate) {
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("updateNotificationInfo success!");
+            logger.info("notification.updateNotificationInfo() NotificationReqVo: {}，更新消息信息成功！", JSON.toJSONString(vo));
+        } else {
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("updateNotificationInfo failure!");
+            logger.info("notification.updateNotificationInfo() NotificationReqVo: {}，更新消息信息失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
+
 }

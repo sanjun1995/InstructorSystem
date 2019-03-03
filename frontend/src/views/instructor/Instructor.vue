@@ -10,7 +10,7 @@
       <div class="topbar-account topbar-btn">
         <!-- 消息中心 -->
         <div class="btn-bell">
-          <el-tooltip effect="dark" :content="message?`有${message}条未处理 消息`:`消息中心`" placement="bottom">
+          <el-tooltip effect="dark" :content="message?`有${message}条未处理消息`:`消息中心`" placement="bottom">
             <router-link to="/instructor/insNotifications">
               <i class="el-icon-bell"></i>
             </router-link>
