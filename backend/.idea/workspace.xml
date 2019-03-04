@@ -2,78 +2,67 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40af623d-0c09-4b68-aa60-04a3fa43ce63" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/copyinstructor/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/config/cors/CorsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/config/dao/DruidDBConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/config/dao/SessionFactoryConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/config/service/TransactionManagementConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/config/websocket/WebSocketConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/AchievementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/InstructorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/NotificationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/PunishmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/AchievementMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/InstructorMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/InstructorStudentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/NoticeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/NotificationMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/PunishmentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Achievement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/AchievementExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Instructor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/InstructorExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/InstructorStudent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/InstructorStudentExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Notice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/NoticeExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Notification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/NotificationExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Punishment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/PunishmentExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/res/PunishmentRanking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/res/ResResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/AchievementService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/InstructorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/NotificationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/PunishmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/impl/AchievementServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/impl/InstructorServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/impl/NotificationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/impl/PunishmentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/util/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/util/ResponseCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/util/TokenUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/util/UUIDUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/util/WebSocketServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/AchievementReqVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/ChangePasswordReqVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/NewNotificationReqVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/NotificationReqVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/PersonalCenterReqVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/PunishmentInfoReqVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/generatorConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/SysManagerMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/AchievementMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/CopyPunishmentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/InstructorMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/InstructorStudentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/NoticeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/NotificationMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/PunishmentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/user.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/copyinstructor/src/test/java/cn/instructorsystem/sysmanager/SysmanagerApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructor/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/instructor/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructor/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/instructor/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instructor/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/instructor/src/main/resources/generatorConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/config/cors/CorsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/config/dao/DruidDBConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/config/dao/SessionFactoryConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/config/service/TransactionManagementConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/config/websocket/WebSocketConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/AchievementController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/InstructorController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/NotificationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/PunishmentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/AchievementMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/InstructorMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/InstructorStudentMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/NoticeMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/NotificationMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/PunishmentMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Achievement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/AchievementExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Instructor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/InstructorExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/InstructorStudent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/InstructorStudentExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Notice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/NoticeExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Notification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/NotificationExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Punishment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/PunishmentExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/res/PunishmentRanking.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/res/ResResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/AchievementService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/InstructorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/NotificationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/PunishmentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/impl/AchievementServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/impl/InstructorServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/impl/NotificationServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/impl/PunishmentServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/util/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/util/ResponseCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/util/TokenUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/util/UUIDUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/util/WebSocketServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/AchievementReqVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/ChangePasswordReqVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/NewNotificationReqVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/NotificationReqVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/PersonalCenterReqVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/PunishmentInfoReqVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/AchievementMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/AchievementMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/CopyPunishmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/CopyPunishmentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/InstructorMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/InstructorMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/InstructorStudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/InstructorStudentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/NoticeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/NoticeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/NotificationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/NotificationMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/PunishmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/PunishmentMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instructor/src/main/resources/mapper/AchievementMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/instructor/src/main/resources/mapper/AchievementMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructor/src/main/resources/mapper/CopyPunishmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/instructor/src/main/resources/mapper/CopyPunishmentMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instructor/src/main/resources/mapper/InstructorStudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/instructor/src/main/resources/mapper/InstructorStudentMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instructor/src/main/resources/mapper/NoticeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/instructor/src/main/resources/mapper/NoticeMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instructor/src/main/resources/mapper/NotificationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/instructor/src/main/resources/mapper/NotificationMapper.xml" afterDir="false" />
@@ -109,86 +98,7 @@
     <favorites_list name="backend" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/copyinstructor/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="158" column="12" selection-start-line="158" selection-start-column="12" selection-end-line="158" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Achievement.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/PunishmentController.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/impl/PunishmentServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="28" column="97" selection-start-line="28" selection-start-column="97" selection-end-line="28" selection-end-column="97" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/NoticeMapper.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/PunishmentController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1106">
-              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/instructor/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="156" column="21" selection-start-line="26" selection-start-column="4" selection-end-line="158" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -274,7 +184,6 @@
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/AchievementServiceImpl.java" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/vo/PunishmentInfoReqVo.java" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/model/res/PunishmentRanking.java" />
-        <option value="$PROJECT_DIR$/instructor/src/main/resources/mapper/CopyPunishmentMapper.xml" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/dao/PunishmentMapper.java" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/PunishmentServiceImpl.java" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/PunishmentService.java" />
@@ -283,12 +192,13 @@
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/model/InstructorExample.java" />
         <option value="$PROJECT_DIR$/instructor/src/main/resources/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/instructor/pom.xml" />
-        <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java" />
-        <option value="$PROJECT_DIR$/instructor/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/copyinstructor/.idea/.name" />
         <option value="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/SysmanagerApplication.java" />
         <option value="$PROJECT_DIR$/copyinstructor/pom.xml" />
         <option value="$PROJECT_DIR$/copyinstructor/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/instructor/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/instructor/src/main/resources/mapper/CopyPunishmentMapper.xml" />
+        <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java" />
       </list>
     </option>
   </component>
@@ -298,7 +208,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="width" value="980" />
     <option name="height" value="1040" />
@@ -309,75 +219,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="copyinstructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="copyinstructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="copyinstructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="copyinstructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="copyinstructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="copyinstructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="copyinstructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="instructor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="copyinstructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="instructor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -388,7 +232,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551711484527" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551715303706" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -396,12 +240,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\InstructorSystem\backend\copyinstructor\src\main\resources\mapper" />
-      <recent name="D:\InstructorSystem\backend\copyinstructor\src\main\java\cn\instructorsystem" />
-      <recent name="D:\InstructorSystem\backend\instructor\src\main\resources\mapper" />
-      <recent name="D:\InstructorSystem\backend\student\src\main\resources\mapper\leave" />
-      <recent name="D:\InstructorSystem\backend\instructor\src\main\java\cn\instructorsystem\instructor" />
+      <recent name="D:\InstructorSystem\backend\copyinstructor\src\main\resources" />
+      <recent name="D:\InstructorSystem\backend" />
+      <recent name="D:\InstructorSystem\backend\student\src\main\resources\mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cn.instructorsystem.student.util" />
@@ -410,9 +253,12 @@
       <recent name="cn.instructorsystem.instructor.vo" />
       <recent name="cn.instructorsystem.instructor.model.res" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\InstructorSystem\backend" />
-      <recent name="D:\InstructorSystem\backend\student\src\main\resources\mapper" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\InstructorSystem\backend\copyinstructor\src\main\java\cn\instructorsystem" />
+      <recent name="D:\InstructorSystem\backend\copyinstructor\src\main\resources\mapper" />
+      <recent name="D:\InstructorSystem\backend\instructor\src\main\resources\mapper" />
+      <recent name="D:\InstructorSystem\backend\student\src\main\resources\mapper\leave" />
+      <recent name="D:\InstructorSystem\backend\instructor\src\main\java\cn\instructorsystem\instructor" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -431,6 +277,7 @@
         </RuleState>
       </list>
     </option>
+    <option name="contentProportion" value="0.15846995" />
   </component>
   <component name="RunManager" selected="Spring Boot.InstructorApplication">
     <configuration name="UUIDUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -484,6 +331,32 @@
         </option>
       </MavenSettings>
       <method v="2" />
+    </configuration>
+    <configuration name="CopyInstructorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="copyinstructor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.instructorsystem.sysmanager.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.instructorsystem.sysmanager.CopyInstructorApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InstructorApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="copyinstructor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.instructorsystem.instructor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.instructorsystem.instructor.InstructorApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="InstructorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="instructor" />
@@ -547,16 +420,19 @@
     <list>
       <item itemvalue="Application.UUIDUtil" />
       <item itemvalue="Maven.mybatis:generate" />
+      <item itemvalue="Spring Boot.InstructorApplication" />
       <item itemvalue="Spring Boot.SysmanagerApplication" />
       <item itemvalue="Spring Boot.StudentApplication" />
-      <item itemvalue="Spring Boot.InstructorApplication" />
+      <item itemvalue="Spring Boot.CopyInstructorApplication" />
+      <item itemvalue="Spring Boot.InstructorApplication (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.InstructorApplication (1)" />
+        <item itemvalue="Spring Boot.CopyInstructorApplication" />
+        <item itemvalue="Spring Boot.StudentApplication" />
         <item itemvalue="Spring Boot.InstructorApplication" />
         <item itemvalue="Spring Boot.SysmanagerApplication" />
-        <item itemvalue="Spring Boot.StudentApplication" />
-        <item itemvalue="Application.UUIDUtil" />
       </list>
     </recent_temporary>
   </component>
@@ -630,17 +506,18 @@
       <workItem from="1551674355252" duration="1731000" />
       <workItem from="1551702591027" duration="5959000" />
       <workItem from="1551709100079" duration="1387000" />
-      <workItem from="1551710623073" duration="783000" />
+      <workItem from="1551710623073" duration="1707000" />
+      <workItem from="1551712538382" duration="2707000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="295935000" />
+    <option name="totallyTimeSpent" value="299566000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.1632653" visible="true" weight="0.2969169" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.1632653" visible="true" weight="0.30093834" />
       <window_info id="Structure" order="1" sideWeight="0.8367347" side_tool="true" weight="0.2580429" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -664,7 +541,7 @@
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.33569404" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Duplicate detector" order="15" weight="0.61048156" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="16" visible="true" weight="0.46033993" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="16" visible="true" weight="0.5779037" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -692,148 +569,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/ch/qos/logback/classic/util/ContextSelectorStaticBinder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="e#2397#2398#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/ch/qos/logback/classic/selector/DefaultContextSelector.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#666#667#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="e#1250#1251#0" expanded="true" />
-            <element signature="e#1282#1283#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/ch/qos/logback/classic/util/LoggerNameUtil.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/ch/qos/logback/classic/Logger.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="236" selection-start-line="236" selection-end-line="236" />
-          <folding>
-            <element signature="e#1831#1832#0" expanded="true" />
-            <element signature="e#1863#1864#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/ch/qos/logback/classic/LoggerContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
-          <folding>
-            <element signature="e#4041#4042#0" expanded="true" />
-            <element signature="e#4068#4069#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/org/slf4j/LoggerFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="285" selection-start-line="285" selection-end-line="285" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.11.1/log4j-api-2.11.1.jar!/org/apache/logging/log4j/message/AbstractMessageFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.11.1/log4j-api-2.11.1.jar!/org/apache/logging/log4j/message/ParameterizedMessageFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.11.1/log4j-api-2.11.1.jar!/org/apache/logging/log4j/message/DefaultFlowMessageFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#572#573#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.11.1/log4j-api-2.11.1.jar!/org/apache/logging/log4j/spi/AbstractLogger.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="e#2695#2696#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-to-slf4j/2.11.1/log4j-to-slf4j-2.11.1.jar!/org/apache/logging/slf4j/SLF4JLogger.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.11.1/log4j-api-2.11.1.jar!/org/apache/logging/log4j/spi/LoggerRegistry.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="e#1485#1486#0" expanded="true" />
-            <element signature="e#2388#2389#0" expanded="true" />
-            <element signature="e#2474#2475#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-to-slf4j/2.11.1/log4j-to-slf4j-2.11.1.jar!/org/apache/logging/slf4j/SLF4JLoggerContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jcl/5.1.2.RELEASE/spring-jcl-5.1.2.RELEASE.jar!/org/apache/commons/logging/LogAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#15389#15390#0" expanded="true" />
-            <element signature="e#15456#15457#0" expanded="true" />
-            <element signature="e#19548#19549#0" expanded="true" />
-            <element signature="e#19608#19609#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jcl/5.1.2.RELEASE/spring-jcl-5.1.2.RELEASE.jar!/org/apache/commons/logging/LogFactory.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
@@ -909,22 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/mapper/CopyPunishmentMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-          <folding>
-            <element signature="e#266#267#0" expanded="true" />
-            <element signature="e#338#339#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/config/cors/CorsConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -958,26 +677,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/CopyInstructorApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Notification.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/InstructorController.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/InstructorStudentExample.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/ChangePasswordReqVo.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/AchievementExample.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/AchievementController.java">
@@ -987,9 +690,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Achievement.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/PunishmentController.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/impl/PunishmentServiceImpl.java">
@@ -1008,7 +708,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instructor/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="416">
           <caret line="156" column="21" selection-start-line="26" selection-start-column="4" selection-end-line="158" selection-end-column="12" />
         </state>
       </provider>
@@ -1020,27 +720,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/NoticeMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/StudentApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        <state relative-caret-position="192">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/sysmanager/src/main/java/cn/instructorsystem/sysmanager/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="28" column="97" selection-start-line="28" selection-start-column="97" selection-end-line="28" selection-end-column="97" />
+        <state relative-caret-position="1">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/mapper/NoticeMapper.xml">
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/SysManagerMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/dao/SysManagerMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/main/resources/mybatis-config.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/mybatis-config.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/InstructorStudentMapper.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/PunishmentExample.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/PunishmentController.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/InstructorController.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/ChangePasswordReqVo.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/AchievementReqVo.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/AchievementExample.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/PunishmentInfoReqVo.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/impl/AchievementServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/util/WebSocketServer.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
+        <state relative-caret-position="120">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/dao/InstructorMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/CopyInstructorApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="28" column="97" selection-start-line="28" selection-start-column="97" selection-end-line="28" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/mapper/CopyPunishmentMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="3" column="77" selection-start-line="3" selection-start-column="77" selection-end-line="3" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding>
+            <element signature="e#266#267#0" expanded="true" />
+            <element signature="e#338#339#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

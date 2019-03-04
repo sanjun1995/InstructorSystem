@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.instructorsystem.instructor.dao.PunishmentMapper" >
-  <resultMap id="punishmentRankingList" type="cn.instructorsystem.student.model.res.PunishmentRanking">
+  <resultMap id="punishmentRankingList" type="cn.instructorsystem.instructor.model.res.PunishmentRanking">
     <result column="account" property="account"/>
     <result column="stu_name" property="stuName"/>
     <result column="punishment_times" property="punishmentTimes"/>
