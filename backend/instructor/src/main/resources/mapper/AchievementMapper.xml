@@ -9,12 +9,16 @@
       <arg column="score1" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="score2" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="score3" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="score4" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="comprehensive1" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="comprehensive2" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="comprehensive3" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="comprehensive4" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ins_account" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="score1_rank" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="score2_rank" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="score3_rank" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="comprehensive1_rank" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="comprehensive2_rank" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="comprehensive3_rank" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -76,8 +80,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, account, stu_name, score1, score2, score3, score4, comprehensive1, comprehensive2, 
-    comprehensive3, comprehensive4, ins_account
+    id, account, stu_name, score1, score2, score3, comprehensive1, comprehensive2, comprehensive3, 
+    ins_account, score1_rank, score2_rank, score3_rank, comprehensive1_rank, comprehensive2_rank, 
+    comprehensive3_rank
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.instructorsystem.instructor.model.AchievementExample" >
     select
@@ -113,14 +118,16 @@
   <insert id="insert" parameterType="cn.instructorsystem.instructor.model.Achievement" >
     insert into achievement (id, account, stu_name, 
       score1, score2, score3, 
-      score4, comprehensive1, comprehensive2, 
-      comprehensive3, comprehensive4, ins_account
-      )
+      comprehensive1, comprehensive2, comprehensive3, 
+      ins_account, score1_rank, score2_rank, 
+      score3_rank, comprehensive1_rank, comprehensive2_rank, 
+      comprehensive3_rank)
     values (#{id,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{stuName,jdbcType=VARCHAR}, 
       #{score1,jdbcType=VARCHAR}, #{score2,jdbcType=VARCHAR}, #{score3,jdbcType=VARCHAR}, 
-      #{score4,jdbcType=VARCHAR}, #{comprehensive1,jdbcType=VARCHAR}, #{comprehensive2,jdbcType=VARCHAR}, 
-      #{comprehensive3,jdbcType=VARCHAR}, #{comprehensive4,jdbcType=VARCHAR}, #{insAccount,jdbcType=VARCHAR}
-      )
+      #{comprehensive1,jdbcType=VARCHAR}, #{comprehensive2,jdbcType=VARCHAR}, #{comprehensive3,jdbcType=VARCHAR}, 
+      #{insAccount,jdbcType=VARCHAR}, #{score1Rank,jdbcType=VARCHAR}, #{score2Rank,jdbcType=VARCHAR}, 
+      #{score3Rank,jdbcType=VARCHAR}, #{comprehensive1Rank,jdbcType=VARCHAR}, #{comprehensive2Rank,jdbcType=VARCHAR}, 
+      #{comprehensive3Rank,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.instructorsystem.instructor.model.Achievement" >
     insert into achievement
@@ -143,9 +150,6 @@
       <if test="score3 != null" >
         score3,
       </if>
-      <if test="score4 != null" >
-        score4,
-      </if>
       <if test="comprehensive1 != null" >
         comprehensive1,
       </if>
@@ -155,11 +159,26 @@
       <if test="comprehensive3 != null" >
         comprehensive3,
       </if>
-      <if test="comprehensive4 != null" >
-        comprehensive4,
-      </if>
       <if test="insAccount != null" >
         ins_account,
+      </if>
+      <if test="score1Rank != null" >
+        score1_rank,
+      </if>
+      <if test="score2Rank != null" >
+        score2_rank,
+      </if>
+      <if test="score3Rank != null" >
+        score3_rank,
+      </if>
+      <if test="comprehensive1Rank != null" >
+        comprehensive1_rank,
+      </if>
+      <if test="comprehensive2Rank != null" >
+        comprehensive2_rank,
+      </if>
+      <if test="comprehensive3Rank != null" >
+        comprehensive3_rank,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -181,9 +200,6 @@
       <if test="score3 != null" >
         #{score3,jdbcType=VARCHAR},
       </if>
-      <if test="score4 != null" >
-        #{score4,jdbcType=VARCHAR},
-      </if>
       <if test="comprehensive1 != null" >
         #{comprehensive1,jdbcType=VARCHAR},
       </if>
@@ -193,11 +209,26 @@
       <if test="comprehensive3 != null" >
         #{comprehensive3,jdbcType=VARCHAR},
       </if>
-      <if test="comprehensive4 != null" >
-        #{comprehensive4,jdbcType=VARCHAR},
-      </if>
       <if test="insAccount != null" >
         #{insAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="score1Rank != null" >
+        #{score1Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="score2Rank != null" >
+        #{score2Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="score3Rank != null" >
+        #{score3Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="comprehensive1Rank != null" >
+        #{comprehensive1Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="comprehensive2Rank != null" >
+        #{comprehensive2Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="comprehensive3Rank != null" >
+        #{comprehensive3Rank,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -222,9 +253,6 @@
       <if test="record.score3 != null" >
         score3 = #{record.score3,jdbcType=VARCHAR},
       </if>
-      <if test="record.score4 != null" >
-        score4 = #{record.score4,jdbcType=VARCHAR},
-      </if>
       <if test="record.comprehensive1 != null" >
         comprehensive1 = #{record.comprehensive1,jdbcType=VARCHAR},
       </if>
@@ -234,11 +262,26 @@
       <if test="record.comprehensive3 != null" >
         comprehensive3 = #{record.comprehensive3,jdbcType=VARCHAR},
       </if>
-      <if test="record.comprehensive4 != null" >
-        comprehensive4 = #{record.comprehensive4,jdbcType=VARCHAR},
-      </if>
       <if test="record.insAccount != null" >
         ins_account = #{record.insAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.score1Rank != null" >
+        score1_rank = #{record.score1Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.score2Rank != null" >
+        score2_rank = #{record.score2Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.score3Rank != null" >
+        score3_rank = #{record.score3Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.comprehensive1Rank != null" >
+        comprehensive1_rank = #{record.comprehensive1Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.comprehensive2Rank != null" >
+        comprehensive2_rank = #{record.comprehensive2Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.comprehensive3Rank != null" >
+        comprehensive3_rank = #{record.comprehensive3Rank,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -253,12 +296,16 @@
       score1 = #{record.score1,jdbcType=VARCHAR},
       score2 = #{record.score2,jdbcType=VARCHAR},
       score3 = #{record.score3,jdbcType=VARCHAR},
-      score4 = #{record.score4,jdbcType=VARCHAR},
       comprehensive1 = #{record.comprehensive1,jdbcType=VARCHAR},
       comprehensive2 = #{record.comprehensive2,jdbcType=VARCHAR},
       comprehensive3 = #{record.comprehensive3,jdbcType=VARCHAR},
-      comprehensive4 = #{record.comprehensive4,jdbcType=VARCHAR},
-      ins_account = #{record.insAccount,jdbcType=VARCHAR}
+      ins_account = #{record.insAccount,jdbcType=VARCHAR},
+      score1_rank = #{record.score1Rank,jdbcType=VARCHAR},
+      score2_rank = #{record.score2Rank,jdbcType=VARCHAR},
+      score3_rank = #{record.score3Rank,jdbcType=VARCHAR},
+      comprehensive1_rank = #{record.comprehensive1Rank,jdbcType=VARCHAR},
+      comprehensive2_rank = #{record.comprehensive2Rank,jdbcType=VARCHAR},
+      comprehensive3_rank = #{record.comprehensive3Rank,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -281,9 +328,6 @@
       <if test="score3 != null" >
         score3 = #{score3,jdbcType=VARCHAR},
       </if>
-      <if test="score4 != null" >
-        score4 = #{score4,jdbcType=VARCHAR},
-      </if>
       <if test="comprehensive1 != null" >
         comprehensive1 = #{comprehensive1,jdbcType=VARCHAR},
       </if>
@@ -293,11 +337,26 @@
       <if test="comprehensive3 != null" >
         comprehensive3 = #{comprehensive3,jdbcType=VARCHAR},
       </if>
-      <if test="comprehensive4 != null" >
-        comprehensive4 = #{comprehensive4,jdbcType=VARCHAR},
-      </if>
       <if test="insAccount != null" >
         ins_account = #{insAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="score1Rank != null" >
+        score1_rank = #{score1Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="score2Rank != null" >
+        score2_rank = #{score2Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="score3Rank != null" >
+        score3_rank = #{score3Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="comprehensive1Rank != null" >
+        comprehensive1_rank = #{comprehensive1Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="comprehensive2Rank != null" >
+        comprehensive2_rank = #{comprehensive2Rank,jdbcType=VARCHAR},
+      </if>
+      <if test="comprehensive3Rank != null" >
+        comprehensive3_rank = #{comprehensive3Rank,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -309,12 +368,16 @@
       score1 = #{score1,jdbcType=VARCHAR},
       score2 = #{score2,jdbcType=VARCHAR},
       score3 = #{score3,jdbcType=VARCHAR},
-      score4 = #{score4,jdbcType=VARCHAR},
       comprehensive1 = #{comprehensive1,jdbcType=VARCHAR},
       comprehensive2 = #{comprehensive2,jdbcType=VARCHAR},
       comprehensive3 = #{comprehensive3,jdbcType=VARCHAR},
-      comprehensive4 = #{comprehensive4,jdbcType=VARCHAR},
-      ins_account = #{insAccount,jdbcType=VARCHAR}
+      ins_account = #{insAccount,jdbcType=VARCHAR},
+      score1_rank = #{score1Rank,jdbcType=VARCHAR},
+      score2_rank = #{score2Rank,jdbcType=VARCHAR},
+      score3_rank = #{score3Rank,jdbcType=VARCHAR},
+      comprehensive1_rank = #{comprehensive1Rank,jdbcType=VARCHAR},
+      comprehensive2_rank = #{comprehensive2Rank,jdbcType=VARCHAR},
+      comprehensive3_rank = #{comprehensive3Rank,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

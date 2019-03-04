@@ -514,76 +514,6 @@ public class AchievementExample {
             return (Criteria) this;
         }
 
-        public Criteria andScore4IsNull() {
-            addCriterion("score4 is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andScore4IsNotNull() {
-            addCriterion("score4 is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andScore4EqualTo(String value) {
-            addCriterion("score4 =", value, "score4");
-            return (Criteria) this;
-        }
-
-        public Criteria andScore4NotEqualTo(String value) {
-            addCriterion("score4 <>", value, "score4");
-            return (Criteria) this;
-        }
-
-        public Criteria andScore4GreaterThan(String value) {
-            addCriterion("score4 >", value, "score4");
-            return (Criteria) this;
-        }
-
-        public Criteria andScore4GreaterThanOrEqualTo(String value) {
-            addCriterion("score4 >=", value, "score4");
-            return (Criteria) this;
-        }
-
-        public Criteria andScore4LessThan(String value) {
-            addCriterion("score4 <", value, "score4");
-            return (Criteria) this;
-        }
-
-        public Criteria andScore4LessThanOrEqualTo(String value) {
-            addCriterion("score4 <=", value, "score4");
-            return (Criteria) this;
-        }
-
-        public Criteria andScore4Like(String value) {
-            addCriterion("score4 like", value, "score4");
-            return (Criteria) this;
-        }
-
-        public Criteria andScore4NotLike(String value) {
-            addCriterion("score4 not like", value, "score4");
-            return (Criteria) this;
-        }
-
-        public Criteria andScore4In(List<String> values) {
-            addCriterion("score4 in", values, "score4");
-            return (Criteria) this;
-        }
-
-        public Criteria andScore4NotIn(List<String> values) {
-            addCriterion("score4 not in", values, "score4");
-            return (Criteria) this;
-        }
-
-        public Criteria andScore4Between(String value1, String value2) {
-            addCriterion("score4 between", value1, value2, "score4");
-            return (Criteria) this;
-        }
-
-        public Criteria andScore4NotBetween(String value1, String value2) {
-            addCriterion("score4 not between", value1, value2, "score4");
-            return (Criteria) this;
-        }
-
         public Criteria andComprehensive1IsNull() {
             addCriterion("comprehensive1 is null");
             return (Criteria) this;
@@ -794,76 +724,6 @@ public class AchievementExample {
             return (Criteria) this;
         }
 
-        public Criteria andComprehensive4IsNull() {
-            addCriterion("comprehensive4 is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andComprehensive4IsNotNull() {
-            addCriterion("comprehensive4 is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andComprehensive4EqualTo(String value) {
-            addCriterion("comprehensive4 =", value, "comprehensive4");
-            return (Criteria) this;
-        }
-
-        public Criteria andComprehensive4NotEqualTo(String value) {
-            addCriterion("comprehensive4 <>", value, "comprehensive4");
-            return (Criteria) this;
-        }
-
-        public Criteria andComprehensive4GreaterThan(String value) {
-            addCriterion("comprehensive4 >", value, "comprehensive4");
-            return (Criteria) this;
-        }
-
-        public Criteria andComprehensive4GreaterThanOrEqualTo(String value) {
-            addCriterion("comprehensive4 >=", value, "comprehensive4");
-            return (Criteria) this;
-        }
-
-        public Criteria andComprehensive4LessThan(String value) {
-            addCriterion("comprehensive4 <", value, "comprehensive4");
-            return (Criteria) this;
-        }
-
-        public Criteria andComprehensive4LessThanOrEqualTo(String value) {
-            addCriterion("comprehensive4 <=", value, "comprehensive4");
-            return (Criteria) this;
-        }
-
-        public Criteria andComprehensive4Like(String value) {
-            addCriterion("comprehensive4 like", value, "comprehensive4");
-            return (Criteria) this;
-        }
-
-        public Criteria andComprehensive4NotLike(String value) {
-            addCriterion("comprehensive4 not like", value, "comprehensive4");
-            return (Criteria) this;
-        }
-
-        public Criteria andComprehensive4In(List<String> values) {
-            addCriterion("comprehensive4 in", values, "comprehensive4");
-            return (Criteria) this;
-        }
-
-        public Criteria andComprehensive4NotIn(List<String> values) {
-            addCriterion("comprehensive4 not in", values, "comprehensive4");
-            return (Criteria) this;
-        }
-
-        public Criteria andComprehensive4Between(String value1, String value2) {
-            addCriterion("comprehensive4 between", value1, value2, "comprehensive4");
-            return (Criteria) this;
-        }
-
-        public Criteria andComprehensive4NotBetween(String value1, String value2) {
-            addCriterion("comprehensive4 not between", value1, value2, "comprehensive4");
-            return (Criteria) this;
-        }
-
         public Criteria andInsAccountIsNull() {
             addCriterion("ins_account is null");
             return (Criteria) this;
@@ -931,6 +791,426 @@ public class AchievementExample {
 
         public Criteria andInsAccountNotBetween(String value1, String value2) {
             addCriterion("ins_account not between", value1, value2, "insAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankIsNull() {
+            addCriterion("score1_rank is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankIsNotNull() {
+            addCriterion("score1_rank is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankEqualTo(String value) {
+            addCriterion("score1_rank =", value, "score1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankNotEqualTo(String value) {
+            addCriterion("score1_rank <>", value, "score1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankGreaterThan(String value) {
+            addCriterion("score1_rank >", value, "score1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankGreaterThanOrEqualTo(String value) {
+            addCriterion("score1_rank >=", value, "score1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankLessThan(String value) {
+            addCriterion("score1_rank <", value, "score1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankLessThanOrEqualTo(String value) {
+            addCriterion("score1_rank <=", value, "score1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankLike(String value) {
+            addCriterion("score1_rank like", value, "score1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankNotLike(String value) {
+            addCriterion("score1_rank not like", value, "score1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankIn(List<String> values) {
+            addCriterion("score1_rank in", values, "score1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankNotIn(List<String> values) {
+            addCriterion("score1_rank not in", values, "score1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankBetween(String value1, String value2) {
+            addCriterion("score1_rank between", value1, value2, "score1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore1RankNotBetween(String value1, String value2) {
+            addCriterion("score1_rank not between", value1, value2, "score1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankIsNull() {
+            addCriterion("score2_rank is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankIsNotNull() {
+            addCriterion("score2_rank is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankEqualTo(String value) {
+            addCriterion("score2_rank =", value, "score2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankNotEqualTo(String value) {
+            addCriterion("score2_rank <>", value, "score2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankGreaterThan(String value) {
+            addCriterion("score2_rank >", value, "score2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankGreaterThanOrEqualTo(String value) {
+            addCriterion("score2_rank >=", value, "score2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankLessThan(String value) {
+            addCriterion("score2_rank <", value, "score2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankLessThanOrEqualTo(String value) {
+            addCriterion("score2_rank <=", value, "score2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankLike(String value) {
+            addCriterion("score2_rank like", value, "score2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankNotLike(String value) {
+            addCriterion("score2_rank not like", value, "score2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankIn(List<String> values) {
+            addCriterion("score2_rank in", values, "score2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankNotIn(List<String> values) {
+            addCriterion("score2_rank not in", values, "score2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankBetween(String value1, String value2) {
+            addCriterion("score2_rank between", value1, value2, "score2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore2RankNotBetween(String value1, String value2) {
+            addCriterion("score2_rank not between", value1, value2, "score2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankIsNull() {
+            addCriterion("score3_rank is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankIsNotNull() {
+            addCriterion("score3_rank is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankEqualTo(String value) {
+            addCriterion("score3_rank =", value, "score3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankNotEqualTo(String value) {
+            addCriterion("score3_rank <>", value, "score3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankGreaterThan(String value) {
+            addCriterion("score3_rank >", value, "score3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankGreaterThanOrEqualTo(String value) {
+            addCriterion("score3_rank >=", value, "score3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankLessThan(String value) {
+            addCriterion("score3_rank <", value, "score3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankLessThanOrEqualTo(String value) {
+            addCriterion("score3_rank <=", value, "score3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankLike(String value) {
+            addCriterion("score3_rank like", value, "score3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankNotLike(String value) {
+            addCriterion("score3_rank not like", value, "score3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankIn(List<String> values) {
+            addCriterion("score3_rank in", values, "score3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankNotIn(List<String> values) {
+            addCriterion("score3_rank not in", values, "score3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankBetween(String value1, String value2) {
+            addCriterion("score3_rank between", value1, value2, "score3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andScore3RankNotBetween(String value1, String value2) {
+            addCriterion("score3_rank not between", value1, value2, "score3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankIsNull() {
+            addCriterion("comprehensive1_rank is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankIsNotNull() {
+            addCriterion("comprehensive1_rank is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankEqualTo(String value) {
+            addCriterion("comprehensive1_rank =", value, "comprehensive1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankNotEqualTo(String value) {
+            addCriterion("comprehensive1_rank <>", value, "comprehensive1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankGreaterThan(String value) {
+            addCriterion("comprehensive1_rank >", value, "comprehensive1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankGreaterThanOrEqualTo(String value) {
+            addCriterion("comprehensive1_rank >=", value, "comprehensive1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankLessThan(String value) {
+            addCriterion("comprehensive1_rank <", value, "comprehensive1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankLessThanOrEqualTo(String value) {
+            addCriterion("comprehensive1_rank <=", value, "comprehensive1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankLike(String value) {
+            addCriterion("comprehensive1_rank like", value, "comprehensive1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankNotLike(String value) {
+            addCriterion("comprehensive1_rank not like", value, "comprehensive1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankIn(List<String> values) {
+            addCriterion("comprehensive1_rank in", values, "comprehensive1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankNotIn(List<String> values) {
+            addCriterion("comprehensive1_rank not in", values, "comprehensive1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankBetween(String value1, String value2) {
+            addCriterion("comprehensive1_rank between", value1, value2, "comprehensive1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive1RankNotBetween(String value1, String value2) {
+            addCriterion("comprehensive1_rank not between", value1, value2, "comprehensive1Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankIsNull() {
+            addCriterion("comprehensive2_rank is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankIsNotNull() {
+            addCriterion("comprehensive2_rank is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankEqualTo(String value) {
+            addCriterion("comprehensive2_rank =", value, "comprehensive2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankNotEqualTo(String value) {
+            addCriterion("comprehensive2_rank <>", value, "comprehensive2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankGreaterThan(String value) {
+            addCriterion("comprehensive2_rank >", value, "comprehensive2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankGreaterThanOrEqualTo(String value) {
+            addCriterion("comprehensive2_rank >=", value, "comprehensive2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankLessThan(String value) {
+            addCriterion("comprehensive2_rank <", value, "comprehensive2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankLessThanOrEqualTo(String value) {
+            addCriterion("comprehensive2_rank <=", value, "comprehensive2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankLike(String value) {
+            addCriterion("comprehensive2_rank like", value, "comprehensive2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankNotLike(String value) {
+            addCriterion("comprehensive2_rank not like", value, "comprehensive2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankIn(List<String> values) {
+            addCriterion("comprehensive2_rank in", values, "comprehensive2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankNotIn(List<String> values) {
+            addCriterion("comprehensive2_rank not in", values, "comprehensive2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankBetween(String value1, String value2) {
+            addCriterion("comprehensive2_rank between", value1, value2, "comprehensive2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive2RankNotBetween(String value1, String value2) {
+            addCriterion("comprehensive2_rank not between", value1, value2, "comprehensive2Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankIsNull() {
+            addCriterion("comprehensive3_rank is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankIsNotNull() {
+            addCriterion("comprehensive3_rank is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankEqualTo(String value) {
+            addCriterion("comprehensive3_rank =", value, "comprehensive3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankNotEqualTo(String value) {
+            addCriterion("comprehensive3_rank <>", value, "comprehensive3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankGreaterThan(String value) {
+            addCriterion("comprehensive3_rank >", value, "comprehensive3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankGreaterThanOrEqualTo(String value) {
+            addCriterion("comprehensive3_rank >=", value, "comprehensive3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankLessThan(String value) {
+            addCriterion("comprehensive3_rank <", value, "comprehensive3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankLessThanOrEqualTo(String value) {
+            addCriterion("comprehensive3_rank <=", value, "comprehensive3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankLike(String value) {
+            addCriterion("comprehensive3_rank like", value, "comprehensive3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankNotLike(String value) {
+            addCriterion("comprehensive3_rank not like", value, "comprehensive3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankIn(List<String> values) {
+            addCriterion("comprehensive3_rank in", values, "comprehensive3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankNotIn(List<String> values) {
+            addCriterion("comprehensive3_rank not in", values, "comprehensive3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankBetween(String value1, String value2) {
+            addCriterion("comprehensive3_rank between", value1, value2, "comprehensive3Rank");
+            return (Criteria) this;
+        }
+
+        public Criteria andComprehensive3RankNotBetween(String value1, String value2) {
+            addCriterion("comprehensive3_rank not between", value1, value2, "comprehensive3Rank");
             return (Criteria) this;
         }
     }

@@ -224,10 +224,7 @@
     width: 120px;
     display: inline-block;
   }
-  .del-dialog-cnt{
-    font-size: 16px;
-    text-align: center
-  }
+
   .table{
     width: 100%;
     font-size: 14px;

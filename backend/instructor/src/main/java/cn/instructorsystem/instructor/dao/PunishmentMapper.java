@@ -3,6 +3,8 @@ package cn.instructorsystem.instructor.dao;
 import cn.instructorsystem.instructor.model.Punishment;
 import cn.instructorsystem.instructor.model.PunishmentExample;
 import java.util.List;
+
+import cn.instructorsystem.instructor.model.res.PunishmentRanking;
 import org.apache.ibatis.annotations.Param;
 
 public interface PunishmentMapper {
@@ -25,4 +27,6 @@ public interface PunishmentMapper {
     int updateByPrimaryKeySelective(Punishment record);
 
     int updateByPrimaryKey(Punishment record);
+
+    List<PunishmentRanking> countPunishmentsByAccount(Punishment record);
 }

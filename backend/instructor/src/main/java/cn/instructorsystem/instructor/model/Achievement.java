@@ -13,31 +13,43 @@ public class Achievement {
 
     private String score3;
 
-    private String score4;
-
     private String comprehensive1;
 
     private String comprehensive2;
 
     private String comprehensive3;
 
-    private String comprehensive4;
-
     private String insAccount;
 
-    public Achievement(Integer id, String account, String stuName, String score1, String score2, String score3, String score4, String comprehensive1, String comprehensive2, String comprehensive3, String comprehensive4, String insAccount) {
+    private String score1Rank;
+
+    private String score2Rank;
+
+    private String score3Rank;
+
+    private String comprehensive1Rank;
+
+    private String comprehensive2Rank;
+
+    private String comprehensive3Rank;
+
+    public Achievement(Integer id, String account, String stuName, String score1, String score2, String score3, String comprehensive1, String comprehensive2, String comprehensive3, String insAccount, String score1Rank, String score2Rank, String score3Rank, String comprehensive1Rank, String comprehensive2Rank, String comprehensive3Rank) {
         this.id = id;
         this.account = account;
         this.stuName = stuName;
         this.score1 = score1;
         this.score2 = score2;
         this.score3 = score3;
-        this.score4 = score4;
         this.comprehensive1 = comprehensive1;
         this.comprehensive2 = comprehensive2;
         this.comprehensive3 = comprehensive3;
-        this.comprehensive4 = comprehensive4;
         this.insAccount = insAccount;
+        this.score1Rank = score1Rank;
+        this.score2Rank = score2Rank;
+        this.score3Rank = score3Rank;
+        this.comprehensive1Rank = comprehensive1Rank;
+        this.comprehensive2Rank = comprehensive2Rank;
+        this.comprehensive3Rank = comprehensive3Rank;
     }
 
     public Achievement() {
@@ -92,14 +104,6 @@ public class Achievement {
         this.score3 = score3 == null ? null : score3.trim();
     }
 
-    public String getScore4() {
-        return score4;
-    }
-
-    public void setScore4(String score4) {
-        this.score4 = score4 == null ? null : score4.trim();
-    }
-
     public String getComprehensive1() {
         return comprehensive1;
     }
@@ -124,19 +128,59 @@ public class Achievement {
         this.comprehensive3 = comprehensive3 == null ? null : comprehensive3.trim();
     }
 
-    public String getComprehensive4() {
-        return comprehensive4;
-    }
-
-    public void setComprehensive4(String comprehensive4) {
-        this.comprehensive4 = comprehensive4 == null ? null : comprehensive4.trim();
-    }
-
     public String getInsAccount() {
         return insAccount;
     }
 
     public void setInsAccount(String insAccount) {
         this.insAccount = insAccount == null ? null : insAccount.trim();
+    }
+
+    public String getScore1Rank() {
+        return score1Rank;
+    }
+
+    public void setScore1Rank(String score1Rank) {
+        this.score1Rank = score1Rank == null ? null : score1Rank.trim();
+    }
+
+    public String getScore2Rank() {
+        return score2Rank;
+    }
+
+    public void setScore2Rank(String score2Rank) {
+        this.score2Rank = score2Rank == null ? null : score2Rank.trim();
+    }
+
+    public String getScore3Rank() {
+        return score3Rank;
+    }
+
+    public void setScore3Rank(String score3Rank) {
+        this.score3Rank = score3Rank == null ? null : score3Rank.trim();
+    }
+
+    public String getComprehensive1Rank() {
+        return comprehensive1Rank;
+    }
+
+    public void setComprehensive1Rank(String comprehensive1Rank) {
+        this.comprehensive1Rank = comprehensive1Rank == null ? null : comprehensive1Rank.trim();
+    }
+
+    public String getComprehensive2Rank() {
+        return comprehensive2Rank;
+    }
+
+    public void setComprehensive2Rank(String comprehensive2Rank) {
+        this.comprehensive2Rank = comprehensive2Rank == null ? null : comprehensive2Rank.trim();
+    }
+
+    public String getComprehensive3Rank() {
+        return comprehensive3Rank;
+    }
+
+    public void setComprehensive3Rank(String comprehensive3Rank) {
+        this.comprehensive3Rank = comprehensive3Rank == null ? null : comprehensive3Rank.trim();
     }
 }

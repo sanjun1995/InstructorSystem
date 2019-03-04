@@ -83,7 +83,7 @@
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>
 
-        <table tableName="punishment" domainObjectName="Punishment" enableCountByExample="false"
+<!--        <table tableName="punishment" domainObjectName="Punishment" enableCountByExample="false"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>
@@ -91,6 +91,6 @@
         <table tableName="notice" domainObjectName="Notice" enableCountByExample="false"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
-        </table>
+        </table>-->
     </context>
 </generatorConfiguration>
