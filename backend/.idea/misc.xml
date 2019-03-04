@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/instructor/pom.xml" />
         <option value="$PROJECT_DIR$/student/pom.xml" />
         <option value="$PROJECT_DIR$/sysmanager/pom.xml" />
+        <option value="$PROJECT_DIR$/copyinstructor/pom.xml" />
       </list>
     </option>
   </component>

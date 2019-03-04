@@ -37,7 +37,7 @@
              targetPackage    指定生成的model生成所在的包名
              targetProject    指定在该项目下所在的路径
          -->
-        <javaModelGenerator targetPackage="cn.instructorsystem.instructor.model" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="cn.instructorsystem.sysmanager.model" targetProject="src/main/java">
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
             <property name="enableSubPackages" value="false"/>
             <!-- 是否对model添加构造函数 -->
@@ -59,40 +59,15 @@
              type="XMLMAPPER"，生成SQLMap XML文件和独立的Mapper接口
          -->
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.instructorsystem.instructor.dao"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.instructorsystem.sysmanager.dao"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <!--生成对应表及类名-->
-
-<!--        <table tableName="instructor" domainObjectName="Instructor" enableCountByExample="false"
-               enableUpdateByExample="true" enableDeleteByExample="true"
-               enableSelectByExample="true" selectByExampleQueryId="true">
-        </table>-->
-<!--        <table tableName="instructor_student" domainObjectName="InstructorStudent" enableCountByExample="false"
-               enableUpdateByExample="true" enableDeleteByExample="true"
-               enableSelectByExample="true" selectByExampleQueryId="true">
-        </table>-->
-<!--        <table tableName="notification" domainObjectName="Notification" enableCountByExample="false"
-               enableUpdateByExample="true" enableDeleteByExample="true"
-               enableSelectByExample="true" selectByExampleQueryId="true">
-        </table>-->
-<!--
-        <table tableName="achievement" domainObjectName="Achievement" enableCountByExample="false"
+        <table tableName="sys_manager" domainObjectName="SysManager" enableCountByExample="false"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>
--->
-
-<!--        <table tableName="punishment" domainObjectName="Punishment" enableCountByExample="false"
-               enableUpdateByExample="true" enableDeleteByExample="true"
-               enableSelectByExample="true" selectByExampleQueryId="true">
-        </table>
-
-        <table tableName="notice" domainObjectName="Notice" enableCountByExample="false"
-               enableUpdateByExample="true" enableDeleteByExample="true"
-               enableSelectByExample="true" selectByExampleQueryId="true">
-        </table>-->
     </context>
 </generatorConfiguration>
