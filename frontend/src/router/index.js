@@ -16,10 +16,13 @@ import InsAppointment from '@/views/instructor/Appointment'
 import InsChangePassword from '@/views/instructor/ChangePassword'
 import InsClassInfo from '@/views/instructor/ClassInfo'
 import InsNotice from '@/views/instructor/Notice'
-import InsMemorandum from '@/views/instructor/Memorandum'
 import InsBulletinCriticism from '@/views/instructor/BulletinCriticism'
 import InsScore from '@/views/instructor/Score'
 import InsNotifications from '@/views/instructor/Notifications'
+import SysManagerStudentManagement from '@/views/sysmanager/StudentManagement'
+import SysManagerInstructorManagement from '@/views/sysmanager/InstructorManagement'
+import SysManagerInformationManagement from '@/views/sysmanager/InformationManagement'
+import SysManagerChangePassword from '@/views/sysmanager/ChangePassword'
 
 Vue.use(vueRouter)
 
@@ -37,7 +40,14 @@ let router = new vueRouter({
     }, {
       path: '/sysManager',
       name: 'sysManager',
-      component: SysManager
+      meta: { title: '管理员端'},
+      component: SysManager,
+      children: [
+        {path: 'sysManagerStudentManagement', component: SysManagerStudentManagement, name: 'sysManagerStudentManagement', meta: { title: '学生管理'}},
+        {path: 'sysManagerInstructorManagement', component: SysManagerInstructorManagement, name: 'sysManagerInstructorManagement', meta: { title: '辅导员管理'}},
+        {path: 'sysManagerInformationManagement', component: SysManagerInformationManagement, name: 'sysManagerInformationManagement', meta: { title: '信息管理'}},
+        {path: 'sysManagerChangePassword', component: SysManagerChangePassword, name: 'sysManagerChangePassword', meta: { title: '修改密码'}}
+      ]
     }, {
       path: '/student',
       name: 'student',
@@ -64,7 +74,6 @@ let router = new vueRouter({
         {path: 'insClassInfo', component: InsClassInfo, name: 'insClassInfo', meta: { title: '班级管理'}},
         {path: 'insNotifications', component: InsNotifications, name: 'insNotifications', meta: { title: '消息管理'}},
         {path: 'insNotice', component: InsNotice, name: 'insNotice', meta: { title: '公告'}},
-        {path: 'insMemorandum', component: InsMemorandum, name: 'insMemorandum', meta: { title: '备忘录'}},
         {path: 'insBulletinCriticism', component: InsBulletinCriticism, name: 'insBulletinCriticism', meta: { title: '通报管理'}},
         {path: 'insScore', component: InsScore, name: 'insScore', meta: { title: '成绩管理'}}
       ]

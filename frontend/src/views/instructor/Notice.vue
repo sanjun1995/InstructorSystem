@@ -169,17 +169,17 @@
       handleEdit(index, row) {
         const item = this.tableData[index];
         this.params.notice = {
-          id: item.noticeContent,
+          id: item.id,
           noticeContent: item.noticeContent,
         };
         this.editVisible = true;
         this.isUpdate = true;
-      },
+      }
     }
   }
 </script>
 <style scoped>
-  .editor-btn{
-    margin-top: 20px;
+  .red{
+    color: #ff0000;
   }
 </style>

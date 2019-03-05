@@ -39,39 +39,6 @@
       </el-col>
       <el-col :span="16">
         <el-row :gutter="20" class="mgb20">
-          <el-col :span="8">
-            <el-card shadow="hover" :body-style="{padding: '0px'}">
-              <div class="grid-content grid-con-1">
-                <span class="fontFamily ins-geren grid-con-icon"></span>
-                <div class="grid-cont-right">
-                  <div class="grid-num">34</div>
-                  <div>请假人数</div>
-                </div>
-              </div>
-            </el-card>
-          </el-col>
-          <el-col :span="8">
-            <el-card shadow="hover" :body-style="{padding: '0px'}">
-              <div class="grid-content grid-con-2">
-                <span class="fontFamily ins-geren grid-con-icon"></span>
-                <div class="grid-cont-right">
-                  <div class="grid-num">21</div>
-                  <div>预约人数</div>
-                </div>
-              </div>
-            </el-card>
-          </el-col>
-          <el-col :span="8">
-            <el-card shadow="hover" :body-style="{padding: '0px'}">
-              <div class="grid-content grid-con-3">
-                <span class="fontFamily ins-geren grid-con-icon"></span>
-                <div class="grid-cont-right">
-                  <div class="grid-num">13</div>
-                  <div>通报人数</div>
-                </div>
-              </div>
-            </el-card>
-          </el-col>
         </el-row>
         <el-card shadow="hover" style="height: 500px;">
           <div slot="header" class="clearfix">

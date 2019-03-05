@@ -1,13 +1,16 @@
 package cn.instructorsystem.sysmanager.model.res;
 
+import java.util.List;
+
 /**
  * @author sanjun
  * @date 2018/11/25 15:02
  */
-public class ResponseResult<T> {
+public class ResResult<T> {
     private int code;
     private String msg;
-    private T data;
+    private String token;
+    private List<T> data;
 
     public int getCode() {
         return code;
@@ -25,11 +28,19 @@ public class ResponseResult<T> {
         this.msg = msg;
     }
 
-    public T getData() {
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public List<T> getData() {
         return data;
     }
 
-    public void setData(T data) {
+    public void setData(List<T> data) {
         this.data = data;
     }
 }

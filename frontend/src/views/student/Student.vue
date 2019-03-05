@@ -83,7 +83,6 @@
   export default {
     data() {
       return {
-        defaultActiveIndex: '',
         tagsList: [],
         params: {
           token: '',
@@ -93,9 +92,6 @@
             headPath: ''
           }
         },
-        path: [
-          '/student/insHomePage'
-        ],
         defaultSrc: '../static/images/img.jpg'
       }
     },
@@ -122,7 +118,6 @@
         });
       },
       jumpTo(url){
-        this.defaultActiveIndex = url;
         this.$router.push(url); // 用go刷新
       },
       handleSelect(route) {

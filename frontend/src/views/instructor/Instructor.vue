@@ -74,10 +74,6 @@
                 <span class="fontFamily ins-gonggao"></span>
                 <span slot="title" class="menu-title">公告</span>
               </el-menu-item>
-              <el-menu-item index="/instructor/insMemorandum">
-                <span class="fontFamily ins-beiwanglushili"></span>
-                <span slot="title" class="menu-title">备忘录</span>
-              </el-menu-item>
               <el-menu-item index="/instructor/insBulletinCriticism">
                 <span class="fontFamily ins-jinggao"></span>
                 <span slot="title" class="menu-title">通报管理</span>
