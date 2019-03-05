@@ -2,7 +2,54 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40af623d-0c09-4b68-aa60-04a3fa43ce63" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/NoticeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/NoticeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/NoticeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/vo/NoticeInfoReqVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/controller/StudentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/CopyInstructorApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/config/cors/CorsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/config/dao/DruidDBConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/config/dao/SessionFactoryConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/config/service/TransactionManagementConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/dao/SysManagerMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/model/SysManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/model/SysManagerExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/model/res/ResponseResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/service/SysManagerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/service/impl/SysManagerServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/util/AuthenticationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/util/CustomRealm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/util/CustomRealmTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/util/ResponseCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/util/RolesOrFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/util/cache/RedisCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/util/cache/RedisCacheManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/util/session/CustomSessionManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/util/session/JedisUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/sysmanager/util/session/RedisSessionDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/generatorConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/AchievementMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/CopyPunishmentMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/InstructorMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/InstructorStudentMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/NoticeMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/NotificationMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/PunishmentMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mapper/SysManagerMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/mybatis-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/main/resources/user.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyinstructor/src/test/java/cn/instructorsystem/sysmanager/SysmanagerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/controller/AppointmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/views/instructor/BulletinCriticism.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/BulletinCriticism.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/views/instructor/Notice.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/instructor/Notice.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,19 +83,104 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/model/Punishment.java">
+        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/NoticeServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+            <state relative-caret-position="131">
+              <caret line="57" column="31" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/controller/StudentController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2379">
+              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/controller/AppointmentController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/InstructorController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-360">
+              <caret line="32" selection-start-line="32" selection-end-line="49" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/model/res/ResResult.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/model/res/ResResult.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="672">
+              <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+              <folding>
+                <element signature="e#732#733#0" expanded="true" />
+                <element signature="e#764#765#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/PunishmentController.java">
+        <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/model/res/LeaveRanking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="84" column="47" lean-forward="true" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="47" />
+            <state relative-caret-position="-133">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/NoticeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="73">
+              <caret line="84" column="41" lean-forward="true" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/AchievementController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="62" column="5" lean-forward="true" selection-start-line="48" selection-start-column="3" selection-end-line="62" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/NoticeService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,7 +197,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>attachment</find>
       <find>insertSelective</find>
       <find>selectByExample</find>
       <find>sid</find>
@@ -95,6 +226,7 @@
       <find>web</find>
       <find>Bean 'org.springframework.kafk</find>
       <find>sessionFactoryConf</find>
+      <find>getNoticeInfosByInsAccount</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -103,11 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/NotificationService.java" />
-        <option value="$PROJECT_DIR$/student/pom.xml" />
-        <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/config/websocket/WebSocketConfig.java" />
-        <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/vo/NewNotificationReqVo.java" />
-        <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/vo/NewNotificationReqVo.java" />
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/model/Student.java" />
         <option value="$PROJECT_DIR$/student/src/main/resources/mapper/StudentMapper.xml" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/util/WebSocketServer.java" />
@@ -128,7 +255,6 @@
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/service/impl/LeaveServiceImpl.java" />
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/vo/AppointmentInfoReqVo.java" />
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/service/AppointmentService.java" />
-        <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/controller/AppointmentController.java" />
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/service/impl/AppointmentServiceImpl.java" />
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/util/WebSocketServer.java" />
         <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/service/LeaveService.java" />
@@ -154,12 +280,34 @@
         <option value="$PROJECT_DIR$/instructor/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/instructor/src/main/resources/mapper/CopyPunishmentMapper.xml" />
         <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/InstructorApplication.java" />
+        <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/vo/NoticeInfoReqVo.java" />
+        <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/NoticeService.java" />
+        <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/NoticeController.java" />
+        <option value="$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/NoticeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/controller/AppointmentController.java" />
       </list>
     </option>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="student" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="student" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="student" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+          <item name="install" type="36feed69:MavenProjectsStructure$PluginNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
@@ -175,85 +323,97 @@
     </navigator>
     <panes>
       <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
             </path>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="instructor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="instructor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="student" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="student" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="controller" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="instructor" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="instructor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="student" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="model" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="backend" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="student" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="cn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="instructorsystem" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="student" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="model" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="res" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -264,7 +424,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551750643674" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551759556826" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -272,11 +432,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\InstructorSystem\backend\student\src\main\java\cn\instructorsystem\student\model\res" />
+      <recent name="D:\InstructorSystem\backend\student\src\main\java\cn\instructorsystem\student\controller" />
+      <recent name="D:\InstructorSystem\backend\copyinstructor\src\main\java\cn\instructorsystem" />
       <recent name="D:\InstructorSystem\backend\copyinstructor\src\main\resources\mapper" />
-      <recent name="D:\InstructorSystem\backend\copyinstructor\src\main\resources" />
-      <recent name="D:\InstructorSystem\backend" />
-      <recent name="D:\InstructorSystem\backend\student\src\main\resources\mapper" />
+      <recent name="D:\InstructorSystem\backend\instructor\src\main\resources\mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cn.instructorsystem.student.util" />
@@ -285,12 +446,11 @@
       <recent name="cn.instructorsystem.instructor.vo" />
       <recent name="cn.instructorsystem.instructor.model.res" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\InstructorSystem\backend\copyinstructor\src\main\java\cn\instructorsystem" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\InstructorSystem\backend\copyinstructor\src\main\resources\mapper" />
-      <recent name="D:\InstructorSystem\backend\instructor\src\main\resources\mapper" />
-      <recent name="D:\InstructorSystem\backend\student\src\main\resources\mapper\leave" />
-      <recent name="D:\InstructorSystem\backend\instructor\src\main\java\cn\instructorsystem\instructor" />
+      <recent name="D:\InstructorSystem\backend\copyinstructor\src\main\resources" />
+      <recent name="D:\InstructorSystem\backend" />
+      <recent name="D:\InstructorSystem\backend\student\src\main\resources\mapper" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -309,9 +469,9 @@
         </RuleState>
       </list>
     </option>
-    <option name="contentProportion" value="0.09562842" />
+    <option name="contentProportion" value="0.15437159" />
   </component>
-  <component name="RunManager" selected="Spring Boot.InstructorApplication">
+  <component name="RunManager" selected="Spring Boot.StudentApplication">
     <configuration name="UUIDUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.instructorsystem.instructor.util.UUIDUtil" />
       <module name="instructor" />
@@ -511,17 +671,17 @@
       <workItem from="1551710623073" duration="1707000" />
       <workItem from="1551712538382" duration="2707000" />
       <workItem from="1551715420691" duration="972000" />
-      <workItem from="1551746126419" duration="3879000" />
+      <workItem from="1551746126419" duration="11268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="304417000" />
+    <option name="totallyTimeSpent" value="311806000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.1632653" visible="true" weight="0.30898124" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.1632653" visible="true" weight="0.30898124" />
       <window_info id="Structure" order="1" sideWeight="0.8367347" side_tool="true" weight="0.2580429" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -530,7 +690,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.37252125" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.3427762" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -539,13 +699,13 @@
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32719547" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50067025" side_tool="true" weight="0.30311614" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3569405" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.33569404" />
+      <window_info anchor="bottom" id="Version Control" order="13" visible="true" weight="0.33569404" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Duplicate detector" order="15" weight="0.61048156" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="16" visible="true" weight="0.42917848" />
+      <window_info anchor="bottom" id="Run Dashboard" order="16" weight="0.3696884" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -573,106 +733,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.1.0.RELEASE/spring-boot-2.1.0.RELEASE.jar!/org/springframework/boot/context/ConfigurationWarningsApplicationContextInitializer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.1.0.RELEASE/spring-boot-2.1.0.RELEASE.jar!/org/springframework/boot/context/ContextIdApplicationContextInitializer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.2.RELEASE/spring-core-5.1.2.RELEASE.jar!/org/springframework/util/ClassUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="126" selection-start-line="126" selection-end-line="126" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.2.RELEASE/spring-core-5.1.2.RELEASE.jar!/org/springframework/util/Assert.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-          <folding>
-            <element signature="e#9454#9455#0" expanded="true" />
-            <element signature="e#9506#9507#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.2.RELEASE/spring-core-5.1.2.RELEASE.jar!/org/springframework/util/ReflectionUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="274" selection-start-line="274" selection-end-line="274" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.2.RELEASE/spring-core-5.1.2.RELEASE.jar!/org/springframework/core/KotlinDetector.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#833#834#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.1.2.RELEASE/spring-beans-5.1.2.RELEASE.jar!/org/springframework/beans/BeanUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.1.0.RELEASE/spring-boot-2.1.0.RELEASE.jar!/org/springframework/boot/SpringApplication.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="766" selection-start-line="766" selection-end-line="766" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/config/cors/CorsConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/copyinstructor/.idea/.name">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/copyinstructor/.idea/encodings.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/copyinstructor/.idea/misc.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/copyinstructor/.idea/vcs.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/instructor/src/main/resources/mapper/InstructorMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/copyinstructor/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Notification.java" />
-    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/InstructorStudentExample.java" />
-    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/controller/AchievementController.java" />
-    <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/vo/PersonalCenterReqVo.java" />
     <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/model/Achievement.java" />
     <entry file="file://$PROJECT_DIR$/copyinstructor/src/main/java/cn/instructorsystem/instructor/service/impl/PunishmentServiceImpl.java" />
     <entry file="file://$PROJECT_DIR$/instructor/pom.xml">
@@ -792,10 +852,162 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/AchievementService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/vo/PunishmentInfoReqVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="659">
+          <caret line="44" column="5" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="44" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/vo/NoticeInfoReqVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/PunishmentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/model/Notice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/PunishmentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="71" selection-start-line="71" selection-end-line="73" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/AchievementServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="90" column="21" lean-forward="true" selection-start-line="55" selection-start-column="7" selection-end-line="90" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/PunishmentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="84" column="47" lean-forward="true" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="47" />
+        <state relative-caret-position="360">
+          <caret line="99" column="5" lean-forward="true" selection-start-line="84" selection-start-column="4" selection-end-line="99" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/AchievementController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="62" column="5" lean-forward="true" selection-start-line="48" selection-start-column="3" selection-end-line="62" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/NoticeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="84" column="41" lean-forward="true" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/NoticeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/NoticeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="57" column="31" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/model/res/ResponseResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/model/res/ResResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instructor/src/main/java/cn/instructorsystem/instructor/controller/InstructorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="32" selection-start-line="32" selection-end-line="49" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/controller/AppointmentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/controller/StudentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2379">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/model/res/ResResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+          <folding>
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#764#765#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/main/java/cn/instructorsystem/student/model/res/LeaveRanking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-133">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>

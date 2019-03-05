@@ -22,6 +22,7 @@
     "mockjs": "^1.0.1-beta3",
     "vue": "^2.5.2",
     "vue-cropperjs": "^3.0.0",
+    "vue-quill-editor": "^3.0.6",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1",
     "vue-schart": "^1.0.0",

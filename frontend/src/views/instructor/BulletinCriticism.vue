@@ -161,10 +161,10 @@
       },
       getData() {
         this.params.punishment.insAccount = this.$store.state.account;
-        var studentAxios = axios.create({
+        var punishmentAxios = axios.create({
           baseURL: 'http://localhost:8081/api/punishment/'
         });
-        studentAxios.post('getPunishmentInfosByInsAccount', this.params).then(res => {
+        punishmentAxios.post('getPunishmentInfosByInsAccount', this.params).then(res => {
           if (res.data.code == 200) {
             this.tableData = res.data.data;
           } else {

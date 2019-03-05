@@ -1,14 +1,10 @@
 package cn.instructorsystem.student.controller;
 
 import cn.instructorsystem.student.model.Appointment;
-import cn.instructorsystem.student.model.Leave;
-import cn.instructorsystem.student.model.res.LeaveRanking;
 import cn.instructorsystem.student.model.res.ResResult;
 import cn.instructorsystem.student.service.AppointmentService;
-import cn.instructorsystem.student.service.LeaveService;
 import cn.instructorsystem.student.util.ResponseCode;
 import cn.instructorsystem.student.vo.AppointmentInfoReqVo;
-import cn.instructorsystem.student.vo.LeaveInfoReqVo;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
