@@ -34,6 +34,11 @@
               </el-table-column>
               <el-table-column prop="punishmentReason" align="center" label="通报原因" width="300">
               </el-table-column>
+              <el-table-column label="操作" width="150" align="center">
+                <template slot-scope="scope">
+                  <el-button type="text" icon="el-icon-delete" class="red" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                </template>
+              </el-table-column>
             </el-table>
           </div>
           <div class="pagination">
@@ -107,6 +112,15 @@
         <el-button @click="editVisible = false">取 消</el-button>
       </span>
     </el-dialog>
+
+    <!-- 删除提示框 -->
+    <el-dialog title="提示" :visible.sync="delVisible" width="300px" center>
+      <div class="del-dialog-cnt">删除不可恢复，是否确定删除？</div>
+      <span slot="footer" class="dialog-footer">
+                <el-button @click="delVisible = false">取 消</el-button>
+                <el-button type="primary" @click="deleteRow">确 定</el-button>
+            </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -122,9 +136,11 @@
         rankingData: [],
         selectClass: '',
         editVisible: false,
+        delVisible: false,
         params: {
           pageNum: '1',
           punishment: {
+            id: '',
             stuName: '',
             insAccount: '',
             account: '',
@@ -157,7 +173,7 @@
         });
       },
       getRankingData() {
-        this.params.leave.insAccount = this.$store.state.account;
+        this.params.punishment.insAccount = this.$store.state.account;
         var punishmentAxios = axios.create({
           baseURL: 'http://localhost:8081/api/punishment/'
         });
@@ -170,10 +186,28 @@
         });
       },
       formatTime(row, column) {
-        var date = new Date(row.operationTime);
+        var date = new Date(row.punishmentTime);
         return formatDate(date, "yyyy-MM-dd hh:mm:ss");
       },
-      brightenKeyword(val, keyword) {
+      handleDelete(index, row) {
+        this.params.punishment.id = row.id;
+        this.delVisible = true;
+      },
+      deleteRow() {
+        var punishmentAxios = axios.create({
+          baseURL: 'http://localhost:8081/api/punishment/'
+        });
+        punishmentAxios.post('deletePunishmentInfo', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.$message.success("删除通报信息成功!");
+            this.getData();
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
+        this.delVisible = false;
+      },
+    brightenKeyword(val, keyword) {
         val = val + '';
         if (val.indexOf(keyword) !== -1 && keyword !== '') {
           return val.replace(keyword, '<font color="red">' + keyword + '</font>')
@@ -196,6 +230,8 @@
         punishmentAxios.post('insertPunishmentInfo', this.params).then(res => {
           if (res.data.code == 200) {
             this.$message.success("登记通报信息成功!");
+            this.params.punishment.account = '';
+            this.params.punishment.stuName = '';
             this.getData();
           } else {
             this.$message.error(res.data.msg);
@@ -203,7 +239,7 @@
         });
       },
       currentSel(val) {
-        this.params.leave.leaveType = val;
+        this.params.punishment.account = val;
         this.getData();
       },
       search() {
@@ -251,7 +287,7 @@
   }
 
   .handle-input {
-    width: 150px;
+    width: 140px;
     display: inline-block;
   }
 
