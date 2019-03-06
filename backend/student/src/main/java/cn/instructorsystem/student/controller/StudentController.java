@@ -8,6 +8,7 @@ import cn.instructorsystem.student.util.TokenUtil;
 import cn.instructorsystem.student.vo.ChangePasswordReqVo;
 import cn.instructorsystem.student.vo.ClassInfoReqVo;
 import cn.instructorsystem.student.vo.PersonalCenterReqVo;
+import cn.instructorsystem.student.vo.StudentInfoReqVo;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,13 +54,12 @@ public class StudentController {
     public ResResult<Student> getStudentInfos(@RequestBody ClassInfoReqVo vo) {
         List<Student> students = studentService.getStudentInfosByPage(vo);
         ResResult<Student> res = new ResResult<>();
+        res.setData(students);
         if (students != null || students.size() != 0) {
-            res.setData(students);
             res.setCode(ResponseCode.SUCCESS);
             res.setMsg("query student information success!");
             logger.info("student.getStudentInfos() studentReqVo: {}，获取学生列表成功！", JSON.toJSONString(vo));
         } else {
-            res.setData(students);
             res.setCode(ResponseCode.FAILURE);
             res.setMsg("query student information failure!");
             logger.info("student.getStudentInfos() studentReqVo: {}，获取学生列表失败！", JSON.toJSONString(vo));
@@ -126,6 +126,40 @@ public class StudentController {
             res.setCode(ResponseCode.FAILURE);
             res.setMsg("updateStudentInfo failure!");
             logger.info("student.updateStudentInfo() PersonalCenterReqVo: {}，更新个人信息失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
+    @PostMapping(value = "/insertStudentInfo")
+    public ResResult<Student> insertStudentInfo(@RequestBody StudentInfoReqVo vo) {
+        int n = studentService.insertStudentInfo(vo);
+        ResResult<Student> res = new ResResult<>();
+        res.setToken(vo.getToken());
+        if (n != 0) {
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("insertStudentInfo success!");
+            logger.info("student.insertStudentInfo() StudentInfoReqVo: {}，增加学生信息成功！", JSON.toJSONString(vo));
+        } else {
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("insertStudentInfo failure!");
+            logger.info("student.insertStudentInfo() StudentInfoReqVo: {}，增加学生信息失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
+    @PostMapping(value = "/deleteStudentInfo")
+    public ResResult<Student> deleteStudentInfo(@RequestBody StudentInfoReqVo vo) {
+        int n = studentService.deleteStudentInfo(vo);
+        ResResult<Student> res = new ResResult<>();
+        res.setToken(vo.getToken());
+        if (n != 0) {
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("deleteStudentInfo success!");
+            logger.info("student.deleteStudentInfo() StudentInfoReqVo: {}，删除学生信息成功！", JSON.toJSONString(vo));
+        } else {
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("deleteStudentInfo failure!");
+            logger.info("student.deleteStudentInfo() StudentInfoReqVo: {}，删除学生信息失败！", JSON.toJSONString(vo));
         }
         return res;
     }

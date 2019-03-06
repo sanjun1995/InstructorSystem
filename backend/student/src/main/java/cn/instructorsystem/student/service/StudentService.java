@@ -4,6 +4,7 @@ import cn.instructorsystem.student.model.Student;
 import cn.instructorsystem.student.vo.ChangePasswordReqVo;
 import cn.instructorsystem.student.vo.ClassInfoReqVo;
 import cn.instructorsystem.student.vo.PersonalCenterReqVo;
+import cn.instructorsystem.student.vo.StudentInfoReqVo;
 
 import java.util.List;
 
@@ -21,4 +22,8 @@ public interface StudentService {
     Student getPersonalInfo(PersonalCenterReqVo personalCenterReqVo);
 
     boolean updatePersonalInfo(PersonalCenterReqVo personalCenterReqVo);
+
+    int insertStudentInfo(StudentInfoReqVo vo);
+
+    int deleteStudentInfo(StudentInfoReqVo vo);
 }

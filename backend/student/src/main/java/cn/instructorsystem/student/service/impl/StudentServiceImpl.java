@@ -8,6 +8,7 @@ import cn.instructorsystem.student.util.TokenUtil;
 import cn.instructorsystem.student.vo.ChangePasswordReqVo;
 import cn.instructorsystem.student.vo.ClassInfoReqVo;
 import cn.instructorsystem.student.vo.PersonalCenterReqVo;
+import cn.instructorsystem.student.vo.StudentInfoReqVo;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -116,5 +117,19 @@ public class StudentServiceImpl implements StudentService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public int insertStudentInfo(StudentInfoReqVo vo) {
+        Student student = vo.getStudent();
+        int n = studentMapper.insertSelective(student);
+        return n;
+    }
+
+    @Override
+    public int deleteStudentInfo(StudentInfoReqVo vo) {
+        Integer id = vo.getStudent().getId();
+        int n = studentMapper.deleteByPrimaryKey(id);
+        return n;
     }
 }

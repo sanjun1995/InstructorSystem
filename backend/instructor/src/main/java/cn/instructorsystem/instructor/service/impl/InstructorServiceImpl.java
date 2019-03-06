@@ -6,7 +6,9 @@ import cn.instructorsystem.instructor.model.InstructorExample;
 import cn.instructorsystem.instructor.service.InstructorService;
 import cn.instructorsystem.instructor.util.TokenUtil;
 import cn.instructorsystem.instructor.vo.ChangePasswordReqVo;
+import cn.instructorsystem.instructor.vo.InstructorInfoReqVo;
 import cn.instructorsystem.instructor.vo.PersonalCenterReqVo;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -65,7 +67,14 @@ public class InstructorServiceImpl implements InstructorService {
     @Override
     public Instructor getPersonalInfo(PersonalCenterReqVo personalCenterReqVo) {
         String token = personalCenterReqVo.getToken();
-        String account = TokenUtil.getContent(token);
+        String account = null;
+        if (token != null && !"".equals(token)) {
+            account = TokenUtil.getContent(token);
+        }
+        Instructor instructor = personalCenterReqVo.getInstructor();
+        if (instructor.getAccount() != null) {
+            account = instructor.getAccount();
+        }
         InstructorExample example = new InstructorExample();
         InstructorExample.Criteria criteria = example.createCriteria();
         criteria.andAccountEqualTo(account);
@@ -77,10 +86,39 @@ public class InstructorServiceImpl implements InstructorService {
     }
 
     @Override
+    public List<Instructor> getInstructorInfosByPage(InstructorInfoReqVo vo) {
+        Integer pageNum = vo.getPageNum();
+        Integer pageSize = vo.getPageSize();
+        Instructor instructor = vo.getInstructor();
+        PageHelper.startPage(pageNum, pageSize);
+        InstructorExample example = new InstructorExample();
+        InstructorExample.Criteria criteria = example.createCriteria();
+
+        String insName = instructor.getInsName();
+        String account = instructor.getAccount();
+        if (!"".equals(insName)) {
+            criteria.andInsNameLike("%" + insName + "%");
+        }
+        if (!"".equals(account)) {
+            criteria.andAccountLike(account + "%");
+        }
+        List<Instructor> instructors = instructorMapper.selectByExample(example);
+        return instructors;
+    }
+
+    @Override
     public boolean updatePersonalInfo(PersonalCenterReqVo personalCenterReqVo) {
         String token = personalCenterReqVo.getToken();
-        String account = TokenUtil.getContent(token);
+        String account = null;
+        if (token != null && !"".equals(token)) {
+            account = TokenUtil.getContent(token);
+            System.out.println("token account:" + account);
+        }
         Instructor instructor = personalCenterReqVo.getInstructor();
+        if (instructor.getAccount() != null) {
+            account = instructor.getAccount();
+            System.out.println("instructor account:" + account);
+        }
         InstructorExample example = new InstructorExample();
         InstructorExample.Criteria criteria = example.createCriteria();
         criteria.andAccountEqualTo(account);
@@ -89,5 +127,19 @@ public class InstructorServiceImpl implements InstructorService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public int insertInstructorInfo(InstructorInfoReqVo vo) {
+        Instructor instructor = vo.getInstructor();
+        int n = instructorMapper.insertSelective(instructor);
+        return n;
+    }
+
+    @Override
+    public int deleteInstructorInfo(InstructorInfoReqVo vo) {
+        Integer id = vo.getInstructor().getId();
+        int n = instructorMapper.deleteByPrimaryKey(id);
+        return n;
     }
 }

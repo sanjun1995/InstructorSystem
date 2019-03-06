@@ -5,7 +5,7 @@
         <el-tab-pane label="公告信息" name="first">
           <div class="handle-box">
             <div class="punishment-btn">
-              <el-button type="primary" @click="showNotice">发布公告</el-button>
+              <el-button type="primary" @click="addNotice">发布公告</el-button>
             </div>
           </div>
           <div class="handle-table">
@@ -114,7 +114,7 @@
           this.getData();
         }
       },
-      showNotice() {
+      addNotice() {
         this.editVisible = true;
       },
       submit(){

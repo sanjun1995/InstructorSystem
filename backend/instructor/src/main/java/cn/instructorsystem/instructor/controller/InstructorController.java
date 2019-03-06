@@ -1,12 +1,15 @@
 package cn.instructorsystem.instructor.controller;
 
 import cn.instructorsystem.instructor.model.Instructor;
+import cn.instructorsystem.instructor.model.Punishment;
 import cn.instructorsystem.instructor.model.res.ResResult;
 import cn.instructorsystem.instructor.service.InstructorService;
 import cn.instructorsystem.instructor.util.ResponseCode;
 import cn.instructorsystem.instructor.util.TokenUtil;
 import cn.instructorsystem.instructor.vo.ChangePasswordReqVo;
+import cn.instructorsystem.instructor.vo.InstructorInfoReqVo;
 import cn.instructorsystem.instructor.vo.PersonalCenterReqVo;
+import cn.instructorsystem.instructor.vo.PunishmentInfoReqVo;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -109,6 +112,57 @@ public class InstructorController {
             res.setCode(ResponseCode.FAILURE);
             res.setMsg("updateInstructorInfo failure!");
             logger.info("instructor.updateInstructorInfo() PersonalCenterReqVo: {}，更新个人信息失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
+    @PostMapping(value = "/insertInstructorInfo")
+    public ResResult<Instructor> insertInstructorInfo(@RequestBody InstructorInfoReqVo vo) {
+        int n = instructorService.insertInstructorInfo(vo);
+        ResResult<Instructor> res = new ResResult<>();
+        res.setToken(vo.getToken());
+        if (n != 0) {
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("insertInstructorInfo success!");
+            logger.info("instructor.insertInstructorInfo() InstructorInfoReqVo: {}，增加辅导员信息成功！", JSON.toJSONString(vo));
+        } else {
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("insertInstructorInfo failure!");
+            logger.info("instructor.insertInstructorInfo() InstructorInfoReqVo: {}，增加辅导员信息失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
+    @PostMapping(value = "/deleteInstructorInfo")
+    public ResResult<Instructor> deleteInstructorInfo(@RequestBody InstructorInfoReqVo vo) {
+        int n = instructorService.deleteInstructorInfo(vo);
+        ResResult<Instructor> res = new ResResult<>();
+        res.setToken(vo.getToken());
+        if (n != 0) {
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("deleteInstructorInfo success!");
+            logger.info("instructor.deleteInstructorInfo() InstructorInfoReqVo: {}，删除辅导员信息成功！", JSON.toJSONString(vo));
+        } else {
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("deleteInstructorInfo failure!");
+            logger.info("instructor.deleteInstructorInfo() InstructorInfoReqVo: {}，删除辅导员信息失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
+    @PostMapping(value = "/getInstructorInfos")
+    public ResResult<Instructor> getInstructorInfos(@RequestBody InstructorInfoReqVo vo) {
+        List<Instructor> instructors = instructorService.getInstructorInfosByPage(vo);
+        ResResult<Instructor> res = new ResResult<>();
+        res.setData(instructors);
+        if (instructors != null || instructors.size() != 0) {
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("query instructor information success!");
+            logger.info("instructor.getInstructorInfos() instructorReqVo: {}，获取辅导员信息成功！", JSON.toJSONString(vo));
+        } else {
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("query instructor information failure!");
+            logger.info("instructor.getInstructorInfos() instructorReqVo: {}，获取辅导员信息失败！", JSON.toJSONString(vo));
         }
         return res;
     }

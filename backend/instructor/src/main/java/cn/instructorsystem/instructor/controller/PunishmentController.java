@@ -90,11 +90,11 @@ public class PunishmentController {
         if (n != 0) {
             res.setCode(ResponseCode.SUCCESS);
             res.setMsg("deletePunishmentInfo success!");
-            logger.info("punishment.deletePunishmentInfo() PunishmentInfoReqVo: {}，插入通报信息成功！", JSON.toJSONString(vo));
+            logger.info("punishment.deletePunishmentInfo() PunishmentInfoReqVo: {}，删除通报信息成功！", JSON.toJSONString(vo));
         } else {
             res.setCode(ResponseCode.FAILURE);
             res.setMsg("deletePunishmentInfo failure!");
-            logger.info("punishment.deletePunishmentInfo() PunishmentInfoReqVo: {}，插入通报信息失败！", JSON.toJSONString(vo));
+            logger.info("punishment.deletePunishmentInfo() PunishmentInfoReqVo: {}，删除通报信息失败！", JSON.toJSONString(vo));
         }
         return res;
     }
