@@ -3,10 +3,10 @@
     <el-form ref="accountForm" :model="accountForm" :rules="rules" label-position="left" label-width="0px" class="demo-acountForm login-container">
     <h3 class="title">辅导员管理系统</h3>
     <el-form-item prop="username">
-      <el-input type="text" label="账号" v-model="accountForm.account" auto-complete="off" placeholder="账号"></el-input>
+      <el-input type="text" label="账号" v-model="accountForm.account" placeholder="账号"></el-input>
       </el-form-item>
       <el-form-item prop="pwd">
-        <el-input type="password" v-model="accountForm.password" @keyup.enter.native="handleLogin" auto-complete="off" placeholder="密码"></el-input>
+        <el-input type="password" v-model="accountForm.password" @keyup.enter.native="handleLogin" placeholder="密码"></el-input>
       </el-form-item>
       <el-form-item>
         <el-radio-group v-model="accountForm.role">
@@ -93,7 +93,7 @@
               });
             }
           } else {
-            alert("输入有误!")
+            alert("输入有误，请重新登录!")
           }
         });
       }

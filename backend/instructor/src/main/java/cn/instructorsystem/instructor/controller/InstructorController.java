@@ -106,6 +106,24 @@ public class InstructorController {
             instructors.add(instructor);
             res.setData(instructors);
             res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("updatePersonalInfo success!");
+            logger.info("instructor.updatePersonalInfo() PersonalCenterReqVo: {}，更新个人信息成功！", JSON.toJSONString(vo));
+        } else {
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("updatePersonalInfo failure!");
+            logger.info("instructor.updatePersonalInfo() PersonalCenterReqVo: {}，更新个人信息失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
+    @PostMapping(value = "/updateInstructorInfo")
+    public ResResult<Instructor> updateInstructorInfo(@RequestBody PersonalCenterReqVo vo) {
+        boolean isUpdate = instructorService.updatePersonalInfo(vo);
+        ResResult<Instructor> res = new ResResult<>();
+        res.setToken(vo.getToken());
+        if (isUpdate) {
+            res.setData(null);
+            res.setCode(ResponseCode.SUCCESS);
             res.setMsg("updateInstructorInfo success!");
             logger.info("instructor.updateInstructorInfo() PersonalCenterReqVo: {}，更新个人信息成功！", JSON.toJSONString(vo));
         } else {

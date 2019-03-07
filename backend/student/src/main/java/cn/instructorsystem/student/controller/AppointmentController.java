@@ -54,12 +54,12 @@ public class AppointmentController {
             res.setData(appointments);
             res.setCode(ResponseCode.SUCCESS);
             res.setMsg("query appointment information success!");
-            logger.info("leave.getAppointmentInfosByStuAccount() appointmentInfoReqVo: {}，获取请假信息成功！", JSON.toJSONString(vo));
+            logger.info("leave.getAppointmentInfosByStuAccount() appointmentInfoReqVo: {}，获取预约信息成功！", JSON.toJSONString(vo));
         } else {
             res.setData(appointments);
             res.setCode(ResponseCode.FAILURE);
             res.setMsg("query appointment information failure!");
-            logger.info("leave.getAppointmentInfosByStuAccount() appointmentInfoReqVo: {}，获取请假信息失败！", JSON.toJSONString(vo));
+            logger.info("leave.getAppointmentInfosByStuAccount() appointmentInfoReqVo: {}，获取预约信息失败！", JSON.toJSONString(vo));
         }
         return res;
     }

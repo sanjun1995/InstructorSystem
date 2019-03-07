@@ -85,7 +85,9 @@ public class LeaveServiceImpl implements LeaveService {
         PageHelper.startPage(pageNum, pageSize);
         LeaveExample example = new LeaveExample();
         LeaveExample.Criteria criteria = example.createCriteria();
-        criteria.andAccountEqualTo(account);
+        if (account != null && !"".equals(account)) {
+            criteria.andAccountEqualTo(account);
+        }
         List<Leave> leaves = leaveMapper.selectByExample(example);
         return leaves;
     }
@@ -139,8 +141,12 @@ public class LeaveServiceImpl implements LeaveService {
         String orderNumber = leaveInfoReqVo.getLeave().getOrderNumber();
         Integer status = leaveInfoReqVo.getLeave().getStatus();
         String rejectReason = leaveInfoReqVo.getLeave().getRejectReason();
+        String reason = leaveInfoReqVo.getLeave().getReason();
         Leave leave = new Leave();
         leave.setStatus(status);
+        if (reason != null && !"".equals(reason)) {
+            leave.setReason(reason);
+        }
         leave.setRejectReason(rejectReason);
         LeaveExample example = new LeaveExample();
         LeaveExample.Criteria criteria = example.createCriteria();

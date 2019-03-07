@@ -38,33 +38,40 @@
     </div>
     <!-- 请假弹出框 -->
     <el-dialog title="请假" :visible.sync="editVisible" width="42%">
-      <el-form ref="form" :model="params.leave">
+      <el-form ref="leaveForm" :rules="rules" :model="params.leave">
         <div class="start-time">
-          <span class="demonstration"><font color="red">*  </font>开始时间</span>
-          <el-date-picker
-            v-model="params.leave.startTime"
-            type="datetime"
-            placeholder="选择日期时间"
-            default-time="08:00:00">
-          </el-date-picker>
+          <el-form-item prop="startTime">
+            <span class="demonstration"><font color="red">*  </font>开始时间</span>
+            <el-date-picker
+              v-model="params.leave.startTime"
+              type="datetime"
+              placeholder="选择日期时间"
+              default-time="08:00:00"
+              prop="startTime">
+            </el-date-picker>
+          </el-form-item>
         </div>
         <div class="end-time">
-          <span class="demonstration"><font color="red">*  </font>结束时间</span>
-          <el-date-picker
-            v-model="params.leave.endTime"
-            type="datetime"
-            placeholder="选择日期时间"
-            default-time="20:30:00">
-          </el-date-picker>
+          <el-form-item prop="endTime">
+            <span class="demonstration"><font color="red">*  </font>结束时间</span>
+            <el-date-picker
+              v-model="params.leave.endTime"
+              type="datetime"
+              placeholder="选择日期时间"
+              default-time="20:30:00">
+            </el-date-picker>
+          </el-form-item>
         </div>
         <div class="leave-type">
-          <span class="demonstration"><font color="red">*  </font>休假类型</span>
-          <el-select v-model="selectType" @change="currentSel" placeholder="选择类型" class="handle-select">
-            <el-option key="1" label="事假" value="1"></el-option>
-            <el-option key="2" label="病假" value="2"></el-option>
-            <el-option key="3" label="公假" value="3"></el-option>
-            <el-option key="4" label="其他" value="4"></el-option>
-          </el-select>
+          <el-form-item prop="leaveType">
+            <span class="demonstration"><font color="red">*  </font>休假类型</span>
+            <el-select v-model="selectType" @change="currentSel" placeholder="选择类型" class="handle-select">
+              <el-option key="1" label="事假" value="1"></el-option>
+              <el-option key="2" label="病假" value="2"></el-option>
+              <el-option key="3" label="公假" value="3"></el-option>
+              <el-option key="4" label="其他" value="4"></el-option>
+            </el-select>
+          </el-form-item>
         </div>
         <div class="duration">
         <span class="demonstration">时长</span>
@@ -76,13 +83,15 @@
         </el-input>
       </div>
         <div class="cause">
-          <span class="demonstration">事由</span>
-          <el-input
-            type="textarea"
-            :rows="4"
-            placeholder=""
-            v-model="params.leave.reason" class="handle-textarea">
-          </el-input>
+          <el-form-item prop="reason">
+            <span class="demonstration">事由</span>
+            <el-input
+              type="textarea"
+              :rows="4"
+              placeholder=""
+              v-model="params.leave.reason" class="handle-textarea">
+            </el-input>
+          </el-form-item>
         </div>
         <div class="attachment">
           <span class="demonstration">附件</span>
@@ -124,6 +133,20 @@
             insAccount: ''
           }
         },
+        rules: {
+          startTime: [
+            { required: true, message: '请选择开始时间', trigger: 'change' }
+          ],
+          endTime: [
+            { required: true, message: '请选择结束时间', trigger: 'change' }
+          ],
+          leaveType: [
+            { required: true, message: '请选择请假类型', trigger: 'change' }
+          ],
+          reason: [
+            {required: true, message: '请输入请假事由', trigger: 'blur'},
+          ]
+        },
         selectType: '',
         editVisible: false,
         tableData: []
@@ -152,20 +175,26 @@
         this.editVisible = true;
       },
       saveLeave() {
-        this.editVisible = false;
-        this.params.token = sessionStorage.getItem("access-token");
-        this.params.leave.stuName = this.$store.state.name;
-        this.params.leave.account = this.$store.state.account;
-        this.params.leave.insAccount = this.$store.state.insAccount;
-        var leaveAxios = axios.create({
-          baseURL: 'http://localhost:8080/api/leave/'
-        });
-        leaveAxios.post('insertLeaveInfo', this.params).then(res => {
-          if (res.data.code == 200) {
-            this.$message.success("请假已进入审批中");
-            this.getData();
+        this.$refs.leaveForm.validate((valid) => {
+          if (valid) {
+            this.editVisible = false;
+            this.params.token = sessionStorage.getItem("access-token");
+            this.params.leave.stuName = this.$store.state.name;
+            this.params.leave.account = this.$store.state.account;
+            this.params.leave.insAccount = this.$store.state.insAccount;
+            var leaveAxios = axios.create({
+              baseURL: 'http://localhost:8080/api/leave/'
+            });
+            leaveAxios.post('insertLeaveInfo', this.params).then(res => {
+              if (res.data.code == 200) {
+                this.$message.success("请假已进入审批中");
+                this.getData();
+              } else {
+                this.$message.error(res.data.msg);
+              }
+            });
           } else {
-            this.$message.error(res.data.msg);
+            alert("输入有误，请重新输入！");
           }
         });
       },

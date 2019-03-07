@@ -73,7 +73,9 @@ public class AppointmentServiceImpl implements AppointmentService {
         PageHelper.startPage(pageNum, pageSize);
         AppointmentExample example = new AppointmentExample();
         AppointmentExample.Criteria criteria = example.createCriteria();
-        criteria.andAccountEqualTo(account);
+        if (account != null && !"".equals(account)) {
+            criteria.andAccountEqualTo(account);
+        }
         List<Appointment> appointments = appointmentMapper.selectByExample(example);
         return appointments;
     }

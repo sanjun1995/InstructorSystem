@@ -1,11 +1,13 @@
 package cn.instructorsystem.student.controller;
 
 import cn.instructorsystem.student.model.Leave;
+import cn.instructorsystem.student.model.Student;
 import cn.instructorsystem.student.model.res.LeaveRanking;
 import cn.instructorsystem.student.model.res.ResResult;
 import cn.instructorsystem.student.service.LeaveService;
 import cn.instructorsystem.student.util.ResponseCode;
 import cn.instructorsystem.student.vo.LeaveInfoReqVo;
+import cn.instructorsystem.student.vo.PersonalCenterReqVo;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -117,6 +119,24 @@ public class LeaveController {
             res.setCode(ResponseCode.FAILURE);
             res.setMsg("query leave information failure!");
             logger.info("leave.getLeaveRankingInfos() leaveReqVo: {}，获取请假排行失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
+    @PostMapping(value = "/updateLeaveInfo")
+    public ResResult<Leave> updateLeaveInfo(@RequestBody LeaveInfoReqVo vo) {
+        boolean isUpdate = leaveService.updateLeaveInfo(vo);
+        ResResult<Leave> res = new ResResult<>();
+        res.setToken(vo.getToken());
+        if (isUpdate) {
+            res.setData(null);
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("updateStudentInfo success!");
+            logger.info("student.updateStudentInfo() PersonalCenterReqVo: {}，更新个人信息成功！", JSON.toJSONString(vo));
+        } else {
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("updateStudentInfo failure!");
+            logger.info("student.updateStudentInfo() PersonalCenterReqVo: {}，更新个人信息失败！", JSON.toJSONString(vo));
         }
         return res;
     }

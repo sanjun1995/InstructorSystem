@@ -72,7 +72,7 @@ public class InstructorServiceImpl implements InstructorService {
             account = TokenUtil.getContent(token);
         }
         Instructor instructor = personalCenterReqVo.getInstructor();
-        if (instructor.getAccount() != null) {
+        if (instructor.getAccount() != null && !"".equals(instructor.getAccount())) {
             account = instructor.getAccount();
         }
         InstructorExample example = new InstructorExample();

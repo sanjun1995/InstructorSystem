@@ -171,6 +171,7 @@
       },
       addInstructor() {
         this.params.instructor = {};
+        this.isUpdate = false,
         this.editVisible = true;
       },
       search() {
@@ -206,7 +207,7 @@
               baseURL: 'http://localhost:8081/api/instructor/'
             });
             if (this.isUpdate) {
-              instructorAxios.post('updatePersonalInfo', this.params).then(res => {
+              instructorAxios.post('updateInstructorInfo', this.params).then(res => {
                 if (res.data.code == 200) {
                   this.$message.success("修改辅导员信息成功!");
                   this.isUpdate = false;

@@ -38,11 +38,14 @@ public class NoticeServiceImpl implements NoticeService {
         Integer pageNum = vo.getPageNum();
         Integer pageSize = vo.getPageSize();
         Notice notice = vo.getNotice();
+        String insAccount = notice.getInsAccount();
 
         PageHelper.startPage(pageNum, pageSize);
         NoticeExample example = new NoticeExample();
         NoticeExample.Criteria criteria = example.createCriteria();
-        criteria.andInsAccountEqualTo(notice.getInsAccount());
+        if (insAccount != null && !"".equals(insAccount)) {
+            criteria.andInsAccountEqualTo(notice.getInsAccount());
+        }
         List<Notice> notices = noticeMapper.selectByExample(example);
         return notices;
     }
