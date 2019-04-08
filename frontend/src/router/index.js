@@ -9,6 +9,7 @@ import StuPersonalCenter from '@/views/student/PersonalCenter'
 import StuLeave from '@/views/student/Leave'
 import StuAppointment from '@/views/student/Appointment'
 import StuChangePassword from '@/views/student/ChangePassword'
+import StuNotice from '@/views/student/Notice'
 import InsHomePage from '@/views/instructor/HomePage'
 import InsPersonalCenter from '@/views/instructor/PersonalCenter'
 import InsLeave from '@/views/instructor/Leave'
@@ -58,6 +59,7 @@ let router = new vueRouter({
         {path: 'stuPersonalCenter', component: StuPersonalCenter, name: 'stuPersonalCenter', meta: { title: '个人中心'}},
         {path: 'stuLeave', component: StuLeave, name: 'stuLeave', meta: { title: '请假'}},
         {path: 'stuAppointment', component: StuAppointment, name: 'stuAppointment', meta: { title: '预约'}},
+        {path: 'stuNotice', component: StuNotice, name: 'stuNotice', meta: { title: '公告'}},
         {path: 'stuChangePassword', component: StuChangePassword, name: 'stuChangePassword', meta: { title: '修改密码'}}
       ]
     }, {

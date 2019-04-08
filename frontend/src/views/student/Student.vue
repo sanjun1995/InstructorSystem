@@ -45,6 +45,10 @@
                 <span class="fontFamily ins-gerenzhongxin"></span>
                 <span slot="title" class="menu-title">个人中心</span>
               </el-menu-item>
+              <el-menu-item index="/student/stuNotice">
+                <span class="fontFamily ins-gonggao"></span>
+                <span slot="title" class="menu-title">公告</span>
+              </el-menu-item>
               <el-menu-item index="/student/stuLeave">
                 <span class="fontFamily ins-qingjia"></span>
                 <span slot="title" class="menu-title">请假</span>

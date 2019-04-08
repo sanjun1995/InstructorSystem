@@ -1,13 +1,18 @@
 package cn.instructorsystem.student.service.impl;
 
 import cn.instructorsystem.student.dao.LeaveMapper;
+import cn.instructorsystem.student.dao.MonitorMapper;
 import cn.instructorsystem.student.model.Leave;
 import cn.instructorsystem.student.model.LeaveExample;
+import cn.instructorsystem.student.model.Monitor;
+import cn.instructorsystem.student.model.MonitorExample;
 import cn.instructorsystem.student.model.res.LeaveRanking;
 import cn.instructorsystem.student.service.LeaveService;
 import cn.instructorsystem.student.util.Message;
+import cn.instructorsystem.student.util.MessageUtil;
 import cn.instructorsystem.student.util.UUIDUtil;
 import cn.instructorsystem.student.vo.LeaveInfoReqVo;
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -18,7 +23,9 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 import org.springframework.util.concurrent.ListenableFuture;
+import sun.misc.MessageUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -34,6 +41,10 @@ public class LeaveServiceImpl implements LeaveService {
 
     @Autowired
     private LeaveMapper leaveMapper;
+
+    @Autowired
+    private MonitorMapper monitorMapper;
+
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
@@ -41,6 +52,7 @@ public class LeaveServiceImpl implements LeaveService {
 
     @Override
     public int insertLeaveInfo(LeaveInfoReqVo vo) {
+        logger.info("insertLeaveInfo LeaveInfoReqVo: {}", JSON.toJSONString(vo));
         Leave leave = vo.getLeave();
         Date startTime = leave.getStartTime();
         Date endTime = leave.getEndTime();
@@ -54,6 +66,15 @@ public class LeaveServiceImpl implements LeaveService {
         leave.setDuration(Integer.toString(days) + "天");
         leave.setOperationTime(new Date());
         int n = leaveMapper.insertSelective(leave);
+        if (n != 0) {
+            String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(startTime);
+            String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(endTime);
+            try {
+                MessageUtil.leave(vo.getPhoneNum(), leave.getStuName(), leave.getReason(), startDate, endDate);
+            } catch (Exception e) {
+                logger.error("短信服务出错，{}", e);
+            }
+        }
         if (n != 0) {
             Message message = new Message();
             message.setAccount(leave.getAccount());
@@ -137,11 +158,11 @@ public class LeaveServiceImpl implements LeaveService {
     }
 
     @Override
-    public boolean updateLeaveInfo(LeaveInfoReqVo leaveInfoReqVo) {
-        String orderNumber = leaveInfoReqVo.getLeave().getOrderNumber();
-        Integer status = leaveInfoReqVo.getLeave().getStatus();
-        String rejectReason = leaveInfoReqVo.getLeave().getRejectReason();
-        String reason = leaveInfoReqVo.getLeave().getReason();
+    public boolean updateLeaveInfo(LeaveInfoReqVo vo) {
+        String orderNumber = vo.getLeave().getOrderNumber();
+        Integer status = vo.getLeave().getStatus();
+        String rejectReason = vo.getLeave().getRejectReason();
+        String reason = vo.getLeave().getReason();
         Leave leave = new Leave();
         leave.setStatus(status);
         if (reason != null && !"".equals(reason)) {
@@ -152,6 +173,25 @@ public class LeaveServiceImpl implements LeaveService {
         LeaveExample.Criteria criteria = example.createCriteria();
         criteria.andOrderNumberEqualTo(orderNumber);
         int n = leaveMapper.updateByExampleSelective(leave, example);
+        if (n != 0 && status == 1) {
+            List<Leave> leaves = leaveMapper.selectByExample(example);
+            Leave leave1 = leaves.get(0);
+
+            String account = leave1.getAccount();
+            MonitorExample monitorExample = new MonitorExample();
+            MonitorExample.Criteria monitorCriteria = monitorExample.createCriteria();
+            monitorCriteria.andAccountLike("%" + account.substring(0, 7) + "%");
+            List<Monitor> monitors = monitorMapper.selectByExample(monitorExample);
+            String phoneNum = monitors.get(0).getPhoneNum();
+
+            String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(leave1.getStartTime());
+            String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(leave1.getEndTime());
+            try {
+                MessageUtil.agreeLeave(phoneNum, leave1.getStuName(), leave1.getReason(), startDate, endDate);
+            } catch (Exception e) {
+                logger.error("短信服务出错，{}", e);
+            }
+        }
         if (n != 0) {
             return true;
         }

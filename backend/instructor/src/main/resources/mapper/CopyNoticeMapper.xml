@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.instructorsystem.instructor.dao.NoticeMapper" >
+  <resultMap id="noticeList" type="cn.instructorsystem.instructor.model.Notice">
+    <result column="notice_content" property="noticeContent"/>
+    <result column="notice_time" property="noticeTime"/>
+  </resultMap>
+
+  <select id="selectLastAppointmentNotice" parameterType="cn.instructorsystem.instructor.model.Notice" resultMap="noticeList">
+    SELECT notice_content, notice_time
+    FROM notice
+    WHERE notice_type = 2
+    ORDER BY notice_time
+    DESC LIMIT 1
+  </select>
+
+  <select id="selectLastNotice" parameterType="cn.instructorsystem.instructor.model.Notice" resultMap="noticeList">
+    SELECT notice_content, notice_time
+    FROM notice
+    WHERE notice_type = 1
+    ORDER BY notice_time
+    DESC LIMIT 1
+  </select>
+</mapper>

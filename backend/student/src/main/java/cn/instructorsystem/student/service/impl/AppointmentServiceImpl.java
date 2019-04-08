@@ -5,6 +5,7 @@ import cn.instructorsystem.student.model.Appointment;
 import cn.instructorsystem.student.model.AppointmentExample;
 import cn.instructorsystem.student.service.AppointmentService;
 import cn.instructorsystem.student.util.Message;
+import cn.instructorsystem.student.util.MessageUtil;
 import cn.instructorsystem.student.util.UUIDUtil;
 import cn.instructorsystem.student.vo.AppointmentInfoReqVo;
 import com.github.pagehelper.PageHelper;
@@ -18,6 +19,7 @@ import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 import org.springframework.util.concurrent.ListenableFuture;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -42,6 +44,15 @@ public class AppointmentServiceImpl implements AppointmentService {
         appointment.setOrderNumber(UUIDUtil.getUUID());
         appointment.setOperationTime(new Date());
         int n = appointmentMapper.insertSelective(appointment);
+        if (n != 0) {
+            String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(appointment.getStartTime());
+            String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(appointment.getEndTime());
+            try {
+                MessageUtil.appointment(vo.getPhoneNum(), appointment.getStuName(), appointment.getReason(), startDate, endDate);
+            } catch (Exception e) {
+                logger.error("短信服务出错，{}", e);
+            }
+        }
         if (n != 0) {
             Message message = new Message();
             message.setAccount(appointment.getAccount());

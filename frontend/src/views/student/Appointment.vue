@@ -68,7 +68,7 @@
         </div>
         <div class="appointment-num">
           <span class="demonstration"><font color="red">*  </font>预约人数</span>
-          <el-select v-model="selectType" @change="currentSelNum" placeholder="选择人数" class="handle-select">
+          <el-select v-model="selectNum" @change="currentSelNum" placeholder="选择人数" class="handle-select">
             <el-option key="1" label="1个" value="1"></el-option>
             <el-option key="2" label="2个" value="2"></el-option>
             <el-option key="3" label="3个" value="3"></el-option>
@@ -117,6 +117,7 @@
           }
         },
         selectType: '',
+        selectNum: '',
         editVisible: false,
         tableData: []
       }
@@ -149,6 +150,7 @@
         this.params.appointment.stuName = this.$store.state.name;
         this.params.appointment.account = this.$store.state.account;
         this.params.appointment.insAccount = this.$store.state.insAccount;
+        this.params.phoneNum = this.$store.state.phoneNum;
         var appointmentAxios = axios.create({
           baseURL: 'http://localhost:8080/api/appointment/'
         });

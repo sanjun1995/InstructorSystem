@@ -23,7 +23,7 @@
               <span v-html="brightenKeyword(scope.row.stuName, params.student.stuName)" ></span>
             </template>
           </el-table-column>
-          <el-table-column prop="sex" align="center" :formatter="formatSex" label="性别" width="50">
+          <el-table-column prop="sex" align="center" :formatter="formatSex" label="性别" width="70">
           </el-table-column>
           <el-table-column prop="birth" align="center" label="出生年月日" width="120">
           </el-table-column>
@@ -34,9 +34,9 @@
               <span v-html="brightenKeyword(scope.row.dormitory, params.student.dormitory)" ></span>
             </template>
           </el-table-column>
-          <el-table-column prop="phoneNum" align="center" label="手机号码" width="120">
+          <el-table-column prop="phoneNum" align="center" label="手机号码" width="150">
           </el-table-column>
-          <el-table-column prop="graduateSchool" align="center" label="高中毕业学校" width="150">
+          <el-table-column prop="graduateSchool" align="center" label="高中毕业学校" width="200">
           </el-table-column>
           <el-table-column label="操作" width="250" align="center">
             <template slot-scope="scope">

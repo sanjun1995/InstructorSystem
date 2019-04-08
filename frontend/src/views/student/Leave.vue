@@ -118,7 +118,7 @@
     data() {
       return {
         params: {
-          token: '',
+          phoneNum: '',
           pageNum: '1',
           leave: {
             leaveType: '',
@@ -182,6 +182,7 @@
             this.params.leave.stuName = this.$store.state.name;
             this.params.leave.account = this.$store.state.account;
             this.params.leave.insAccount = this.$store.state.insAccount;
+            this.params.phoneNum = this.$store.state.phoneNum;
             var leaveAxios = axios.create({
               baseURL: 'http://localhost:8080/api/leave/'
             });

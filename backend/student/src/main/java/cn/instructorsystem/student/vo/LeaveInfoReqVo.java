@@ -5,7 +5,7 @@ import cn.instructorsystem.student.model.Leave;
 public class LeaveInfoReqVo {
     private Integer pageNum;
     private Integer pageSize = 10;
-    private String token;
+    private String phoneNum;
     private Leave leave;
 
     public Integer getPageNum() {
@@ -24,12 +24,12 @@ public class LeaveInfoReqVo {
         this.pageSize = pageSize;
     }
 
-    public String getToken() {
-        return token;
+    public String getPhoneNum() {
+        return phoneNum;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
     public Leave getLeave() {

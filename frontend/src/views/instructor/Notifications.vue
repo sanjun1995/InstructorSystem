@@ -44,6 +44,33 @@
               </el-pagination>
             </div>
           </el-tab-pane>
+          <el-tab-pane label="班级负责人" name="third">
+            <div class="handle-box">
+              <div class="punishment-btn">
+                <el-button type="primary" @click="addMonitor">添加负责人</el-button>
+              </div>
+            </div>
+            <div class="handle-table">
+              <el-table :data="monitorData">
+                <el-table-column prop="account" align="center" label="学号" width="120px">
+                </el-table-column>
+                <el-table-column prop="name" align="center" label="姓名" width="150px">
+                </el-table-column>
+                <el-table-column prop="phoneNum" align="center" label="手机号码" width="150px">
+                </el-table-column>
+                <el-table-column label="操作" width="300px" align="center">
+                  <template slot-scope="scope">
+                    <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                    <el-button type="text" icon="el-icon-delete" class="red" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                  </template>
+                </el-table-column>
+              </el-table>
+            </div>
+            <div class="pagination">
+              <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next" :total="500">
+              </el-pagination>
+            </div>
+          </el-tab-pane>
         </el-tabs>
         </div>
 
@@ -91,7 +118,7 @@
     </el-dialog>
 
     <!-- 预约消息弹出框 -->
-    <el-dialog title="请假信息" :visible.sync="editAppointmentVisible" width="25%">
+    <el-dialog title="预约信息" :visible.sync="editAppointmentVisible" width="25%">
       <el-form ref="form" :model="params.appointment">
         <div class="account">
           <span class="demonstration">学号：</span>
@@ -258,6 +285,33 @@
         <el-button @click="editAppointmentRejectVisible = false">取 消</el-button>
       </span>
     </el-dialog>
+
+    <!-- 编辑负责人信息-->
+    <el-dialog title="编辑负责人信息" :visible.sync="editMonitorVisible" width="25%">
+      <el-form ref="monitorForm" :rules="rules" :model="params.monitor" label-width="120px">
+        <el-form-item label="学号" prop="account">
+          <el-input v-model="params.monitor.account" class="handle-input"></el-input>
+        </el-form-item>
+        <el-form-item label="姓名" prop="name">
+          <el-input v-model="params.monitor.name" class="handle-input"></el-input>
+        </el-form-item>
+        <el-form-item label="手机号码" prop="phoneNum">
+          <el-input v-model="params.monitor.phoneNum" class="handle-input"></el-input>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+                <el-button @click="editMonitorVisible = false">取 消</el-button>
+                <el-button type="primary" @click="saveMonitor">确 定</el-button>
+      </span>
+    </el-dialog>
+
+    <el-dialog title="提示" :visible.sync="delMonitorVisible" width="300px" center>
+      <div class="del-dialog-cnt">删除不可恢复，是否确定删除？</div>
+      <span slot="footer" class="dialog-footer">
+                <el-button @click="delMonitorVisible = false">取 消</el-button>
+                <el-button type="primary" @click="deleteRow">确 定</el-button>
+            </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -270,6 +324,7 @@
       return {
         activeName: 'first',
         params: {
+          pageNum: '1',
           leave: {
             leaveType: '',
             account: '',
@@ -294,7 +349,26 @@
             orderNumber: '',
             rejectReason: '',
             appointmentNumber: ''
+          },
+          monitor: {
+            id: '',
+            name: '',
+            account: '',
+            phoneNum: '',
+            insAccount: ''
           }
+        },
+        rules: {
+          account: [
+            {required: true, message: '请输入学号', trigger: 'blur'},
+            {min: 9, max: 9, message: '长度为9个数字', trigger: 'blur'}
+          ],
+          name: [
+            {required: true, message: '请输入姓名', trigger: 'blur'},
+          ],
+          phoneNum: [
+            {required: true, message: '请输入手机号码', trigger: 'blur'},
+          ]
         },
         unreadParams: {
           pageNum: '1',
@@ -316,10 +390,14 @@
         editAppointmentVisible: false,
         editLeaveRejectVisible: false,
         editAppointmentRejectVisible: false,
+        editMonitorVisible: false,
         checkLeaveVisible: false,
         checkAppointmentVisible: false,
+        delMonitorVisible: false,
         unreadData: [],
         readData: [],
+        monitorData: [],
+        isUpdate: false,
         ws: null
       }
     },
@@ -332,6 +410,11 @@
       handleReadDataChange(val) {
         this.readParams.pageNum = val;
         this.getReadData();
+      },
+      // 分页导航
+      handleCurrentChange(val) {
+        this.params.pageNum = val;
+        this.getMonitorData();
       },
       getUnreadData() {
         var unreadAxios = axios.create({
@@ -421,6 +504,19 @@
           }
         });
       },
+      getMonitorData() {
+        var monitorAxios = axios.create({
+          baseURL: 'http://localhost:8080/api/monitor/'
+        });
+        this.params.monitor.insAccount = this.$store.state.account;
+        monitorAxios.post('getMonitorInfosByInsAccount', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.monitorData = res.data.data;
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
+      },
       brightenKeyword(val) {
         if (val == 0) {
           return '<font color="red">待审批</font>';
@@ -445,8 +541,10 @@
         var active = this.activeName;
         if (active == 'first') {
           this.getUnreadData();
-        } else {
+        } else if (active == 'second'){
           this.getReadData();
+        } else {
+          this.getMonitorData();
         }
       },
       handleUnreadEdit(index, row) {
@@ -539,6 +637,10 @@
       appointmentReject() {
         this.editAppointmentRejectVisible = true;
       },
+      addMonitor() {
+        this.params.monitor = {};
+        this.editMonitorVisible = true;
+      },
       confirmLeaveReject() {
         this.$confirm('您确认驳回吗?').then(e => {
           this.websocketsend("leave-reject-" + this.params.leave.orderNumber + "-" + this.params.leave.rejectReason);
@@ -576,6 +678,69 @@
             }
           });
         });
+      },
+      // 保存负责人信息
+      saveMonitor() {
+        this.$refs.monitorForm.validate((valid) => {
+          if (valid) {
+            this.editMonitorVisible = false;
+            var monitorAxios = axios.create({
+              baseURL: 'http://localhost:8080/api/monitor/'
+            });
+            if (this.isUpdate) {
+              monitorAxios.post('updateMonitorInfo', this.params).then(res => {
+                if (res.data.code == 200) {
+                  this.$message.success("修改负责人信息成功!");
+                  this.isUpdate = false;
+                  this.getMonitorData();
+                } else {
+                  this.$message.error(res.data.msg);
+                }
+              });
+              return;
+            }
+            monitorAxios.post('insertMonitorInfo', this.params).then(res => {
+              if (res.data.code == 200) {
+                this.$message.success("增加负责人信息成功!");
+                this.getMonitorData();
+              } else {
+                this.$message.error(res.data.msg);
+              }
+            });
+          } else {
+            alert("输入错误，请重新输入!")
+          }
+        });
+      },
+      // 确定删除
+      deleteRow(){
+        var monitorAxios = axios.create({
+          baseURL: 'http://localhost:8080/api/monitor/'
+        });
+        monitorAxios.post('deleteMonitorInfo', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.$message.success("删除学生信息成功!");
+            this.getMonitorData();
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
+        this.delMonitorVisible = false;
+      },
+      handleEdit(index, row) {
+        const item = this.monitorData[index];
+        this.params.monitor = {
+          id: item.id,
+          account: item.account,
+          name: item.name,
+          phoneNum: item.phoneNum
+        };
+        this.editMonitorVisible = true;
+        this.isUpdate = true;
+      },
+      handleDelete(index, row) {
+        this.params.monitor.id = row.id;
+        this.delMonitorVisible = true;
       },
       initWebSocket() {
         this.ws = new WebSocket('ws://localhost:8080/websocket/instructor');
@@ -656,5 +821,12 @@
   .table{
     width: 100%;
     font-size: 14px;
+  }
+  .handle-input {
+    width: 200px;
+    display: inline-block;
+  }
+  .red{
+    color: #ff0000;
   }
 </style>

@@ -7,9 +7,9 @@
           <span>辅导员<span style="color: red; font-weight: bold">信息栏</span></span>
         </div>
         <div class="text item">
-          姓名：卜翠娟<br/><br/>
-          手机号码：13556115197<br/><br/>
-          办公室：系办1206
+          姓名：{{params.instructor.insName}}<br/><br/>
+          手机号码：{{params.instructor.phoneNum}}<br/><br/>
+          办公室：{{params.instructor.officeLocation}}
         </div>
         </el-card>
       </div>
@@ -20,8 +20,12 @@
             <span>辅导员<span style="color:red">可预约时间</span></span>
           </div>
           <div class="text item">
-            上午时间：（8:30 - 11:30）<br/><br/>
-            下午时间：（14:30 - 17:00）
+            <div v-html="params.appointmentNotice.noticeContent" class="ql-editor">
+              {{params.appointmentNotice.content}}
+            </div>
+            <div class="title-time">
+              通知时间: <span>{{formatTime(params.appointmentNotice)}}</span>
+            </div>
           </div>
         </el-card>
       </div>
@@ -30,12 +34,15 @@
         <el-card class="notice-card">
           <div slot="header" class="clearfix">
             <span style="color:red">公告</span>
-            <el-button style="float: right; padding: 3px 0;color: blueviolet" type="text">更多</el-button>
+            <el-button @click="jumpTo('/student/stuNotice')" style="float: right; padding: 3px 0;color: blueviolet" type="text">更多</el-button>
           </div>
           <div class="text item">
-            <p>12月26号下午14:30分，请1515431班所有同学过来领奖。</p>
-            <br/><br />
-            <p>不允许请假！班长做好记录！</p>
+            <div v-html="params.notice.noticeContent" class="ql-editor">
+              {{params.notice.content}}
+            </div>
+            <div class="title-time">
+              通知时间: <span>{{formatTime(params.notice)}}</span>
+            </div>
           </div>
         </el-card>
       </div>
@@ -44,11 +51,88 @@
 </template>
 
 <script>
+  import axios from 'axios';
+  import {formatDate} from "../../../static/js/date";
     export default {
-      data() {
+      data: function(){
         return {
-          name: "HomePage"
+          params: {
+            pageNum: '1',
+            token: '',
+            instructor: {
+              account: '',
+              insName: '',
+              phoneNum: '',
+              officeLocation: ''
+            },
+            notice: {
+              id: '',
+              insAccount: '',
+              noticeContent: '',
+              noticeTime: '',
+              noticeType: 1
+            },
+            appointmentNotice: {
+              noticeContent: '',
+              noticeTime: '',
+              noticeType: 2
+            }
+          }
         }
+      },
+      methods: {
+        getInstructorData() {
+          var instructorAxios = axios.create({
+            baseURL: 'http://localhost:8081/api/instructor/'
+          });
+          this.params.instructor.account = this.$store.state.insAccount;
+          instructorAxios.post('getPersonalInfo', this.params).then(res => {
+            if (res.data.code == 200) {
+              this.params.instructor = (res.data.data)[0];
+              this.$store.commit("setPhoneNum", this.params.instructor.phoneNum);
+            } else {
+              this.$message.error(res.data.msg);
+            }
+          });
+        },
+        getNoticeData() {
+          var noticeAxios = axios.create({
+            baseURL: 'http://localhost:8081/api/notice/'
+          });
+          this.params.notice.insAccount = this.$store.state.insAccount;
+          noticeAxios.post('getLastNotice', this.params).then(res => {
+            if (res.data.code == 200) {
+              this.params.notice = res.data.data[0];
+            } else {
+              this.$message.error(res.data.msg);
+            }
+          });
+        },
+        getAppointmentData() {
+          var noticeAxios = axios.create({
+            baseURL: 'http://localhost:8081/api/notice/'
+          });
+          this.params.appointmentNotice.insAccount = this.$store.state.insAccount;
+          noticeAxios.post('getLastAppointmentNotice', this.params).then(res => {
+            if (res.data.code == 200) {
+              this.params.appointmentNotice = res.data.data[0];
+            } else {
+              this.$message.error(res.data.msg);
+            }
+          });
+        },
+        formatTime(row) {
+          var date = new Date(row.noticeTime);
+          return formatDate(date, "yyyy-MM-dd hh:mm:ss");
+        },
+        jumpTo(url){
+          this.$router.push(url); // 用go刷新
+        }
+      },
+      created() {
+        this.getInstructorData();
+        this.getNoticeData();
+        this.getAppointmentData();
       }
     }
 </script>
@@ -107,11 +191,14 @@
     width: 450px;
     height: 250px;
   }
-
   .instructor-info-card {
     background: gainsboro;
     font-weight: bolder;
     width: 350px;
     height: 250px;
+  }
+  .title-time {
+    padding-top: 20px;
+    text-align: right;
   }
 </style>

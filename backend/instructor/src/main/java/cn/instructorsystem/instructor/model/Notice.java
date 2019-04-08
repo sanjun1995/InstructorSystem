@@ -7,15 +7,18 @@ public class Notice {
 
     private String insAccount;
 
-    private String noticeContent;
-
     private Date noticeTime;
 
-    public Notice(Integer id, String insAccount, String noticeContent, Date noticeTime) {
+    private Integer noticeType;
+
+    private String noticeContent;
+
+    public Notice(Integer id, String insAccount, Date noticeTime, Integer noticeType, String noticeContent) {
         this.id = id;
         this.insAccount = insAccount;
-        this.noticeContent = noticeContent;
         this.noticeTime = noticeTime;
+        this.noticeType = noticeType;
+        this.noticeContent = noticeContent;
     }
 
     public Notice() {
@@ -38,19 +41,27 @@ public class Notice {
         this.insAccount = insAccount == null ? null : insAccount.trim();
     }
 
-    public String getNoticeContent() {
-        return noticeContent;
-    }
-
-    public void setNoticeContent(String noticeContent) {
-        this.noticeContent = noticeContent == null ? null : noticeContent.trim();
-    }
-
     public Date getNoticeTime() {
         return noticeTime;
     }
 
     public void setNoticeTime(Date noticeTime) {
         this.noticeTime = noticeTime;
+    }
+
+    public Integer getNoticeType() {
+        return noticeType;
+    }
+
+    public void setNoticeType(Integer noticeType) {
+        this.noticeType = noticeType;
+    }
+
+    public String getNoticeContent() {
+        return noticeContent;
+    }
+
+    public void setNoticeContent(String noticeContent) {
+        this.noticeContent = noticeContent == null ? null : noticeContent.trim();
     }
 }

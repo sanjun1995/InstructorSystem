@@ -19,7 +19,8 @@ Vue.use(Vuex)
 const state  = sessionStorage.getItem('state') ? JSON.parse(sessionStorage.getItem('state')) : {
   account: '',
   insAccount: '',
-  name: ''
+  name: '',
+  phoneNum: ''
 }
 
 const mutations = {
@@ -28,6 +29,9 @@ const mutations = {
   },
   setInsAccount(state, str) {
     state.insAccount = str;
+  },
+  setPhoneNum(state, str) {
+    state.phoneNum = str;
   },
   setName(state, str) {
     state.name = str;

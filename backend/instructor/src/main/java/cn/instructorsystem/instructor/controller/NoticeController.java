@@ -95,4 +95,40 @@ public class NoticeController {
         }
         return res;
     }
+
+    @PostMapping(value = "/getLastNotice")
+    public ResResult<Notice> getLastNotice(@RequestBody NoticeInfoReqVo vo) {
+        List<Notice> notices = noticeService.getLastNotice(vo);
+        ResResult<Notice> res = new ResResult<>();
+        if (notices != null || notices.size() != 0) {
+            res.setData(notices);
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("getLastNotice success!");
+            logger.info("getLastNotice NoticeInfoReqVo: {}，获取公告信息成功！", JSON.toJSONString(vo));
+        } else {
+            res.setData(notices);
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("getLastNotice failure!");
+            logger.info("getLastNotice NoticeInfoReqVo: {}，获取公告信息失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
+
+    @PostMapping(value = "/getLastAppointmentNotice")
+    public ResResult<Notice> getLastAppointmentNotice(@RequestBody NoticeInfoReqVo vo) {
+        List<Notice> notices = noticeService.getLastAppointmentNotice(vo);
+        ResResult<Notice> res = new ResResult<>();
+        if (notices != null || notices.size() != 0) {
+            res.setData(notices);
+            res.setCode(ResponseCode.SUCCESS);
+            res.setMsg("getLastAppointmentNotice success!");
+            logger.info("getLastAppointmentNoticeNoticeInfoReqVo: {}，获取公告信息成功！", JSON.toJSONString(vo));
+        } else {
+            res.setData(notices);
+            res.setCode(ResponseCode.FAILURE);
+            res.setMsg("getLastAppointmentNotice failure!");
+            logger.info("getLastAppointmentNotice NoticeInfoReqVo: {}，获取公告信息失败！", JSON.toJSONString(vo));
+        }
+        return res;
+    }
 }

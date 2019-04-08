@@ -78,7 +78,8 @@
           notice: {
             id: '',
             noticeContent: '',
-            noticeTime: ''
+            noticeTime: '',
+            noticeType: 1
           }
         }
       }

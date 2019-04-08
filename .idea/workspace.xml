@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc37eb3b-d50e-4f53-99f9-c2e3d821b96a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/instructor/src/main/java/cn/instructorsystem/instructor/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/instructor/src/main/java/cn/instructorsystem/instructor/controller/NotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/instructor/src/main/java/cn/instructorsystem/instructor/service/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/instructor/src/main/java/cn/instructorsystem/instructor/service/NotificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/instructor/src/main/java/cn/instructorsystem/instructor/service/impl/NotificationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/controller/LeaveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/controller/LeaveController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/dao/LeaveMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/dao/LeaveMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/model/Leave.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/model/Leave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/model/LeaveExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/model/LeaveExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/service/LeaveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/service/LeaveService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/service/impl/LeaveServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/service/impl/LeaveServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/util/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/student/src/main/java/cn/instructorsystem/student/util/WebSocketServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/student/src/main/resources/mapper/LeaveMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/student/src/main/resources/mapper/LeaveMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/instructor/Instructor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/instructor/Instructor.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/instructor/Leave.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/instructor/Leave.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/instructor/Notifications.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/instructor/Notifications.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/student/Leave.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/student/Leave.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/instructor/ClassInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/instructor/ClassInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/instructor/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/instructor/HomePage.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +27,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -59,7 +45,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JoinPay/gate_pay/ACPSample_B2C" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -115,16 +101,17 @@
       <workItem from="1545829211025" duration="63000" />
       <workItem from="1548137939306" duration="108000" />
       <workItem from="1551405139162" duration="42000" />
+      <workItem from="1552445946421" duration="33000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1171000" />
+    <option name="totallyTimeSpent" value="1204000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.269437" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2727882" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />

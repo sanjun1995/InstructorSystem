@@ -39,6 +39,7 @@ public class NoticeServiceImpl implements NoticeService {
         Integer pageSize = vo.getPageSize();
         Notice notice = vo.getNotice();
         String insAccount = notice.getInsAccount();
+        Integer noticeType = notice.getNoticeType();
 
         PageHelper.startPage(pageNum, pageSize);
         NoticeExample example = new NoticeExample();
@@ -46,6 +47,7 @@ public class NoticeServiceImpl implements NoticeService {
         if (insAccount != null && !"".equals(insAccount)) {
             criteria.andInsAccountEqualTo(notice.getInsAccount());
         }
+        criteria.andNoticeTypeEqualTo(noticeType);
         List<Notice> notices = noticeMapper.selectByExample(example);
         return notices;
     }
@@ -67,5 +69,17 @@ public class NoticeServiceImpl implements NoticeService {
         criteria.andIdEqualTo(id);
         int n = noticeMapper.updateByExampleSelective(notice, example);
         return n;
+    }
+
+    @Override
+    public List<Notice> getLastAppointmentNotice(NoticeInfoReqVo vo) {
+        Notice notice = vo.getNotice();
+        return noticeMapper.selectLastAppointmentNotice(notice);
+    }
+
+    @Override
+    public List<Notice> getLastNotice(NoticeInfoReqVo vo) {
+        Notice notice = vo.getNotice();
+        return noticeMapper.selectLastNotice(notice);
     }
 }

@@ -4,6 +4,11 @@
       <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
         <el-tab-pane label="预约信息" name="first">
           <div class="handle-box">
+            <div class="punishment-btn">
+              <el-button type="primary" @click="addNotice">发布空闲时间</el-button>
+            </div>
+          </div>
+          <div class="handle-box">
             <div class="select-stu">
               <el-select v-model="selectType" @change="currentSel" placeholder="预约类型" class="handle-select">
                 <el-option key="1" label="宿舍矛盾" value="1"></el-option>
@@ -51,11 +56,26 @@
           </div>
         </el-tab-pane>
       </el-tabs>
+
+      <!-- 公告弹出框 -->
+      <el-dialog title="发布空闲时间" :visible.sync="editVisible" width="40%">
+        <el-form ref="form" :model="params.notice">
+          <quill-editor ref="myTextEditor" v-model="params.notice.noticeContent" :options="editorOption"></quill-editor>
+        </el-form>
+        <span slot="footer" class="dialog-footer">
+          <el-button type="primary" @click="submit">提交</el-button>
+          <el-button @click="editVisible = false">取 消</el-button>
+        </span>
+      </el-dialog>
     </div>
   </div>
 </template>
 
 <script>
+  import 'quill/dist/quill.core.css';
+  import 'quill/dist/quill.snow.css';
+  import 'quill/dist/quill.bubble.css';
+  import { quillEditor } from 'vue-quill-editor';
   import axios from 'axios';
   import {formatDate} from "../../../static/js/date";
   export default {
@@ -64,18 +84,31 @@
       return {
         activeName: 'first',
         selectType: '',
+        editVisible: false,
         tableData: [],
+        editorOption: {
+          placeholder: '请输入公告内容...'
+        },
         params: {
           pageNum: '1',
           appointment: {
             stuName: '',
             insAccount: ''
+          },
+          notice: {
+            id: '',
+            noticeContent: '',
+            noticeTime: '',
+            noticeType: 2
           }
         }
       }
     },
     created() {
       this.getData();
+    },
+    components: {
+      quillEditor
     },
     methods: {
       // 分页导航
@@ -91,6 +124,21 @@
         appointmentAxios.post('getAppointmentInfosByInsAccount', this.params).then(res => {
           if (res.data.code == 200) {
             this.tableData = res.data.data;
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
+      },
+      submit(){
+        this.editVisible = false;
+        this.params.notice.insAccount = this.$store.state.account;
+        var noticeAxios = axios.create({
+          baseURL: 'http://localhost:8081/api/notice/'
+        });
+        noticeAxios.post('insertNoticeInfo', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.$message.success("发布空闲时间成功!");
+            this.getData();
           } else {
             this.$message.error(res.data.msg);
           }
@@ -162,6 +210,9 @@
         } else {
           return val
         }
+      },
+      addNotice() {
+        this.editVisible = true;
       }
     }
   }

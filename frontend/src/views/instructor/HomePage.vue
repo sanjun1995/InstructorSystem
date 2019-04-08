@@ -2,50 +2,43 @@
   <div>
     <el-row :gutter="20">
       <el-col :span="8">
-        <el-card shadow="hover" class="mgb20" style="height:252px;">
+        <el-card shadow="hover" class="mgb20" style="height:275px;">
           <div slot="header" class="clearfix">
-            <span style="color: red; font-weight: bold">公告</span>
-            <el-button style="float: right; padding: 3px 0" type="text">更多</el-button>
+            <span style="color: red;">预约空闲时间</span>
           </div>
           <div class="text item">
-            <p>请各位同学注意宿舍卫生，不能再扔垃圾到走廊上，谢谢大家的配合。</p>
-            <p style="padding-top: 100px;padding-left: 150px">发布时间：2018-12-30 14:24</p>
+            <div v-html="params.appointmentNotice.noticeContent" class="ql-editor">
+              {{params.appointmentNotice.content}}
+            </div>
+            <div class="title-time">
+              通知时间: <span>{{formatTime(params.appointmentNotice)}}</span>
+            </div>
           </div>
         </el-card>
-        <el-card shadow="hover" style="height: 350px;">
+        <el-card shadow="hover" class="mgb20" style="height:275px;">
           <div slot="header" class="clearfix">
-            <span style="color: red; font-weight: bold" >备忘录</span>
-            <el-button style="float: right; padding: 3px 0" type="text">添加</el-button>
+            <span style="color:red">公告</span>
+            <el-button @click="jumpTo('/instructor/insNotice')" style="float: right; padding: 3px 0;color: blueviolet" type="text">更多</el-button>
           </div>
-          <el-table :data="todoList" :show-header="false" height="304" style="width: 100%;font-size:14px;">
-            <el-table-column width="40">
-              <template slot-scope="scope">
-                <el-checkbox v-model="scope.row.status"></el-checkbox>
-              </template>
-            </el-table-column>
-            <el-table-column>
-              <template slot-scope="scope">
-                <div class="todo-item" :class="{'todo-item-del': scope.row.status}">{{scope.row.title}}</div>
-              </template>
-            </el-table-column>
-            <el-table-column width="60">
-              <template slot-scope="scope">
-                <i class="el-icon-edit"></i>
-                <i class="el-icon-delete"></i>
-              </template>
-            </el-table-column>
-          </el-table>
+          <div class="text item">
+            <div v-html="params.notice.noticeContent" class="ql-editor">
+              {{params.notice.content}}
+            </div>
+            <div class="title-time">
+              通知时间: <span>{{formatTime(params.notice)}}</span>
+            </div>
+          </div>
         </el-card>
       </el-col>
       <el-col :span="16">
         <el-row :gutter="20" class="mgb20">
         </el-row>
-        <el-card shadow="hover" style="height: 500px;">
+        <el-card shadow="hover" style="height: 550px;">
           <div slot="header" class="clearfix">
             <span>班级风采</span>
           </div>
           <div class="block">
-            <el-carousel indicator-position="outside" height="380px">
+            <el-carousel indicator-position="outside" height="400px">
               <el-carousel-item>
                 <img class="setitem-btn" src="./img/dalitang.jpg" />
               </el-carousel-item>
@@ -80,31 +73,14 @@
 
 <script>
   import Schart from 'vue-schart';
-  import bus from './bus.js';
+  import axios from 'axios';
+  import {formatDate} from "../../../static/js/date";
   export default {
     name: 'dashboard',
     data() {
       return {
         bannerHeight: '',
         name: localStorage.getItem('ms_username'),
-        todoList: [
-          {
-            title: '12月30日上午10点参加计科1班的班会',
-            status: false,
-          },
-          {
-            title: '12月29日下午2点党支部会议，地点：院办',
-            status: false,
-          },
-          {
-            title: '通表转正大会在周三和周四下午',
-            status: true,
-          },
-          {
-            title: '提醒自己下周日1月3号要加党员资料',
-            status: false,
-          },
-        ],
         data: [
           {
           name: '2018/09/04',
@@ -157,7 +133,21 @@
           titleColor: '#000',
           legendColor: '#000',
           radius: 120
-        }
+        },
+        params: {
+          notice: {
+            id: '',
+            insAccount: '',
+            noticeContent: '',
+            noticeTime: '',
+            noticeType: 1
+          },
+          appointmentNotice: {
+            noticeContent: '',
+            noticeTime: '',
+            noticeType: 2
+          }
+        },
       }
     },
     components: {
@@ -184,7 +174,44 @@
       renderChart(){
         this.$refs.bar.renderChart();
         this.$refs.line.renderChart();
+      },
+      getNoticeData() {
+        var noticeAxios = axios.create({
+          baseURL: 'http://localhost:8081/api/notice/'
+        });
+        this.params.notice.insAccount = this.$store.state.account;
+        noticeAxios.post('getLastNotice', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.params.notice = res.data.data[0];
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
+      },
+      getAppointmentData() {
+        var noticeAxios = axios.create({
+          baseURL: 'http://localhost:8081/api/notice/'
+        });
+        this.params.appointmentNotice.insAccount = this.$store.state.account;
+        noticeAxios.post('getLastAppointmentNotice', this.params).then(res => {
+          if (res.data.code == 200) {
+            this.params.appointmentNotice = res.data.data[0];
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        });
+      },
+      formatTime(row) {
+        var date = new Date(row.noticeTime);
+        return formatDate(date, "yyyy-MM-dd hh:mm:ss");
+      },
+      jumpTo(url){
+        this.$router.push(url); // 用go刷新
       }
+    },
+    created() {
+      this.getNoticeData();
+      this.getAppointmentData();
     }
   }
 
@@ -192,25 +219,14 @@
 
 
 <style scoped>
-  .schart-box{
-    display: inline-block;
-  }
   .schart{
     width: 500px;
     height: 350px;
-  }
-  .content-title{
-    clear: both;
-    line-height: 10px;
-    margin: 10px 0;
-    font-size: 22px;
-    color: #1f2f3d;
   }
   .setitem-btn {
     height: 100%;
     width: 100%;
   }
-
   .el-carousel__item h3 {
     color: #475669;
     font-size: 18px;
@@ -218,26 +234,12 @@
     line-height: 300px;
     margin: 0;
   }
-
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
-  }
-  .el-row {
-    margin-bottom: 20px;
-  }
-
   .text {
     font-size: 14px;
   }
-
   .item {
     margin-bottom: 18px;
   }
-
   .clearfix:before,
   .clearfix:after {
     display: table;
@@ -246,115 +248,41 @@
   .clearfix:after {
     clear: both
   }
-
-  .box-card {
-    width: 480px;
-  }
-
-  .grid-content {
-    display: flex;
-    align-items: center;
-    height: 100px;
-  }
-
-  .grid-cont-right {
-    flex: 1;
-    text-align: center;
-    font-size: 14px;
-    color: #999;
-  }
-
-  .grid-num {
-    font-size: 30px;
-    font-weight: bold;
-  }
-
-  .grid-con-icon {
-    font-size: 50px;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    line-height: 100px;
-    color: #fff;
-  }
-
   .grid-con-1 .grid-con-icon {
     background: rgb(45, 140, 240);
   }
-
   .grid-con-1 .grid-num {
     color: rgb(45, 140, 240);
   }
-
   .grid-con-2 .grid-con-icon {
     background: rgb(100, 213, 114);
   }
-
   .grid-con-2 .grid-num {
     color: rgb(45, 140, 240);
   }
-
   .grid-con-3 .grid-con-icon {
     background: rgb(242, 94, 67);
   }
-
   .grid-con-3 .grid-num {
     color: rgb(242, 94, 67);
   }
-
-  .user-info {
-    display: flex;
-    align-items: center;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #ccc;
-    margin-bottom: 20px;
-  }
-
-  .user-avator {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-  }
-
-  .user-info-cont {
-    padding-left: 50px;
-    flex: 1;
-    font-size: 14px;
-    color: #999;
-  }
-
   .user-info-cont div:first-child {
     font-size: 30px;
     color: #222;
   }
-
-  .user-info-list {
-    font-size: 14px;
-    color: #999;
-    line-height: 25px;
-  }
-
   .user-info-list span {
     margin-left: 70px;
   }
-
   .mgb20 {
     margin-bottom: 20px;
   }
-
-  .todo-item {
-    font-size: 14px;
-  }
-
-  .todo-item-del {
-    text-decoration: line-through;
-    color: #999;
-  }
-
   .schart {
     width: 100%;
     height: 300px;
   }
-
+  .title-time {
+    padding-top: 20px;
+    text-align: right;
+  }
 </style>
 

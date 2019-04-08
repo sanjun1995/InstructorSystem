@@ -14,4 +14,8 @@ public interface NoticeService {
     int deleteNoticeInfo(NoticeInfoReqVo vo);
 
     int updateNoticeInfo(NoticeInfoReqVo vo);
+
+    List<Notice> getLastAppointmentNotice(NoticeInfoReqVo vo);
+
+    List<Notice> getLastNotice(NoticeInfoReqVo vo);
 }

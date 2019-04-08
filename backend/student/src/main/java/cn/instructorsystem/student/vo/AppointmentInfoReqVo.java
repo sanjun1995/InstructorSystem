@@ -9,7 +9,7 @@ import cn.instructorsystem.student.model.Appointment;
 public class AppointmentInfoReqVo {
     private Integer pageNum;
     private Integer pageSize = 10;
-    private String token;
+    private String phoneNum;
     private Appointment appointment;
 
     public Integer getPageNum() {
@@ -28,12 +28,12 @@ public class AppointmentInfoReqVo {
         this.pageSize = pageSize;
     }
 
-    public String getToken() {
-        return token;
+    public String getPhoneNum() {
+        return phoneNum;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
     public Appointment getAppointment() {

@@ -36,7 +36,6 @@ public class LeaveController {
     public ResResult<Leave> insertLeaveInfo(@RequestBody LeaveInfoReqVo vo) {
         int n = leaveService.insertLeaveInfo(vo);
         ResResult<Leave> res = new ResResult<>();
-        res.setToken(vo.getToken());
         if (n != 0) {
             res.setCode(ResponseCode.SUCCESS);
             res.setMsg("insertLeaveInfo success!");
@@ -89,7 +88,6 @@ public class LeaveController {
     public ResResult<Leave> getLeaveInfoByOrderNumber(@RequestBody LeaveInfoReqVo vo) {
         Leave leave = leaveService.getLeaveInfoByOrderNumber(vo);
         ResResult<Leave> res = new ResResult<>();
-        res.setToken(vo.getToken());
         if (leave != null) {
             List<Leave> leaves = new ArrayList<>();
             leaves.add(leave);
@@ -127,7 +125,6 @@ public class LeaveController {
     public ResResult<Leave> updateLeaveInfo(@RequestBody LeaveInfoReqVo vo) {
         boolean isUpdate = leaveService.updateLeaveInfo(vo);
         ResResult<Leave> res = new ResResult<>();
-        res.setToken(vo.getToken());
         if (isUpdate) {
             res.setData(null);
             res.setCode(ResponseCode.SUCCESS);

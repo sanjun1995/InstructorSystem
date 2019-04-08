@@ -88,9 +88,14 @@
 <!--        <table tableName="punishment" domainObjectName="Punishment" enableCountByExample="false"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
-        </table>
+        </table> -->
 
-        <table tableName="notice" domainObjectName="Notice" enableCountByExample="false"
+<!--        <table tableName="notice" domainObjectName="Notice" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>-->
+
+<!--        <table tableName="monitor" domainObjectName="Monitor" enableCountByExample="false"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>-->

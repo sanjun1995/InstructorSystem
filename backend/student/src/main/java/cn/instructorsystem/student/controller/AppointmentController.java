@@ -33,7 +33,6 @@ public class AppointmentController {
     public ResResult<Appointment> insertAppointmentInfo(@RequestBody AppointmentInfoReqVo vo) {
         int n = appointmentService.insertAppointmentInfo(vo);
         ResResult<Appointment> res = new ResResult<>();
-        res.setToken(vo.getToken());
         if (n != 0) {
             res.setCode(ResponseCode.SUCCESS);
             res.setMsg("insertAppointmentInfo success!");
@@ -86,7 +85,6 @@ public class AppointmentController {
     public ResResult<Appointment> getAppointmentInfoByOrderNumber(@RequestBody AppointmentInfoReqVo vo) {
         Appointment appointment = appointmentService.getAppointmentInfoByOrderNumber(vo);
         ResResult<Appointment> res = new ResResult<>();
-        res.setToken(vo.getToken());
         if (appointment != null) {
             List<Appointment> appointments = new ArrayList<>();
             appointments.add(appointment);
